@@ -251,10 +251,11 @@ function startLevel(lv){
 
 function buildBlankPhrase(p){
   return p.words.map(function(w){
+    var punct = w.match(/[.,!?]+$/) ? w.match(/[.,!?]+$/)[0] : '';
     var clean = w.replace(/[.,!?]/g,'').toLowerCase();
     var kclean = p.keyword.replace(/[.,!?]/g,'').toLowerCase();
     if(clean===kclean){
-      return '<span class="blank">　　　　</span>';
+      return '<span class="blank">　　　　</span>'+punct;
     }
     return w;
   }).join(' ');
