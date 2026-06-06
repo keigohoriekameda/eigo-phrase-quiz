@@ -3,94 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>定期テスト英語重要フレーズ暗記アプリ</title>
+<title>定期テスト英語暗記アプリ｜松陰塾 宮前平校</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans',sans-serif;background:#f5f5f0;color:#1a1a1a;min-height:100vh}
-#app{max-width:560px;margin:0 auto;padding:1.5rem 1rem 3rem}
+:root{
+  --bg:#f7f6f2;
+  --card:#ffffff;
+  --border:#e4e2da;
+  --text:#1c1c1a;
+  --text2:#6b6860;
+  --text3:#a8a59e;
+  --blue:#3b6ef0;
+  --blue-light:#eef1fe;
+  --green:#22a862;
+  --green-light:#e6f7ee;
+  --red:#e03b3b;
+  --red-light:#fdeaea;
+  --yellow:#f5a623;
+  --yellow-light:#fef6e6;
+  --rank-s:#e8b84b;
+  --rank-a:#7ec8e3;
+  --rank-b:#b4b4b4;
+  --radius:12px;
+  --shadow:0 2px 12px rgba(0,0,0,0.07);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+#app{max-width:560px;margin:0 auto;padding:1.25rem 1rem 4rem}
 .screen{display:none}.screen.active{display:block}
-h1{font-size:22px;font-weight:600;color:#1a1a1a;margin-bottom:0.25rem;line-height:1.4}
-.subtitle{font-size:13px;color:#666;margin-bottom:1.5rem}
-.card{background:#fff;border:1px solid #e8e8e4;border-radius:12px;padding:1.25rem;margin-bottom:1rem}
-label{font-size:13px;color:#666;display:block;margin-bottom:6px}
-select,input[type=text]{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:15px;background:#fff;color:#1a1a1a;margin-bottom:1rem;-webkit-appearance:none;appearance:none}
-select:focus,input[type=text]:focus{outline:none;border-color:#4a7cf0}
-.btn{display:block;width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;background:#fff;color:#1a1a1a;transition:background 0.15s;text-align:center}
-.btn:hover{background:#f5f5f0}
-.btn-primary{background:#4a7cf0;color:#fff;border-color:#4a7cf0}
-.btn-primary:hover{background:#3a6ce0}
-.level-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:0.5rem}
-.level-card{border:1px solid #e8e8e4;border-radius:10px;padding:1rem;cursor:pointer;background:#fff;transition:background 0.15s;text-align:center}
-.level-card:hover:not(.locked){background:#f5f5f0}
+
+/* ヘッダー */
+.app-header{text-align:center;margin-bottom:2rem;padding-top:0.5rem}
+.app-title{font-size:18px;font-weight:700;color:var(--text);letter-spacing:0.02em}
+.app-sub{font-size:12px;color:var(--text3);margin-top:3px}
+
+/* カード */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow)}
+
+/* フォーム */
+label{font-size:12px;font-weight:600;color:var(--text2);display:block;margin-bottom:6px;letter-spacing:0.03em;text-transform:uppercase}
+select,input[type=text]{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:var(--card);color:var(--text);margin-bottom:1rem;-webkit-appearance:none;appearance:none;font-family:inherit}
+select:focus,input[type=text]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-light)}
+
+/* ボタン */
+.btn{display:block;width:100%;padding:13px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;background:var(--card);color:var(--text);transition:all 0.15s;text-align:center;font-family:inherit;letter-spacing:0.01em}
+.btn:hover{background:var(--bg)}
+.btn-primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn-primary:hover{background:#2f5ed8}
+.btn-sm{padding:8px 16px;font-size:13px;width:auto;display:inline-block}
+
+/* ランクバッジ */
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;font-size:14px;font-weight:800;flex-shrink:0}
+.rank-s{background:var(--rank-s);color:#fff}
+.rank-a{background:var(--rank-a);color:#fff}
+.rank-b{background:var(--rank-b);color:#fff}
+
+/* ランク選択 */
+.rank-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:1rem}
+.rank-card{border:1.5px solid var(--border);border-radius:10px;padding:1rem 0.5rem;cursor:pointer;background:var(--card);text-align:center;transition:all 0.15s}
+.rank-card:hover:not(.locked){background:var(--bg);transform:translateY(-1px)}
+.rank-card.locked{opacity:0.4;cursor:not-allowed}
+.rank-card.cleared{border-color:var(--green);background:var(--green-light)}
+.rank-card .rank-label{font-size:22px;font-weight:800;margin-bottom:4px}
+.rank-card.s-card .rank-label{color:var(--rank-s)}
+.rank-card.a-card .rank-label{color:var(--rank-a)}
+.rank-card.b-card .rank-label{color:var(--rank-b)}
+.rank-sub{font-size:11px;color:var(--text2);margin-top:2px}
+.rank-status{font-size:10px;margin-top:6px;padding:2px 6px;border-radius:5px;display:inline-block}
+.status-cleared{background:var(--green-light);color:var(--green)}
+.status-locked{background:var(--bg);color:var(--text3)}
+
+/* レベル選択 */
+.level-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.level-card{border:1.5px solid var(--border);border-radius:10px;padding:1rem;cursor:pointer;background:var(--card);text-align:center;transition:all 0.15s}
+.level-card:hover:not(.locked){background:var(--bg)}
 .level-card.locked{opacity:0.4;cursor:not-allowed}
-.level-card.cleared{border-color:#34c759;background:#f0fff4}
-.level-num{font-size:22px;font-weight:600;color:#1a1a1a}
-.level-desc{font-size:12px;color:#666;margin-top:4px}
-.level-badge{font-size:11px;margin-top:6px;padding:2px 8px;border-radius:6px;display:inline-block}
-.badge-cleared{background:#d4f5df;color:#1a7a3a}
-.badge-locked{background:#f0f0ec;color:#999}
-.q-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem}
-.q-info{font-size:13px;color:#666}
-.progress-bar{height:4px;background:#e8e8e4;border-radius:4px;margin-bottom:1.5rem}
-.progress-fill{height:4px;background:#4a7cf0;border-radius:4px;transition:width 0.3s}
-.phrase-display{font-size:16px;line-height:2;color:#1a1a1a;margin-bottom:1.25rem;padding:1rem;background:#f5f5f0;border-radius:10px}
-.blank{display:inline-block;min-width:90px;border-bottom:2px solid #4a7cf0;text-align:center;color:#4a7cf0;font-weight:600;padding:0 4px}
-.ja-hint{font-size:13px;color:#666;margin-bottom:10px;padding:8px 12px;background:#f5f5f0;border-radius:8px}
+.level-card.cleared{border-color:var(--green);background:var(--green-light)}
+.level-num{font-size:20px;font-weight:700;color:var(--text)}
+.level-desc{font-size:11px;color:var(--text2);margin-top:3px}
+.level-status{font-size:10px;margin-top:5px;padding:2px 6px;border-radius:5px;display:inline-block}
+
+/* クイズ画面 */
+.quiz-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem}
+.quiz-meta-left{display:flex;align-items:center;gap:8px}
+.quiz-count{font-size:13px;color:var(--text2)}
+.progress-wrap{height:5px;background:var(--border);border-radius:5px;margin-bottom:1.25rem}
+.progress-bar{height:5px;background:var(--blue);border-radius:5px;transition:width 0.3s}
+
+.ja-hint{font-size:14px;color:var(--text2);margin-bottom:10px;padding:10px 14px;background:var(--bg);border-radius:8px;line-height:1.6}
+.phrase-box{font-size:16px;line-height:2.1;color:var(--text);margin-bottom:1.25rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.blank{display:inline-block;min-width:80px;border-bottom:2.5px solid var(--blue);text-align:center;color:var(--blue);font-weight:700;padding:0 4px}
+
 .choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
-.choice-btn{padding:11px;border:1px solid #e8e8e4;border-radius:8px;font-size:14px;cursor:pointer;background:#fff;color:#1a1a1a;transition:background 0.15s}
-.choice-btn:hover{background:#f5f5f0}
-.choice-btn.correct{background:#d4f5df;border-color:#34c759;color:#1a7a3a}
-.choice-btn.wrong{background:#ffe5e5;border-color:#ff3b30;color:#c0392b}
-.text-input-wrap{margin-bottom:1rem}
-.text-input-wrap input{margin-bottom:0.5rem}
-.feedback{font-size:14px;padding:10px 14px;border-radius:8px;margin-bottom:1rem;display:none;white-space:pre-line;line-height:1.6}
-.feedback.show{display:block}
-.feedback.ok{background:#d4f5df;color:#1a7a3a}
-.feedback.ng{background:#ffe5e5;color:#c0392b}
-.result-score{font-size:44px;font-weight:700;text-align:center;margin:1.25rem 0 0.25rem;color:#1a1a1a}
-.result-label{font-size:14px;color:#666;text-align:center;margin-bottom:1.25rem}
-.res-clear{font-size:14px;padding:10px 14px;background:#d4f5df;color:#1a7a3a;border-radius:8px;margin-bottom:1rem;text-align:center;display:none}
-.notify-status{font-size:12px;color:#999;margin-top:0.5rem;text-align:center}
-.id-row{display:flex;gap:8px;align-items:flex-end;margin-bottom:1rem}
-.id-row input{flex:1;margin-bottom:0}
-.tag{display:inline-block;font-size:11px;padding:2px 10px;border-radius:6px;background:#f0f0ec;color:#666;margin-bottom:0.5rem}
-.answer-area{min-height:50px;padding:10px 12px;border:1px dashed #ccc;border-radius:8px;font-size:14px;margin-bottom:8px;color:#1a1a1a;cursor:pointer;line-height:2;background:#fff}
-.word-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}
-.word-chip{padding:7px 14px;border:1px solid #ddd;border-radius:8px;font-size:14px;cursor:pointer;background:#fff;color:#1a1a1a;transition:opacity 0.1s;-webkit-tap-highlight-color:transparent}
-.word-chip:hover{background:#f5f5f0}
-.hint-note{font-size:11px;color:#999;margin-bottom:8px}
+.choice-btn{padding:11px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;cursor:pointer;background:var(--card);color:var(--text);transition:all 0.15s;font-family:inherit;line-height:1.4}
+.choice-btn:hover{background:var(--bg)}
+.choice-btn.correct{background:var(--green-light);border-color:var(--green);color:var(--green)}
+.choice-btn.wrong{background:var(--red-light);border-color:var(--red);color:var(--red)}
+
+.text-wrap{margin-bottom:1rem}
+.text-wrap input{margin-bottom:0.5rem}
+
+.feedback-box{font-size:14px;padding:12px 14px;border-radius:8px;margin-bottom:1rem;display:none;white-space:pre-line;line-height:1.6}
+.feedback-box.show{display:block}
+.feedback-ok{background:var(--green-light);color:var(--green)}
+.feedback-ng{background:var(--red-light);color:var(--red)}
+
+.grammar-tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:5px;background:var(--blue-light);color:var(--blue);margin-bottom:8px;font-weight:600}
+
+/* 並べ替え */
+.sort-answer{min-height:50px;padding:10px 14px;border:1.5px dashed var(--border);border-radius:8px;font-size:14px;margin-bottom:6px;color:var(--text);cursor:pointer;line-height:2;background:var(--card)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}
+.chip{padding:7px 13px;border:1px solid var(--border);border-radius:7px;font-size:13px;cursor:pointer;background:var(--card);color:var(--text);transition:opacity 0.1s;-webkit-tap-highlight-color:transparent;font-family:inherit}
+.chip:hover{background:var(--bg)}
+.hint-note{font-size:11px;color:var(--text3);margin-bottom:8px}
+
+/* 結果画面 */
+.score-big{font-size:52px;font-weight:800;text-align:center;color:var(--text);margin:1rem 0 0.25rem;line-height:1}
+.score-pct{font-size:16px;color:var(--text2);text-align:center;margin-bottom:0.5rem}
+.clear-msg{font-size:14px;padding:10px 14px;border-radius:8px;margin:0.75rem 0;text-align:center;display:none}
+.clear-ok{background:var(--green-light);color:var(--green);display:block}
+.notify-status{font-size:12px;color:var(--text3);text-align:center;margin-top:0.5rem}
+
+/* テスト直前モードバナー */
+.exam-banner{background:linear-gradient(135deg,#e8b84b,#f5a623);color:#fff;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;display:none}
+.exam-banner.show{display:block}
+.exam-banner-title{font-size:15px;font-weight:700;margin-bottom:3px}
+.exam-banner-sub{font-size:12px;opacity:0.85}
+
+/* 名前表示 */
+.user-chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:4px 12px;margin-bottom:1rem}
+
+/* セクション見出し */
+.section-title{font-size:13px;font-weight:700;color:var(--text2);margin-bottom:0.75rem;letter-spacing:0.04em;text-transform:uppercase}
+
+.divider{height:1px;background:var(--border);margin:1rem 0}
+
+/* 単語クイズ専用 */
+.word-en{font-size:24px;font-weight:700;text-align:center;padding:1.5rem 1rem;color:var(--text)}
+.word-ja{font-size:22px;font-weight:700;text-align:center;padding:1.5rem 1rem;color:var(--text)}
 </style>
 </head>
 <body>
 <div id="app">
 
-<div id="screen-id" class="screen active">
-  <h1>定期テスト英語<br>重要フレーズ暗記アプリ</h1>
-  <p class="subtitle">松陰塾 宮前平校</p>
-  <div class="card">
-    <label>生徒ID（名前や番号など）</label>
-    <div class="id-row">
-      <input type="text" id="input-id" placeholder="例：田中たろう" autocomplete="off">
-      <button class="btn btn-primary" onclick="goToSetup()" style="width:auto;padding:10px 20px">次へ</button>
-    </div>
-    <div style="font-size:12px;color:#999">進捗保存に使います。毎回同じIDを入力してください。</div>
+<!-- ① 名前・学年・学校入力 -->
+<div id="screen-entry" class="screen active">
+  <div class="app-header">
+    <div class="app-title">定期テスト英語暗記アプリ</div>
+    <div class="app-sub">松陰塾 宮前平校</div>
   </div>
-</div>
-
-<div id="screen-setup" class="screen">
-  <h1>テスト設定</h1>
-  <p class="subtitle" id="setup-id-label"></p>
   <div class="card">
+    <label>お名前</label>
+    <input type="text" id="input-name" placeholder="例：田中たろう" autocomplete="off">
     <label>学年</label>
     <select id="sel-grade">
-      <option value="中1">中学1年生</option>
-      <option value="中2">中学2年生</option>
       <option value="中3" selected>中学3年生</option>
+      <option value="中2">中学2年生</option>
+      <option value="中1">中学1年生</option>
     </select>
     <label>学校</label>
     <select id="sel-school">
       <option value="宮中">宮前平中学校（宮中）</option>
       <option value="向中">向丘中学校（向中）</option>
+      <option value="崎中">宮崎中学校（崎中）</option>
     </select>
     <label>テスト</label>
     <select id="sel-test">
@@ -99,89 +173,209 @@ select:focus,input[type=text]:focus{outline:none;border-color:#4a7cf0}
       <option value="後期中間">後期中間テスト</option>
       <option value="学年末">学年末テスト</option>
     </select>
-    <button class="btn btn-primary" onclick="goToLevelSelect()">レベル選択へ</button>
+    <button class="btn btn-primary" onclick="startApp()">はじめる</button>
   </div>
 </div>
 
-<div id="screen-levels" class="screen">
-  <h1>レベル選択</h1>
-  <p class="subtitle" id="level-context"></p>
-  <div class="level-grid">
-    <div class="level-card" id="lc-1" onclick="startLevel(1)">
-      <div class="level-num">Lv.1</div>
-      <div class="level-desc">4択 空所補充</div>
-      <div class="level-badge badge-cleared" id="lb-1" style="display:none">クリア済</div>
+<!-- ② ランク選択 -->
+<div id="screen-rank" class="screen">
+  <div class="user-chip" id="user-chip"></div>
+  <div class="card">
+    <div class="section-title">ランク選択</div>
+    <div class="rank-grid">
+      <div class="rank-card s-card" id="rc-S" onclick="selectRank('S')">
+        <div class="rank-label">S</div>
+        <div class="rank-sub">最重要</div>
+        <div class="rank-status" id="rs-S"></div>
+      </div>
+      <div class="rank-card a-card locked" id="rc-A" onclick="selectRank('A')">
+        <div class="rank-label">A</div>
+        <div class="rank-sub">重要</div>
+        <div class="rank-status status-locked" id="rs-A">Sクリアで解放</div>
+      </div>
+      <div class="rank-card b-card locked" id="rc-B" onclick="selectRank('B')">
+        <div class="rank-label">B</div>
+        <div class="rank-sub">標準</div>
+        <div class="rank-status status-locked" id="rs-B">Aクリアで解放</div>
+      </div>
     </div>
-    <div class="level-card locked" id="lc-2" onclick="startLevel(2)">
-      <div class="level-num">Lv.2</div>
-      <div class="level-desc">入力 空所補充</div>
-      <div class="level-badge badge-locked" id="lb-2">Lv.1クリアで解放</div>
+    <div class="exam-banner" id="exam-banner">
+      <div class="exam-banner-title">🔥 テスト直前モード 解放！</div>
+      <div class="exam-banner-sub">Sランクを全て習得しました。直前モードで総仕上げ！</div>
     </div>
-    <div class="level-card locked" id="lc-3" onclick="startLevel(3)">
-      <div class="level-num">Lv.3</div>
-      <div class="level-desc">並べ替え問題</div>
-      <div class="level-badge badge-locked" id="lb-3">Lv.2クリアで解放</div>
-    </div>
-    <div class="level-card locked" id="lc-max" onclick="startLevel(4)">
-      <div class="level-num">Lv.MAX</div>
-      <div class="level-desc">全文入力</div>
-      <div class="level-badge badge-locked" id="lb-max">Lv.3クリアで解放</div>
-    </div>
-  </div>
-  <div style="margin-top:1rem">
-    <button class="btn" onclick="showScreen('screen-setup')">← テスト設定に戻る</button>
+    <button class="btn" id="exam-mode-btn" onclick="startExamMode()" style="display:none;margin-bottom:8px;background:var(--yellow);color:#fff;border-color:var(--yellow)">🔥 テスト直前モードへ</button>
   </div>
 </div>
 
+<!-- ③ レベル選択 -->
+<div id="screen-level" class="screen">
+  <div class="user-chip" id="user-chip2"></div>
+  <div class="card">
+    <div class="section-title" id="level-context"></div>
+    <div class="level-grid">
+      <div class="level-card" id="lc-1" onclick="startQuiz(1)">
+        <div class="level-num">Lv.1</div>
+        <div class="level-desc">4択問題</div>
+        <div class="level-status" id="ls-1"></div>
+      </div>
+      <div class="level-card locked" id="lc-2" onclick="startQuiz(2)">
+        <div class="level-num">Lv.2</div>
+        <div class="level-desc">穴埋め入力</div>
+        <div class="level-status status-locked" id="ls-2">Lv.1クリアで解放</div>
+      </div>
+      <div class="level-card locked" id="lc-3" onclick="startQuiz(3)">
+        <div class="level-num">Lv.3</div>
+        <div class="level-desc">並べ替え</div>
+        <div class="level-status status-locked" id="ls-3">Lv.2クリアで解放</div>
+      </div>
+      <div class="level-card locked" id="lc-4" onclick="startQuiz(4)">
+        <div class="level-num">Lv.4</div>
+        <div class="level-desc">全文入力</div>
+        <div class="level-status status-locked" id="ls-4">Lv.3クリアで解放</div>
+      </div>
+    </div>
+    <button class="btn" onclick="showScreen('screen-rank')" style="margin-top:0.5rem">← ランク選択に戻る</button>
+  </div>
+</div>
+
+<!-- ④ クイズ画面 -->
 <div id="screen-quiz" class="screen">
-  <div class="q-header">
-    <span class="q-info" id="q-label"></span>
-    <span class="q-info" id="q-counter"></span>
+  <div class="quiz-meta">
+    <div class="quiz-meta-left">
+      <div class="rank-badge" id="q-rank-badge"></div>
+      <span class="quiz-count" id="q-label"></span>
+    </div>
+    <span class="quiz-count" id="q-counter"></span>
   </div>
-  <div class="progress-bar"><div class="progress-fill" id="q-progress"></div></div>
+  <div class="progress-wrap"><div class="progress-bar" id="q-progress"></div></div>
   <div id="q-content"></div>
-  <div class="feedback" id="q-feedback"></div>
-  <button class="btn btn-primary" id="q-next-btn" onclick="nextQuestion()" style="display:none;margin-top:0.5rem">次の問題へ</button>
+  <div class="feedback-box" id="q-feedback"></div>
+  <button class="btn btn-primary" id="q-next-btn" onclick="nextQuestion()" style="display:none;margin-top:0.5rem">次の問題へ →</button>
 </div>
 
+<!-- ⑤ 結果画面 -->
 <div id="screen-result" class="screen">
   <div class="card">
-    <div class="tag" id="res-tag"></div>
-    <div class="result-score" id="res-score"></div>
-    <div class="result-label" id="res-label"></div>
-    <div class="res-clear" id="res-clear-msg"></div>
+    <div class="section-title" id="res-tag"></div>
+    <div class="score-big" id="res-score"></div>
+    <div class="score-pct" id="res-pct"></div>
+    <div class="clear-msg" id="res-clear"></div>
     <div class="notify-status" id="notify-status"></div>
   </div>
-  <button class="btn" onclick="retryLevel()" style="margin-bottom:10px">もう一度挑戦</button>
-  <button class="btn btn-primary" onclick="showScreen('screen-levels')">レベル選択に戻る</button>
+  <button class="btn" onclick="retryQuiz()" style="margin-bottom:8px">もう一度挑戦</button>
+  <button class="btn btn-primary" onclick="showScreen('screen-level')">レベル選択に戻る</button>
+  <button class="btn" onclick="showScreen('screen-rank')" style="margin-top:8px">ランク選択に戻る</button>
 </div>
 
-</div>
+</div><!-- #app -->
 
 <script>
-var WEBHOOK = "https://discordapp.com/api/webhooks/1512371851567829055/iK62fOT9C56UJ_HbL7xWMJ8F6ECAoKmSAl98rMYzv-pcS20Lr9iUVWr6knfxm_XGpS0e";
+var WEBHOOK="https://discordapp.com/api/webhooks/1512371851567829055/iK62fOT9C56UJ_HbL7xWMJ8F6ECAoKmSAl98rMYzv-pcS20Lr9iUVWr6knfxm_XGpS0e";
 
-var PHRASES = [
-  {en:"English is spoken as an official language.",ja:"英語は公用語として話されています。",keyword:"spoken",choices:["spoken","speaking","speaks","speak"],words:["English","is","spoken","as","an","official","language."]},
-  {en:"Let me show you something interesting.",ja:"おもしろいものをお見せしましょう。",keyword:"show",choices:["show","showing","shown","shows"],words:["Let","me","show","you","something","interesting."]},
-  {en:"This footprint will help us find the elephant.",ja:"この足跡は、私たちがゾウを見つけるのに役立ちます。",keyword:"find",choices:["find","to find","finding","found"],words:["This","footprint","will","help","us","find","the","elephant."]},
-  {en:"Ms. Tsusi told us that you do conservation.",ja:"ツシ先生は、あなたが保護活動もしていることを私たちに教えてくれました。",keyword:"told",choices:["told","said","spoke","talked"],words:["Ms.","Tsusi","told","us","that","you","do","conservation."]},
-  {en:"We have finally reached Kiyomizu-dera Temple.",ja:"私たちはようやく清水寺に到着しました。",keyword:"reached",choices:["reached","reach","reaches","reaching"],words:["We","have","finally","reached","Kiyomizu-dera","Temple."]},
-  {en:"Have you checked your photos yet?",ja:"もう写真をチェックしましたか。",keyword:"yet",choices:["yet","already","just","never"],words:["Have","you","checked","your","photos","yet?"]},
-  {en:"The bus hasn't left yet.",ja:"バスはまだ出発していません。",keyword:"hasn't",choices:["hasn't","didn't","won't","isn't"],words:["The","bus","hasn't","left","yet."]},
-  {en:"I want you to help me.",ja:"私はあなたに手伝ってほしいです。",keyword:"want",choices:["want","tell","ask","need"],words:["I","want","you","to","help","me."]},
-  {en:"That makes me nervous.",ja:"それは私を緊張させます。",keyword:"makes",choices:["makes","lets","helps","has"],words:["That","makes","me","nervous."]},
-  {en:"We call our cat Felix.",ja:"私たちは自分たちのネコをフェリックスと呼びます。",keyword:"call",choices:["call","name","make","tell"],words:["We","call","our","cat","Felix."]},
-  {en:"It was well received by everyone.",ja:"それはみんなから好評でした。",keyword:"received",choices:["received","accepted","taken","given"],words:["It","was","well","received","by","everyone."]},
-  {en:"It's made of chocolate.",ja:"それはチョコレートでできています。",keyword:"made",choices:["made","built","created","formed"],words:["It's","made","of","chocolate."]}
-];
+/* ===================== マスターDB ===================== */
+var DB={
+  phrases:{
+    S:[
+      {id:"ps01",en:"Let me show you something interesting.",ja:"私はあなたに面白いものを見せましょう。",keyword:"show",choices:["show","tell","give","bring"],words:["Let","me","show","you","something","interesting."],grammar:"let + 人 + 動詞原形"},
+      {id:"ps02",en:"This footprint will help us find the elephant.",ja:"この足跡は私たちがその象を見つけるのに役立つでしょう。",keyword:"find",choices:["find","to find","finding","found"],words:["This","footprint","will","help","us","find","the","elephant."],grammar:"help + 人 + 動詞原形"},
+      {id:"ps03",en:"Ms. Thusi told us that you also do conservation.",ja:"トゥシさんはあなたも自然保護活動をしていると私たちに言いました。",keyword:"told",choices:["told","said","spoke","talked"],words:["Ms.","Thusi","told","us","that","you","also","do","conservation."],grammar:"tell + 人 + that"},
+      {id:"ps04",en:"English is spoken as an official language.",ja:"英語は公用語として話されています。",keyword:"spoken",choices:["spoken","speaking","speaks","speak"],words:["English","is","spoken","as","an","official","language."],grammar:"受動態"},
+      {id:"ps05",en:"We can see wildlife in the national park.",ja:"私たちは国立公園で野生生物を見ることができます。",keyword:"wildlife",choices:["wildlife","landscape","scenery","nature"],words:["We","can","see","wildlife","in","the","national","park."],grammar:""},
+      {id:"ps06",en:"The guide showed us elephant footprints.",ja:"ガイドは私たちに象の足跡を見せてくれました。",keyword:"showed",choices:["showed","told","taught","gave"],words:["The","guide","showed","us","elephant","footprints."],grammar:""},
+      {id:"ps07",en:"The elephant was bathing in the river.",ja:"その象は川で水浴びをしていました。",keyword:"bathing",choices:["bathing","swimming","playing","walking"],words:["The","elephant","was","bathing","in","the","river."],grammar:""},
+      {id:"ps08",en:"We've finally reached Kiyomizu-dera Temple.",ja:"私たちはついに清水寺に到着しました。",keyword:"reached",choices:["reached","arrived","came","got"],words:["We've","finally","reached","Kiyomizu-dera","Temple."],grammar:"現在完了"},
+      {id:"ps09",en:"Have you checked your photos yet?",ja:"あなたはもう写真を確認しましたか。",keyword:"yet",choices:["yet","already","just","never"],words:["Have","you","checked","your","photos","yet?"],grammar:"現在完了"},
+      {id:"ps10",en:"I've already checked my photos.",ja:"私はすでに写真を確認しました。",keyword:"already",choices:["already","yet","just","never"],words:["I've","already","checked","my","photos."],grammar:"現在完了"},
+      {id:"ps11",en:"The bus hasn't left yet.",ja:"バスはまだ出発していません。",keyword:"hasn't",choices:["hasn't","didn't","won't","isn't"],words:["The","bus","hasn't","left","yet."],grammar:"現在完了"},
+      {id:"ps12",en:"Wait a minute.",ja:"ちょっと待って。",keyword:"minute",choices:["minute","moment","second","time"],words:["Wait","a","minute."],grammar:""},
+      {id:"ps13",en:"Hurry up.",ja:"急いで。",keyword:"Hurry",choices:["Hurry","Speed","Rush","Go"],words:["Hurry","up."],grammar:""},
+      {id:"ps14",en:"Be careful.",ja:"気を付けて。",keyword:"careful",choices:["careful","safe","quiet","calm"],words:["Be","careful."],grammar:""},
+      {id:"ps15",en:"I want you to help me.",ja:"私はあなたに手伝ってほしいです。",keyword:"want",choices:["want","need","ask","tell"],words:["I","want","you","to","help","me."],grammar:"want + 人 + to"},
+      {id:"ps16",en:"That makes me nervous.",ja:"それは私を緊張させます。",keyword:"nervous",choices:["nervous","happy","sad","tired"],words:["That","makes","me","nervous."],grammar:"make + 人 + 形容詞"},
+      {id:"ps17",en:"We're on in five minutes.",ja:"私たちの出番はあと5分です。",keyword:"on",choices:["on","up","in","out"],words:["We're","on","in","five","minutes."],grammar:""},
+      {id:"ps18",en:"It was well received by everyone.",ja:"それはみんなに好評でした。",keyword:"received",choices:["received","accepted","taken","given"],words:["It","was","well","received","by","everyone."],grammar:"受動態"},
+      {id:"ps19",en:"It's made of chocolate.",ja:"それはチョコレートでできています。",keyword:"made",choices:["made","built","created","formed"],words:["It's","made","of","chocolate."],grammar:"受動態"},
+      {id:"ps20",en:"The play was performed by students.",ja:"その劇は生徒たちによって演じられました。",keyword:"performed",choices:["performed","written","made","directed"],words:["The","play","was","performed","by","students."],grammar:"受動態"}
+    ],
+    A:[
+      {id:"pa01",en:"We are connected through the Internet.",ja:"私たちはインターネットでつながっています。",keyword:"connected",choices:["connected","linked","joined","united"],words:["We","are","connected","through","the","Internet."],grammar:"受動態"},
+      {id:"pa02",en:"We can communicate in real time.",ja:"私たちはリアルタイムでコミュニケーションが取れます。",keyword:"communicate",choices:["communicate","connect","talk","speak"],words:["We","can","communicate","in","real","time."],grammar:""},
+      {id:"pa03",en:"I took a lot of pictures.",ja:"私はたくさん写真を撮りました。",keyword:"took",choices:["took","made","got","had"],words:["I","took","a","lot","of","pictures."],grammar:""},
+      {id:"pa04",en:"I bought some souvenirs.",ja:"私はお土産をいくつか買いました。",keyword:"souvenirs",choices:["souvenirs","presents","gifts","things"],words:["I","bought","some","souvenirs."],grammar:""},
+      {id:"pa05",en:"This picture was taken by my father.",ja:"この写真は父によって撮られました。",keyword:"taken",choices:["taken","made","shot","got"],words:["This","picture","was","taken","by","my","father."],grammar:"受動態"},
+      {id:"pa06",en:"The audience enjoyed the performance.",ja:"観客は公演を楽しみました。",keyword:"audience",choices:["audience","people","crowd","group"],words:["The","audience","enjoyed","the","performance."],grammar:""},
+      {id:"pa07",en:"The script was written by a famous writer.",ja:"台本は有名な作家によって書かれました。",keyword:"written",choices:["written","made","done","created"],words:["The","script","was","written","by","a","famous","writer."],grammar:"受動態"},
+      {id:"pa08",en:"It looks like real food.",ja:"それは本物の食べ物のように見えます。",keyword:"looks",choices:["looks","seems","feels","sounds"],words:["It","looks","like","real","food."],grammar:""},
+      {id:"pa09",en:"More than one billion people use emojis.",ja:"10億人以上の人々が絵文字を使っています。",keyword:"billion",choices:["billion","million","thousand","hundred"],words:["More","than","one","billion","people","use","emojis."],grammar:""},
+      {id:"pa10",en:"Emojis are used around the world.",ja:"絵文字は世界中で使われています。",keyword:"used",choices:["used","known","seen","loved"],words:["Emojis","are","used","around","the","world."],grammar:"受動態"}
+    ],
+    B:[
+      {id:"pb01",en:"Emojis help people express their feelings.",ja:"絵文字は人々が気持ちを表現するのを助けます。",keyword:"express",choices:["express","show","tell","give"],words:["Emojis","help","people","express","their","feelings."],grammar:"help + 人 + 動詞原形"},
+      {id:"pb02",en:"Plastic food samples are popular in Japan.",ja:"食品サンプルは日本で人気があります。",keyword:"popular",choices:["popular","famous","common","special"],words:["Plastic","food","samples","are","popular","in","Japan."],grammar:""},
+      {id:"pb03",en:"They require creativity and skill.",ja:"それらは創造性と技術を必要とします。",keyword:"creativity",choices:["creativity","ability","talent","power"],words:["They","require","creativity","and","skill."],grammar:""},
+      {id:"pb04",en:"The tradition has a long history.",ja:"その伝統は長い歴史を持っています。",keyword:"tradition",choices:["tradition","culture","history","custom"],words:["The","tradition","has","a","long","history."],grammar:""},
+      {id:"pb05",en:"We should preserve the culture.",ja:"私たちは文化を保存すべきです。",keyword:"preserve",choices:["preserve","protect","keep","save"],words:["We","should","preserve","the","culture."],grammar:""},
+      {id:"pb06",en:"She gained confidence through her experience.",ja:"彼女は経験を通じて自信をつけました。",keyword:"confidence",choices:["confidence","courage","power","ability"],words:["She","gained","confidence","through","her","experience."],grammar:""},
+      {id:"pb07",en:"The government supports the project.",ja:"政府はそのプロジェクトを支援しています。",keyword:"supports",choices:["supports","helps","joins","leads"],words:["The","government","supports","the","project."],grammar:""},
+      {id:"pb08",en:"The culture is known worldwide.",ja:"その文化は世界中で知られています。",keyword:"worldwide",choices:["worldwide","globally","abroad","everywhere"],words:["The","culture","is","known","worldwide."],grammar:""},
+      {id:"pb09",en:"Communication is important.",ja:"コミュニケーションは大切です。",keyword:"Communication",choices:["Communication","Connection","Conversation","Cooperation"],words:["Communication","is","important."],grammar:""},
+      {id:"pb10",en:"We should respect different backgrounds.",ja:"私たちは異なる背景を尊重すべきです。",keyword:"respect",choices:["respect","accept","know","like"],words:["We","should","respect","different","backgrounds."],grammar:""}
+    ]
+  },
+  words:{
+    S:[
+      {id:"ws01",en:"official",ja:"公式の・公用の",choices_en:["official","special","normal","common"],choices_ja:["公式の","特別な","普通の","一般的な"]},
+      {id:"ws02",en:"language",ja:"言語",choices_en:["language","culture","history","tradition"],choices_ja:["言語","文化","歴史","伝統"]},
+      {id:"ws03",en:"wildlife",ja:"野生生物",choices_en:["wildlife","landscape","scenery","nature"],choices_ja:["野生生物","景色","風景","自然"]},
+      {id:"ws04",en:"guide",ja:"ガイド・案内人",choices_en:["guide","leader","teacher","helper"],choices_ja:["ガイド","リーダー","先生","助ける人"]},
+      {id:"ws05",en:"footprint",ja:"足跡",choices_en:["footprint","handprint","mark","trace"],choices_ja:["足跡","手形","跡","痕跡"]},
+      {id:"ws06",en:"elephant",ja:"象",choices_en:["elephant","lion","tiger","giraffe"],choices_ja:["象","ライオン","トラ","キリン"]},
+      {id:"ws07",en:"conservation",ja:"自然保護",choices_en:["conservation","protection","preservation","management"],choices_ja:["自然保護","保護","保存","管理"]},
+      {id:"ws08",en:"reach",ja:"到着する・届く",choices_en:["reach","arrive","get","come"],choices_ja:["到着する","着く","得る","来る"]},
+      {id:"ws09",en:"already",ja:"すでに・もう",choices_en:["already","yet","still","just"],choices_ja:["すでに","まだ","まだ","ちょうど"]},
+      {id:"ws10",en:"nervous",ja:"緊張した",choices_en:["nervous","happy","excited","tired"],choices_ja:["緊張した","うれしい","興奮した","疲れた"]},
+      {id:"ws11",en:"performance",ja:"公演・パフォーマンス",choices_en:["performance","concert","show","event"],choices_ja:["公演","コンサート","ショー","イベント"]},
+      {id:"ws12",en:"audience",ja:"観客",choices_en:["audience","actor","player","director"],choices_ja:["観客","俳優","選手","監督"]},
+      {id:"ws13",en:"script",ja:"台本",choices_en:["script","story","book","novel"],choices_ja:["台本","物語","本","小説"]},
+      {id:"ws14",en:"souvenir",ja:"お土産",choices_en:["souvenir","present","gift","toy"],choices_ja:["お土産","プレゼント","贈り物","おもちゃ"]},
+      {id:"ws15",en:"chocolate",ja:"チョコレート",choices_en:["chocolate","candy","cake","cookie"],choices_ja:["チョコレート","キャンディー","ケーキ","クッキー"]}
+    ],
+    A:[
+      {id:"wa01",en:"ecosystem",ja:"生態系",choices_en:["ecosystem","environment","nature","habitat"],choices_ja:["生態系","環境","自然","生息地"]},
+      {id:"wa02",en:"national park",ja:"国立公園",choices_en:["national park","city park","zoo","forest"],choices_ja:["国立公園","市立公園","動物園","森"]},
+      {id:"wa03",en:"safari",ja:"サファリ・野生動物探検",choices_en:["safari","journey","trip","tour"],choices_ja:["サファリ","旅","旅行","ツアー"]},
+      {id:"wa04",en:"whole",ja:"全体の・すべての",choices_en:["whole","all","every","full"],choices_ja:["全体の","すべての","すべての","満ちた"]},
+      {id:"wa05",en:"director",ja:"監督・ディレクター",choices_en:["director","actor","writer","player"],choices_ja:["監督","俳優","作家","選手"]},
+      {id:"wa06",en:"narrator",ja:"ナレーター・語り手",choices_en:["narrator","actor","singer","dancer"],choices_ja:["ナレーター","俳優","歌手","ダンサー"]},
+      {id:"wa07",en:"costume",ja:"衣装・コスチューム",choices_en:["costume","clothes","uniform","outfit"],choices_ja:["衣装","服","制服","服装"]},
+      {id:"wa08",en:"role",ja:"役・役割",choices_en:["role","part","job","work"],choices_ja:["役","一部","仕事","仕事"]},
+      {id:"wa09",en:"treasure",ja:"宝・宝物",choices_en:["treasure","prize","gift","reward"],choices_ja:["宝","賞","贈り物","報酬"]},
+      {id:"wa10",en:"amusement park",ja:"遊園地",choices_en:["amusement park","theme park","zoo","museum"],choices_ja:["遊園地","テーマパーク","動物園","博物館"]}
+    ],
+    B:[
+      {id:"wb01",en:"emoji",ja:"絵文字",choices_en:["emoji","symbol","mark","sign"],choices_ja:["絵文字","記号","マーク","サイン"]},
+      {id:"wb02",en:"communication",ja:"コミュニケーション・意思疎通",choices_en:["communication","conversation","connection","cooperation"],choices_ja:["コミュニケーション","会話","つながり","協力"]},
+      {id:"wb03",en:"creativity",ja:"創造性",choices_en:["creativity","ability","talent","skill"],choices_ja:["創造性","能力","才能","技術"]},
+      {id:"wb04",en:"innovation",ja:"革新・イノベーション",choices_en:["innovation","invention","discovery","creation"],choices_ja:["革新","発明","発見","創造"]},
+      {id:"wb05",en:"tradition",ja:"伝統",choices_en:["tradition","culture","history","custom"],choices_ja:["伝統","文化","歴史","習慣"]},
+      {id:"wb06",en:"preserve",ja:"保存する・守る",choices_en:["preserve","protect","keep","save"],choices_ja:["保存する","保護する","保つ","救う"]},
+      {id:"wb07",en:"confidence",ja:"自信",choices_en:["confidence","courage","power","ability"],choices_ja:["自信","勇気","力","能力"]},
+      {id:"wb08",en:"background",ja:"背景・バックグラウンド",choices_en:["background","history","culture","tradition"],choices_ja:["背景","歴史","文化","伝統"]},
+      {id:"wb09",en:"culture",ja:"文化",choices_en:["culture","tradition","history","society"],choices_ja:["文化","伝統","歴史","社会"]},
+      {id:"wb10",en:"worldwide",ja:"世界中で・全世界の",choices_en:["worldwide","global","international","universal"],choices_ja:["世界中で","グローバルな","国際的な","普遍的な"]}
+    ]
+  }
+};
 
-var DATA = {"中3":{"宮中":{"前期中間":PHRASES},"向中":{"前期中間":PHRASES}}};
-
-var state = {
-  studentId:"",grade:"",school:"",test:"",
-  level:1,phrases:[],qIndex:0,score:0,answered:false,
-  progress:{},sortSelected:[],sortRemaining:[]
+/* ===================== 状態管理 ===================== */
+var state={
+  name:"",grade:"",school:"",test:"",
+  rank:"S",level:1,
+  questions:[],qIndex:0,score:0,answered:false,
+  wrongIds:[],
+  progress:{},
+  sortSelected:[],sortRemaining:[],
+  examMode:false
 };
 
 function showScreen(id){
@@ -190,279 +384,443 @@ function showScreen(id){
   window.scrollTo(0,0);
 }
 
-function goToSetup(){
-  var id = document.getElementById('input-id').value.trim();
-  if(!id){alert('生徒IDを入力してください');return;}
-  state.studentId = id;
-  var saved = localStorage.getItem('phraseApp_'+id);
-  if(saved){try{state.progress=JSON.parse(saved);}catch(e){state.progress={};}}
-  document.getElementById('setup-id-label').textContent = 'こんにちは、'+id+' さん';
-  showScreen('screen-setup');
-}
-
 function saveProgress(){
-  localStorage.setItem('phraseApp_'+state.studentId, JSON.stringify(state.progress));
+  localStorage.setItem('quizApp_'+state.name, JSON.stringify(state.progress));
 }
 
 function getKey(){return state.grade+'_'+state.school+'_'+state.test;}
-function getCleared(){return state.progress[getKey()]||[];}
+function getRankKey(rank){return getKey()+'_'+rank;}
+function getLevelKey(rank,lv){return getKey()+'_'+rank+'_lv'+lv;}
 
-function goToLevelSelect(){
-  state.grade = document.getElementById('sel-grade').value;
-  state.school = document.getElementById('sel-school').value;
-  state.test = document.getElementById('sel-test').value;
-  document.getElementById('level-context').textContent = state.grade+' / '+state.school+' / '+state.test;
-  updateLevelCards();
-  showScreen('screen-levels');
+function getClearedLevels(rank){return state.progress[getRankKey(rank)]||[];}
+function getClearedRanks(){return state.progress[getKey()+'_ranks']||[];}
+
+/* ===================== エントリー ===================== */
+function startApp(){
+  var name=document.getElementById('input-name').value.trim();
+  if(!name){alert('お名前を入力してください');return;}
+  state.name=name;
+  state.grade=document.getElementById('sel-grade').value;
+  state.school=document.getElementById('sel-school').value;
+  state.test=document.getElementById('sel-test').value;
+  var saved=localStorage.getItem('quizApp_'+name);
+  if(saved){try{state.progress=JSON.parse(saved);}catch(e){state.progress={};}}
+  document.getElementById('user-chip').textContent='👤 '+name+' / '+state.grade+' / '+state.school;
+  document.getElementById('user-chip2').textContent='👤 '+name+' / '+state.grade+' / '+state.school;
+  updateRankScreen();
+  showScreen('screen-rank');
 }
 
-function updateLevelCards(){
-  var cleared = getCleared();
-  [1,2,3,4].forEach(function(lv){
-    var id = lv===4?'lc-max':'lc-'+lv;
-    var bid = lv===4?'lb-max':'lb-'+lv;
-    var el = document.getElementById(id);
-    var bl = document.getElementById(bid);
+/* ===================== ランク画面 ===================== */
+function updateRankScreen(){
+  var clearedRanks=getClearedRanks();
+  var ranks=['S','A','B'];
+  ranks.forEach(function(r,i){
+    var el=document.getElementById('rc-'+r);
+    var st=document.getElementById('rs-'+r);
     el.classList.remove('locked','cleared');
-    bl.style.display = 'none';
+    if(clearedRanks.indexOf(r)>=0){
+      el.classList.add('cleared');
+      st.textContent='クリア済';st.className='rank-status status-cleared';
+    } else if(i>0 && clearedRanks.indexOf(ranks[i-1])<0){
+      el.classList.add('locked');
+      var lockMsgs=['','Sクリアで解放','Aクリアで解放'];
+      st.textContent=lockMsgs[i];st.className='rank-status status-locked';
+    } else {
+      st.textContent='挑戦中';st.className='rank-status';st.style.background='var(--yellow-light)';st.style.color='var(--yellow)';
+    }
+  });
+  // テスト直前モード
+  var sCleared=clearedRanks.indexOf('S')>=0;
+  document.getElementById('exam-banner').className='exam-banner'+(sCleared?' show':'');
+  document.getElementById('exam-mode-btn').style.display=sCleared?'block':'none';
+}
+
+function selectRank(rank){
+  var clearedRanks=getClearedRanks();
+  var ranks=['S','A','B'];
+  var idx=ranks.indexOf(rank);
+  if(idx>0 && clearedRanks.indexOf(ranks[idx-1])<0)return;
+  state.rank=rank;
+  var badge=document.getElementById('lc-1').querySelector('.level-num');
+  document.getElementById('level-context').textContent=rank+'ランク - レベルを選んでください';
+  updateLevelCards(rank);
+  showScreen('screen-level');
+}
+
+/* ===================== レベル画面 ===================== */
+function updateLevelCards(rank){
+  var cleared=getClearedLevels(rank);
+  [1,2,3,4].forEach(function(lv){
+    var el=document.getElementById('lc-'+lv);
+    var st=document.getElementById('ls-'+lv);
+    el.classList.remove('locked','cleared');
+    st.style.display='none';
     if(cleared.indexOf(lv)>=0){
       el.classList.add('cleared');
-      bl.textContent='クリア済';bl.className='level-badge badge-cleared';bl.style.display='inline-block';
+      st.textContent='クリア済';st.className='level-status status-cleared';st.style.display='inline-block';
     } else if(lv>1 && cleared.indexOf(lv-1)<0){
       el.classList.add('locked');
       var msgs=['','Lv.1クリアで解放','Lv.2クリアで解放','Lv.3クリアで解放'];
-      bl.textContent=msgs[lv-1];bl.className='level-badge badge-locked';bl.style.display='inline-block';
+      st.textContent=msgs[lv-1];st.className='level-status status-locked';st.style.display='inline-block';
     }
   });
 }
 
-function startLevel(lv){
-  var cleared = getCleared();
+/* ===================== 問題生成 ===================== */
+function buildQuestions(rank){
+  var phrases=DB.phrases[rank]||[];
+  var words=DB.words[rank]||[];
+  // フレーズ70%・単語30%
+  var phraseCount=Math.ceil(phrases.length*0.7);
+  var wordCount=Math.min(words.length, Math.floor(phrases.length*0.3));
+  var shuffledP=phrases.slice().sort(function(){return Math.random()-0.5;}).slice(0,phraseCount);
+  var shuffledW=words.slice().sort(function(){return Math.random()-0.5;}).slice(0,wordCount);
+  // 間違えた問題を先頭に
+  var wrongIds=state.wrongIds;
+  var all=shuffledP.map(function(p){return {type:'phrase',data:p};})
+    .concat(shuffledW.map(function(w){return {type:'word',data:w};}));
+  all.sort(function(a,b){
+    var aWrong=wrongIds.indexOf(a.data.id)>=0?0:1;
+    var bWrong=wrongIds.indexOf(b.data.id)>=0?0:1;
+    return aWrong-bWrong||Math.random()-0.5;
+  });
+  // 最大10問
+  return all.slice(0,10);
+}
+
+function startQuiz(lv){
+  var cleared=getClearedLevels(state.rank);
   if(lv>1 && cleared.indexOf(lv-1)<0)return;
-  var phrases = DATA[state.grade]&&DATA[state.grade][state.school]&&DATA[state.grade][state.school][state.test];
-  if(!phrases||phrases.length===0){alert('このテスト範囲のデータがまだ登録されていません。');return;}
   state.level=lv;
-  state.phrases=phrases.slice().sort(function(){return Math.random()-0.5;});
-  state.qIndex=0;state.score=0;state.answered=false;
-  var lbls=['','4択 空所補充','入力 空所補充','並べ替え','全文入力'];
-  document.getElementById('q-label').textContent=(lv===4?'Lv.MAX':'Lv.'+lv)+'：'+lbls[lv];
+  state.questions=buildQuestions(state.rank);
+  state.qIndex=0;state.score=0;state.answered=false;state.examMode=false;
+  var lvLabels=['','4択問題','穴埋め入力','並べ替え','全文入力'];
+  document.getElementById('q-label').textContent=state.rank+'ランク Lv.'+lv+'：'+lvLabels[lv];
+  var badge=document.getElementById('q-rank-badge');
+  badge.textContent=state.rank;badge.className='rank-badge rank-'+state.rank.toLowerCase();
   showScreen('screen-quiz');
   renderQuestion();
 }
 
-function buildBlankPhrase(p){
-  var kclean = p.keyword.replace(/[.,!?]/g,'').toLowerCase();
-  var html = '';
+function startExamMode(){
+  state.examMode=true;
+  state.rank='S';
+  state.level=3; // 並べ替えから
+  state.questions=buildQuestions('S');
+  state.qIndex=0;state.score=0;state.answered=false;
+  document.getElementById('q-label').textContent='🔥 テスト直前モード';
+  var badge=document.getElementById('q-rank-badge');
+  badge.textContent='🔥';badge.className='rank-badge';badge.style.background='var(--yellow)';
+  showScreen('screen-quiz');
+  renderQuestion();
+}
+
+/* ===================== 問題描画 ===================== */
+function renderQuestion(){
+  var q=state.questions[state.qIndex];
+  var total=state.questions.length;
+  document.getElementById('q-counter').textContent=(state.qIndex+1)+'/'+total;
+  document.getElementById('q-progress').style.width=Math.round((state.qIndex/total)*100)+'%';
+  document.getElementById('q-feedback').className='feedback-box';
+  document.getElementById('q-next-btn').style.display='none';
+  state.answered=false;
+  var lv=state.level;
+  if(q.type==='phrase'){
+    if(lv===1)renderPhraseLv1(q.data);
+    else if(lv===2)renderPhraseLv2(q.data);
+    else if(lv===3)renderPhraseLv3(q.data);
+    else renderPhraseLv4(q.data);
+  } else {
+    if(lv===1||lv===2)renderWordLv1(q.data);
+    else if(lv===3)renderWordLv2(q.data);
+    else renderWordLv3(q.data);
+  }
+}
+
+function buildBlank(p){
+  var kclean=p.keyword.replace(/[.,!?]/g,'').toLowerCase();
+  var html='';
   p.words.forEach(function(w,i){
-    var punct = w.match(/[.,!?]+$/) ? w.match(/[.,!?]+$/)[0] : '';
-    var clean = w.replace(/[.,!?]/g,'').toLowerCase();
-    if(i>0) html+=' ';
-    if(clean===kclean){
-      html+='<span class="blank">　　　　</span>'+punct;
-    } else {
-      html+=w;
-    }
+    var punct=w.match(/[.,!?]+$/) ? w.match(/[.,!?]+$/)[0]:'';
+    var clean=w.replace(/[.,!?]/g,'').toLowerCase();
+    if(i>0)html+=' ';
+    if(clean===kclean){html+='<span class="blank">　　　</span>'+punct;}
+    else{html+=w;}
   });
   return html;
 }
 
-function renderQuestion(){
-  var p = state.phrases[state.qIndex];
-  var total = state.phrases.length;
-  document.getElementById('q-counter').textContent=(state.qIndex+1)+'/'+total;
-  document.getElementById('q-progress').style.width=Math.round((state.qIndex/total)*100)+'%';
-  document.getElementById('q-feedback').className='feedback';
-  document.getElementById('q-next-btn').style.display='none';
-  state.answered=false;
-  if(state.level===1)renderLv1(p);
-  else if(state.level===2)renderLv2(p);
-  else if(state.level===3)renderLv3(p);
-  else renderLvMax(p);
+function grammarTag(g){
+  return g?'<div class="grammar-tag">📌 '+g+'</div>':'';
 }
 
-function renderLv1(p){
-  var shuffled = p.choices.slice().sort(function(){return Math.random()-0.5;});
-  document.getElementById('q-content').innerHTML =
+/* フレーズ Lv1: 4択 */
+function renderPhraseLv1(p){
+  var shuffled=p.choices.slice().sort(function(){return Math.random()-0.5;});
+  document.getElementById('q-content').innerHTML=
+    grammarTag(p.grammar)+
     '<div class="ja-hint">'+p.ja+'</div>'+
-    '<div class="phrase-display">'+buildBlankPhrase(p)+'</div>'+
+    '<div class="phrase-box">'+buildBlank(p)+'</div>'+
     '<div class="choices" id="choices-wrap"></div>';
-  var wrap = document.getElementById('choices-wrap');
+  var wrap=document.getElementById('choices-wrap');
   shuffled.forEach(function(c){
-    var btn = document.createElement('button');
-    btn.className='choice-btn';
-    btn.textContent=c;
-    btn.addEventListener('click',function(){checkLv1(btn,c,p.keyword);});
+    var btn=document.createElement('button');
+    btn.className='choice-btn';btn.textContent=c;
+    btn.addEventListener('click',function(){checkPhraseLv1(btn,c,p);});
     wrap.appendChild(btn);
   });
 }
-
-function checkLv1(btn,chosen,correct){
+function checkPhraseLv1(btn,chosen,p){
   if(state.answered)return;
   state.answered=true;
   document.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});
-  if(chosen===correct){
+  if(chosen===p.keyword){
     btn.classList.add('correct');state.score++;
-    showFeedback(true,'正解！\n'+state.phrases[state.qIndex].en);
+    removeWrong(p.id);
+    showFeedback(true,'正解！\n'+p.en);
   } else {
     btn.classList.add('wrong');
-    document.querySelectorAll('.choice-btn').forEach(function(b){
-      if(b.textContent===correct)b.classList.add('correct');
-    });
-    showFeedback(false,'不正解。正解は「'+correct+'」\n'+state.phrases[state.qIndex].en);
+    document.querySelectorAll('.choice-btn').forEach(function(b){if(b.textContent===p.keyword)b.classList.add('correct');});
+    addWrong(p.id);
+    showFeedback(false,'不正解。正解は「'+p.keyword+'」\n'+p.en+(p.grammar?'\n📌 '+p.grammar:''));
   }
   document.getElementById('q-next-btn').style.display='block';
 }
 
-function renderLv2(p){
-  document.getElementById('q-content').innerHTML =
+/* フレーズ Lv2: 穴埋め入力 */
+function renderPhraseLv2(p){
+  document.getElementById('q-content').innerHTML=
+    grammarTag(p.grammar)+
     '<div class="ja-hint">'+p.ja+'</div>'+
-    '<div class="phrase-display">'+buildBlankPhrase(p)+'</div>'+
-    '<div class="text-input-wrap">'+
-    '<input type="text" id="lv2-input" placeholder="キーワードを入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false">'+
-    '<button class="btn btn-primary" onclick="checkLv2()">答え合わせ</button>'+
-    '</div>';
+    '<div class="phrase-box">'+buildBlank(p)+'</div>'+
+    '<div class="text-wrap"><input type="text" id="lv2-input" placeholder="キーワードを入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="btn btn-primary" onclick="checkPhraseLv2(\''+p.id+'\')">答え合わせ</button></div>';
   setTimeout(function(){var el=document.getElementById('lv2-input');if(el)el.focus();},100);
 }
-
-function checkLv2(){
+function checkPhraseLv2(pid){
   if(state.answered)return;
-  var val = document.getElementById('lv2-input').value.trim().toLowerCase();
-  var correct = state.phrases[state.qIndex].keyword.toLowerCase();
+  var p=state.questions[state.qIndex].data;
+  var val=document.getElementById('lv2-input').value.trim().toLowerCase();
+  var correct=p.keyword.toLowerCase();
   state.answered=true;
   if(val===correct){
-    state.score++;showFeedback(true,'正解！\n'+state.phrases[state.qIndex].en);
+    state.score++;removeWrong(pid);showFeedback(true,'正解！\n'+p.en);
   } else {
-    showFeedback(false,'不正解。正解は「'+state.phrases[state.qIndex].keyword+'」\n'+state.phrases[state.qIndex].en);
+    addWrong(pid);showFeedback(false,'不正解。正解は「'+p.keyword+'」\n'+p.en+(p.grammar?'\n📌 '+p.grammar:''));
   }
   document.getElementById('q-next-btn').style.display='block';
 }
 
-function renderLv3(p){
-  var shuffled = p.words.slice().sort(function(){return Math.random()-0.5;});
+/* フレーズ Lv3: 並べ替え */
+function renderPhraseLv3(p){
+  var shuffled=p.words.slice().sort(function(){return Math.random()-0.5;});
   state.sortSelected=[];state.sortRemaining=shuffled.slice();
-  document.getElementById('q-content').innerHTML =
+  document.getElementById('q-content').innerHTML=
+    grammarTag(p.grammar)+
     '<div class="ja-hint">'+p.ja+'</div>'+
-    '<div class="answer-area" id="sort-answer" onclick="removeLast()">（語句をタップして並べてください）</div>'+
+    '<div class="sort-answer" id="sort-answer" onclick="removeLast()">（語句をタップして並べてください）</div>'+
     '<div class="hint-note">並べた語をタップすると最後の語を削除できます</div>'+
-    '<div class="word-chips" id="sort-chips"></div>'+
-    '<button class="btn btn-primary" onclick="checkLv3()">答え合わせ</button>';
+    '<div class="chips" id="sort-chips"></div>'+
+    '<button class="btn btn-primary" onclick="checkPhraseLv3(\''+p.id+'\')">答え合わせ</button>';
   renderSortChips();
 }
-
 function renderSortChips(){
   var wrap=document.getElementById('sort-chips');if(!wrap)return;
   wrap.innerHTML='';
   state.sortRemaining.forEach(function(w,i){
     var span=document.createElement('span');
-    span.className='word-chip';span.textContent=w;
+    span.className='chip';span.textContent=w;
     (function(idx){span.addEventListener('click',function(){selectWord(idx);});})(i);
     wrap.appendChild(span);
   });
   var ans=document.getElementById('sort-answer');
   if(ans)ans.textContent=state.sortSelected.join(' ')||'（語句をタップして並べてください）';
 }
-
 function selectWord(i){
   if(state.answered)return;
   state.sortSelected.push(state.sortRemaining[i]);
   state.sortRemaining.splice(i,1);
   renderSortChips();
 }
-
 function removeLast(){
   if(state.answered||state.sortSelected.length===0)return;
   state.sortRemaining.push(state.sortSelected.pop());
   renderSortChips();
 }
-
-function checkLv3(){
+function checkPhraseLv3(pid){
   if(state.answered)return;
-  var p=state.phrases[state.qIndex];
+  var p=state.questions[state.qIndex].data;
   var answer=state.sortSelected.join(' ');
   var correct=p.words.join(' ');
   state.answered=true;
-  if(answer===correct){state.score++;showFeedback(true,'正解！\n'+p.en);}
-  else{showFeedback(false,'不正解。正解は：\n'+p.en);}
+  if(answer===correct){state.score++;removeWrong(pid);showFeedback(true,'正解！\n'+p.en);}
+  else{addWrong(pid);showFeedback(false,'不正解。正解は：\n'+p.en+(p.grammar?'\n📌 '+p.grammar:''));}
   document.getElementById('q-next-btn').style.display='block';
 }
 
-function renderLvMax(p){
-  document.getElementById('q-content').innerHTML =
+/* フレーズ Lv4: 全文入力 */
+function renderPhraseLv4(p){
+  document.getElementById('q-content').innerHTML=
+    grammarTag(p.grammar)+
     '<div class="ja-hint">'+p.ja+'</div>'+
-    '<div style="font-size:12px;color:#999;margin-bottom:12px">日本語を見て英文を全て書いてください</div>'+
-    '<div class="text-input-wrap">'+
-    '<input type="text" id="lvmax-input" placeholder="英文を入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false">'+
-    '<button class="btn btn-primary" onclick="checkLvMax()">答え合わせ</button>'+
-    '</div>';
-  setTimeout(function(){var el=document.getElementById('lvmax-input');if(el)el.focus();},100);
+    '<div style="font-size:12px;color:var(--text3);margin-bottom:12px">日本語を見て英文を全て書いてください</div>'+
+    '<div class="text-wrap"><input type="text" id="lv4-input" placeholder="英文を入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="btn btn-primary" onclick="checkPhraseLv4(\''+p.id+'\')">答え合わせ</button></div>';
+  setTimeout(function(){var el=document.getElementById('lv4-input');if(el)el.focus();},100);
 }
-
-function checkLvMax(){
+function checkPhraseLv4(pid){
   if(state.answered)return;
+  var p=state.questions[state.qIndex].data;
   function norm(s){return s.trim().toLowerCase().replace(/[.,!?'"]/g,'').replace(/\s+/g,' ');}
-  var val=norm(document.getElementById('lvmax-input').value);
-  var correct=norm(state.phrases[state.qIndex].en);
+  var val=norm(document.getElementById('lv4-input').value);
+  var correct=norm(p.en);
   state.answered=true;
-  if(val===correct){state.score++;showFeedback(true,'正解！');}
-  else{showFeedback(false,'不正解。正解は：\n'+state.phrases[state.qIndex].en);}
+  if(val===correct){state.score++;removeWrong(pid);showFeedback(true,'正解！');}
+  else{addWrong(pid);showFeedback(false,'不正解。正解は：\n'+p.en+(p.grammar?'\n📌 '+p.grammar:''));}
   document.getElementById('q-next-btn').style.display='block';
 }
 
+/* 単語 Lv1/2: 英→日 4択 */
+function renderWordLv1(w){
+  var shuffled=w.choices_ja.slice().sort(function(){return Math.random()-0.5;});
+  document.getElementById('q-content').innerHTML=
+    '<div class="word-en">'+w.en+'</div>'+
+    '<div class="ja-hint" style="text-align:center;font-size:12px">日本語の意味を選んでください</div>'+
+    '<div class="choices" id="choices-wrap" style="margin-top:0.75rem"></div>';
+  var wrap=document.getElementById('choices-wrap');
+  shuffled.forEach(function(c){
+    var btn=document.createElement('button');
+    btn.className='choice-btn';btn.textContent=c;
+    btn.addEventListener('click',function(){checkWord(btn,c,w.ja,w.id);});
+    wrap.appendChild(btn);
+  });
+}
+
+/* 単語 Lv3: 日→英 4択 */
+function renderWordLv2(w){
+  var shuffled=w.choices_en.slice().sort(function(){return Math.random()-0.5;});
+  document.getElementById('q-content').innerHTML=
+    '<div class="word-ja">'+w.ja+'</div>'+
+    '<div class="ja-hint" style="text-align:center;font-size:12px">英語を選んでください</div>'+
+    '<div class="choices" id="choices-wrap" style="margin-top:0.75rem"></div>';
+  var wrap=document.getElementById('choices-wrap');
+  shuffled.forEach(function(c){
+    var btn=document.createElement('button');
+    btn.className='choice-btn';btn.textContent=c;
+    btn.addEventListener('click',function(){checkWord(btn,c,w.en,w.id);});
+    wrap.appendChild(btn);
+  });
+}
+
+/* 単語 Lv4: 日→英 入力 */
+function renderWordLv3(w){
+  document.getElementById('q-content').innerHTML=
+    '<div class="word-ja">'+w.ja+'</div>'+
+    '<div class="text-wrap" style="margin-top:0.75rem"><input type="text" id="lv4-input" placeholder="英単語を入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="btn btn-primary" onclick="checkWordInput(\''+w.en+'\',\''+w.id+'\')">答え合わせ</button></div>';
+  setTimeout(function(){var el=document.getElementById('lv4-input');if(el)el.focus();},100);
+}
+
+function checkWord(btn,chosen,correct,id){
+  if(state.answered)return;
+  state.answered=true;
+  document.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});
+  if(chosen===correct){
+    btn.classList.add('correct');state.score++;removeWrong(id);
+    showFeedback(true,'正解！');
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.choice-btn').forEach(function(b){if(b.textContent===correct)b.classList.add('correct');});
+    addWrong(id);showFeedback(false,'不正解。正解は「'+correct+'」');
+  }
+  document.getElementById('q-next-btn').style.display='block';
+}
+function checkWordInput(correct,id){
+  if(state.answered)return;
+  var val=document.getElementById('lv4-input').value.trim().toLowerCase();
+  state.answered=true;
+  if(val===correct.toLowerCase()){state.score++;removeWrong(id);showFeedback(true,'正解！');}
+  else{addWrong(id);showFeedback(false,'不正解。正解は「'+correct+'」');}
+  document.getElementById('q-next-btn').style.display='block';
+}
+
+/* ===================== フィードバック・ナビ ===================== */
 function showFeedback(ok,msg){
   var el=document.getElementById('q-feedback');
-  el.textContent=msg;el.className='feedback show '+(ok?'ok':'ng');
+  el.textContent=msg;el.className='feedback-box show '+(ok?'feedback-ok':'feedback-ng');
 }
+function addWrong(id){if(state.wrongIds.indexOf(id)<0)state.wrongIds.push(id);}
+function removeWrong(id){state.wrongIds=state.wrongIds.filter(function(x){return x!==id;});}
 
 function nextQuestion(){
   state.qIndex++;
-  if(state.qIndex>=state.phrases.length)showResult();
+  if(state.qIndex>=state.questions.length)showResult();
   else renderQuestion();
 }
 
+/* ===================== 結果 ===================== */
 function showResult(){
-  var total=state.phrases.length;
+  var total=state.questions.length;
   var pct=Math.round(state.score/total*100);
   var cleared=pct>=80;
-  var lvLabel=state.level===4?'MAX':state.level;
-  document.getElementById('res-tag').textContent=state.grade+' / '+state.school+' / '+state.test+' / Lv.'+lvLabel;
+  var lvLabel=state.level;
+  document.getElementById('res-tag').textContent=
+    (state.examMode?'🔥 テスト直前モード':state.rank+'ランク Lv.'+lvLabel)+' 結果';
   document.getElementById('res-score').textContent=state.score+'/'+total;
-  document.getElementById('res-label').textContent='正答率 '+pct+'%'+(cleared?' ✓ クリア！':'　もう一度挑戦しよう！');
-  var msg=document.getElementById('res-clear-msg');
-  if(cleared){
-    msg.style.display='block';
-    msg.textContent='クリア！'+(state.level<4?'次のレベルが解放されました。':'全レベルコンプリート！');
-    var k=getKey();
-    if(!state.progress[k])state.progress[k]=[];
-    if(state.progress[k].indexOf(state.level)<0)state.progress[k].push(state.level);
+  document.getElementById('res-pct').textContent='正答率 '+pct+'%';
+
+  var msg=document.getElementById('res-clear');
+  msg.className='clear-msg';
+  if(cleared && !state.examMode){
+    msg.className='clear-msg clear-ok';
+    // レベルクリア保存
+    var rk=getRankKey(state.rank);
+    if(!state.progress[rk])state.progress[rk]=[];
+    if(state.progress[rk].indexOf(state.level)<0)state.progress[rk].push(state.level);
+    // Lv4クリアでランククリア
+    if(state.level===4){
+      var crk=getKey()+'_ranks';
+      if(!state.progress[crk])state.progress[crk]=[];
+      if(state.progress[crk].indexOf(state.rank)<0)state.progress[crk].push(state.rank);
+      msg.textContent='🎉 '+state.rank+'ランク Lv.'+state.level+' クリア！ランクを制覇しました！';
+    } else {
+      msg.textContent='🎉 クリア！Lv.'+(state.level+1)+' が解放されました。';
+    }
     saveProgress();
-  } else {
-    msg.style.display='none';
+    updateRankScreen();
+    updateLevelCards(state.rank);
+  } else if(!cleared){
+    msg.className='clear-msg';msg.style.display='block';
+    msg.style.background='var(--yellow-light)';msg.style.color='var(--yellow)';
+    msg.textContent='もう少し！80%以上でクリアです。';
   }
   sendDiscord(pct,cleared);
   showScreen('screen-result');
 }
 
 function sendDiscord(pct,cleared){
-  var lv=state.level===4?'MAX':state.level;
+  var lv=state.level;
   var emoji=cleared?'🎉':'📝';
-  var body=emoji+' **'+state.studentId+'** さんが挑戦しました\n'+
+  var mode=state.examMode?'テスト直前モード':(state.rank+'ランク Lv.'+lv);
+  var body=emoji+' **'+state.name+'** さんが挑戦しました\n'+
     '学年：'+state.grade+'　学校：'+state.school+'　テスト：'+state.test+'\n'+
-    'レベル：Lv.'+lv+'　結果：'+state.score+'/'+state.phrases.length+'（'+pct+'%）'+
+    'モード：'+mode+'　結果：'+state.score+'/'+state.questions.length+'（'+pct+'%）'+
     (cleared?'\n✅ クリア！':'');
   fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({content:body})})
   .then(function(r){
     document.getElementById('notify-status').textContent=r.ok?'先生に結果を通知しました 📨':'通知の送信に失敗しました';
-  })
-  .catch(function(){
+  }).catch(function(){
     document.getElementById('notify-status').textContent='通知の送信に失敗しました';
   });
 }
 
-function retryLevel(){startLevel(state.level);}
+function retryQuiz(){
+  if(state.examMode)startExamMode();
+  else startQuiz(state.level);
+}
 
-document.getElementById('input-id').addEventListener('keydown',function(e){
-  if(e.key==='Enter')goToSetup();
+/* Enterキー対応 */
+document.getElementById('input-name').addEventListener('keydown',function(e){
+  if(e.key==='Enter')startApp();
 });
 </script>
 </body>
