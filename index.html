@@ -273,11 +273,11 @@ select:focus,input[type=text]:focus{outline:none;border-color:var(--blue);box-sh
 var WEBHOOK="https://discordapp.com/api/webhooks/1512371851567829055/iK62fOT9C56UJ_HbL7xWMJ8F6ECAoKmSAl98rMYzv-pcS20Lr9iUVWr6knfxm_XGpS0e";
 
 /* ===================== マスターDB ===================== */
-var DB={
+var DB_中3={
   phrases:{
     S:[
       {id:"ps01",en:"Let me show you something interesting.",ja:"私はあなたに面白いものを見せましょう。",keyword:"show",choices:["show","tell","give","bring"],words:["Let","me","show","you","something","interesting."],grammar:"let + 人 + 動詞原形"},
-      {id:"ps02",en:"This footprint will help us find the elephant.",ja:"この足跡は私たちがその象を見つけるのに役立つでしょう。",keyword:"find",choices:["find","to find","finding","found"],words:["This","footprint","will","help","us","find","the","elephant."],grammar:"help + 人 + 動詞原形"},
+      {id:"ps02",en:"This footprint will help us find the elephant.",ja:"この足跡は私たちが象を見つけるのに役立つでしょう。",keyword:"find",choices:["find","to find","finding","found"],words:["This","footprint","will","help","us","find","the","elephant."],grammar:"help + 人 + 動詞原形"},
       {id:"ps03",en:"Ms. Thusi told us that you also do conservation.",ja:"トゥシさんはあなたも自然保護活動をしていると私たちに言いました。",keyword:"told",choices:["told","said","spoke","talked"],words:["Ms.","Thusi","told","us","that","you","also","do","conservation."],grammar:"tell + 人 + that"},
       {id:"ps04",en:"English is spoken as an official language.",ja:"英語は公用語として話されています。",keyword:"spoken",choices:["spoken","speaking","speaks","speak"],words:["English","is","spoken","as","an","official","language."],grammar:"受動態"},
       {id:"ps05",en:"We can see wildlife in the national park.",ja:"私たちは国立公園で野生生物を見ることができます。",keyword:"wildlife",choices:["wildlife","landscape","scenery","nature"],words:["We","can","see","wildlife","in","the","national","park."],grammar:""},
@@ -299,26 +299,26 @@ var DB={
     ],
     A:[
       {id:"pa01",en:"We are connected through the Internet.",ja:"私たちはインターネットでつながっています。",keyword:"connected",choices:["connected","linked","joined","united"],words:["We","are","connected","through","the","Internet."],grammar:"受動態"},
-      {id:"pa02",en:"We can communicate in real time.",ja:"私たちはリアルタイムでコミュニケーションが取れます。",keyword:"communicate",choices:["communicate","connect","talk","speak"],words:["We","can","communicate","in","real","time."],grammar:""},
+      {id:"pa02",en:"We can communicate in real time.",ja:"私たちはリアルタイムで連絡できます。",keyword:"communicate",choices:["communicate","connect","talk","speak"],words:["We","can","communicate","in","real","time."],grammar:""},
       {id:"pa03",en:"I took a lot of pictures.",ja:"私はたくさん写真を撮りました。",keyword:"took",choices:["took","made","got","had"],words:["I","took","a","lot","of","pictures."],grammar:""},
-      {id:"pa04",en:"I bought some souvenirs.",ja:"私はお土産をいくつか買いました。",keyword:"souvenirs",choices:["souvenirs","presents","gifts","things"],words:["I","bought","some","souvenirs."],grammar:""},
+      {id:"pa04",en:"I bought some souvenirs.",ja:"私はお土産を買いました。",keyword:"souvenirs",choices:["souvenirs","presents","gifts","things"],words:["I","bought","some","souvenirs."],grammar:""},
       {id:"pa05",en:"This picture was taken by my father.",ja:"この写真は父によって撮られました。",keyword:"taken",choices:["taken","made","shot","got"],words:["This","picture","was","taken","by","my","father."],grammar:"受動態"},
-      {id:"pa06",en:"The audience enjoyed the performance.",ja:"観客は公演を楽しみました。",keyword:"audience",choices:["audience","people","crowd","group"],words:["The","audience","enjoyed","the","performance."],grammar:""},
-      {id:"pa07",en:"The script was written by a famous writer.",ja:"台本は有名な作家によって書かれました。",keyword:"written",choices:["written","made","done","created"],words:["The","script","was","written","by","a","famous","writer."],grammar:"受動態"},
+      {id:"pa06",en:"The audience enjoyed the performance.",ja:"観客はその公演を楽しみました。",keyword:"audience",choices:["audience","people","crowd","group"],words:["The","audience","enjoyed","the","performance."],grammar:""},
+      {id:"pa07",en:"The script was written by a famous writer.",ja:"その台本は有名な作家によって書かれました。",keyword:"written",choices:["written","made","done","created"],words:["The","script","was","written","by","a","famous","writer."],grammar:"受動態"},
       {id:"pa08",en:"It looks like real food.",ja:"それは本物の食べ物のように見えます。",keyword:"looks",choices:["looks","seems","feels","sounds"],words:["It","looks","like","real","food."],grammar:""},
       {id:"pa09",en:"More than one billion people use emojis.",ja:"10億人以上の人々が絵文字を使っています。",keyword:"billion",choices:["billion","million","thousand","hundred"],words:["More","than","one","billion","people","use","emojis."],grammar:""},
       {id:"pa10",en:"Emojis are used around the world.",ja:"絵文字は世界中で使われています。",keyword:"used",choices:["used","known","seen","loved"],words:["Emojis","are","used","around","the","world."],grammar:"受動態"}
     ],
     B:[
-      {id:"pb01",en:"Emojis help people express their feelings.",ja:"絵文字は人々が気持ちを表現するのを助けます。",keyword:"express",choices:["express","show","tell","give"],words:["Emojis","help","people","express","their","feelings."],grammar:"help + 人 + 動詞原形"},
+      {id:"pb01",en:"Emojis help people express their feelings.",ja:"絵文字は人々が気持ちを表現するのに役立ちます。",keyword:"express",choices:["express","show","tell","give"],words:["Emojis","help","people","express","their","feelings."],grammar:"help + 人 + 動詞原形"},
       {id:"pb02",en:"Plastic food samples are popular in Japan.",ja:"食品サンプルは日本で人気があります。",keyword:"popular",choices:["popular","famous","common","special"],words:["Plastic","food","samples","are","popular","in","Japan."],grammar:""},
-      {id:"pb03",en:"They require creativity and skill.",ja:"それらは創造性と技術を必要とします。",keyword:"creativity",choices:["creativity","ability","talent","power"],words:["They","require","creativity","and","skill."],grammar:""},
-      {id:"pb04",en:"The tradition has a long history.",ja:"その伝統は長い歴史を持っています。",keyword:"tradition",choices:["tradition","culture","history","custom"],words:["The","tradition","has","a","long","history."],grammar:""},
-      {id:"pb05",en:"We should preserve the culture.",ja:"私たちは文化を保存すべきです。",keyword:"preserve",choices:["preserve","protect","keep","save"],words:["We","should","preserve","the","culture."],grammar:""},
-      {id:"pb06",en:"She gained confidence through her experience.",ja:"彼女は経験を通じて自信をつけました。",keyword:"confidence",choices:["confidence","courage","power","ability"],words:["She","gained","confidence","through","her","experience."],grammar:""},
-      {id:"pb07",en:"The government supports the project.",ja:"政府はそのプロジェクトを支援しています。",keyword:"supports",choices:["supports","helps","joins","leads"],words:["The","government","supports","the","project."],grammar:""},
+      {id:"pb03",en:"They require creativity and skill.",ja:"それらには創造力と技術が必要です。",keyword:"creativity",choices:["creativity","ability","talent","power"],words:["They","require","creativity","and","skill."],grammar:""},
+      {id:"pb04",en:"The tradition has a long history.",ja:"その伝統には長い歴史があります。",keyword:"tradition",choices:["tradition","culture","history","custom"],words:["The","tradition","has","a","long","history."],grammar:""},
+      {id:"pb05",en:"We should preserve the culture.",ja:"私たちはその文化を守るべきです。",keyword:"preserve",choices:["preserve","protect","keep","save"],words:["We","should","preserve","the","culture."],grammar:""},
+      {id:"pb06",en:"She gained confidence through her experience.",ja:"彼女は経験を通して自信を得ました。",keyword:"confidence",choices:["confidence","courage","power","ability"],words:["She","gained","confidence","through","her","experience."],grammar:""},
+      {id:"pb07",en:"The government supports the project.",ja:"政府はその計画を支援しています。",keyword:"supports",choices:["supports","helps","joins","leads"],words:["The","government","supports","the","project."],grammar:""},
       {id:"pb08",en:"The culture is known worldwide.",ja:"その文化は世界中で知られています。",keyword:"worldwide",choices:["worldwide","globally","abroad","everywhere"],words:["The","culture","is","known","worldwide."],grammar:""},
-      {id:"pb09",en:"Communication is important.",ja:"コミュニケーションは大切です。",keyword:"Communication",choices:["Communication","Connection","Conversation","Cooperation"],words:["Communication","is","important."],grammar:""},
+      {id:"pb09",en:"Communication is important.",ja:"コミュニケーションは重要です。",keyword:"Communication",choices:["Communication","Connection","Conversation","Cooperation"],words:["Communication","is","important."],grammar:""},
       {id:"pb10",en:"We should respect different backgrounds.",ja:"私たちは異なる背景を尊重すべきです。",keyword:"respect",choices:["respect","accept","know","like"],words:["We","should","respect","different","backgrounds."],grammar:""}
     ]
   },
@@ -330,42 +330,144 @@ var DB={
       {id:"ws04",en:"guide",ja:"ガイド",choices_en:["guide","leader","teacher","helper"],choices_ja:["ガイド","リーダー","先生","助ける人"]},
       {id:"ws05",en:"footprint",ja:"足跡",choices_en:["footprint","handprint","mark","trace"],choices_ja:["足跡","手形","跡","痕跡"]},
       {id:"ws06",en:"elephant",ja:"象",choices_en:["elephant","lion","tiger","giraffe"],choices_ja:["象","ライオン","トラ","キリン"]},
-      {id:"ws07",en:"conservation",ja:"自然保護・保全",choices_en:["conservation","decoration","construction","celebration"],choices_ja:["自然保護・保全","装飾","建設","お祝い"]},
+      {id:"ws07",en:"conservation",ja:"自然保護",choices_en:["conservation","decoration","construction","celebration"],choices_ja:["自然保護","装飾","建設","お祝い"]},
       {id:"ws08",en:"reach",ja:"到着する",choices_en:["reach","arrive","get","come"],choices_ja:["到着する","着く","得る","来る"]},
       {id:"ws09",en:"already",ja:"すでに",choices_en:["already","yet","still","just"],choices_ja:["すでに","まだ","今も","ちょうど"]},
-      {id:"ws10",en:"nervous",ja:"緊張した",choices_en:["nervous","happy","excited","tired"],choices_ja:["緊張した","うれしい","興奮した","疲れた"]},
-      {id:"ws11",en:"performance",ja:"公演",choices_en:["performance","concert","show","event"],choices_ja:["公演","コンサート","ショー","イベント"]},
-      {id:"ws12",en:"audience",ja:"観客",choices_en:["audience","actor","player","director"],choices_ja:["観客","俳優","選手","監督"]},
-      {id:"ws13",en:"script",ja:"台本",choices_en:["script","story","book","novel"],choices_ja:["台本","物語","本","小説"]},
-      {id:"ws14",en:"souvenir",ja:"お土産",choices_en:["souvenir","present","gift","toy"],choices_ja:["お土産","プレゼント","贈り物","おもちゃ"]},
-      {id:"ws15",en:"chocolate",ja:"チョコレート",choices_en:["chocolate","candy","cake","cookie"],choices_ja:["チョコレート","キャンディー","ケーキ","クッキー"]}
+      {id:"ws10",en:"check",ja:"確認する",choices_en:["check","look","watch","find"],choices_ja:["確認する","見る","見る","見つける"]},
+      {id:"ws11",en:"souvenir",ja:"お土産",choices_en:["souvenir","present","gift","toy"],choices_ja:["お土産","プレゼント","贈り物","おもちゃ"]},
+      {id:"ws12",en:"script",ja:"台本",choices_en:["script","story","book","novel"],choices_ja:["台本","物語","本","小説"]},
+      {id:"ws13",en:"performance",ja:"公演",choices_en:["performance","concert","show","event"],choices_ja:["公演","コンサート","ショー","イベント"]},
+      {id:"ws14",en:"audience",ja:"観客",choices_en:["audience","actor","player","director"],choices_ja:["観客","俳優","選手","監督"]},
+      {id:"ws15",en:"nervous",ja:"緊張した",choices_en:["nervous","happy","excited","tired"],choices_ja:["緊張した","うれしい","興奮した","疲れた"]},
+      {id:"ws16",en:"chocolate",ja:"チョコレート",choices_en:["chocolate","candy","cake","cookie"],choices_ja:["チョコレート","キャンディー","ケーキ","クッキー"]},
+      {id:"ws17",en:"argument",ja:"口論",choices_en:["argument","talk","chat","speech"],choices_ja:["口論","話","おしゃべり","スピーチ"]},
+      {id:"ws18",en:"left",ja:"leaveの過去分詞",choices_en:["left","go","stay","arrive"],choices_ja:["leaveの過去分詞","行く","とどまる","到着する"]},
+      {id:"ws19",en:"received",ja:"受け入れられた",choices_en:["received","taken","given","made"],choices_ja:["受け入れられた","取られた","与えられた","作られた"]},
+      {id:"ws20",en:"official language",ja:"公用語",choices_en:["official language","mother tongue","sign language","foreign language"],choices_ja:["公用語","母語","手話","外国語"]}
     ],
     A:[
       {id:"wa01",en:"ecosystem",ja:"生態系",choices_en:["ecosystem","environment","nature","habitat"],choices_ja:["生態系","環境","自然","生息地"]},
       {id:"wa02",en:"national park",ja:"国立公園",choices_en:["national park","city park","zoo","forest"],choices_ja:["国立公園","市立公園","動物園","森"]},
-      {id:"wa03",en:"safari",ja:"サファリ・野生動物探検",choices_en:["safari","journey","trip","tour"],choices_ja:["サファリ","旅","旅行","ツアー"]},
-      {id:"wa04",en:"whole",ja:"全体の・すべての",choices_en:["whole","all","every","full"],choices_ja:["全体の","すべての","すべての","満ちた"]},
-      {id:"wa05",en:"director",ja:"監督・ディレクター",choices_en:["director","actor","writer","player"],choices_ja:["監督","俳優","作家","選手"]},
-      {id:"wa06",en:"narrator",ja:"ナレーター・語り手",choices_en:["narrator","actor","singer","dancer"],choices_ja:["ナレーター","俳優","歌手","ダンサー"]},
-      {id:"wa07",en:"costume",ja:"衣装・コスチューム",choices_en:["costume","clothes","uniform","outfit"],choices_ja:["衣装","服","制服","服装"]},
-      {id:"wa08",en:"role",ja:"役・役割",choices_en:["role","part","job","work"],choices_ja:["役","一部","仕事","仕事"]},
-      {id:"wa09",en:"treasure",ja:"宝・宝物",choices_en:["treasure","prize","gift","reward"],choices_ja:["宝","賞","贈り物","報酬"]},
-      {id:"wa10",en:"amusement park",ja:"遊園地",choices_en:["amusement park","theme park","zoo","museum"],choices_ja:["遊園地","テーマパーク","動物園","博物館"]}
+      {id:"wa03",en:"safari",ja:"サファリ",choices_en:["safari","journey","trip","tour"],choices_ja:["サファリ","旅","旅行","ツアー"]},
+      {id:"wa04",en:"whole",ja:"全体の",choices_en:["whole","all","every","full"],choices_ja:["全体の","すべての","毎","満ちた"]},
+      {id:"wa05",en:"amusement park",ja:"遊園地",choices_en:["amusement park","theme park","zoo","museum"],choices_ja:["遊園地","テーマパーク","動物園","博物館"]},
+      {id:"wa06",en:"director",ja:"監督",choices_en:["director","actor","writer","player"],choices_ja:["監督","俳優","作家","選手"]},
+      {id:"wa07",en:"narrator",ja:"語り手",choices_en:["narrator","actor","singer","dancer"],choices_ja:["語り手","俳優","歌手","ダンサー"]},
+      {id:"wa08",en:"costume",ja:"衣装",choices_en:["costume","clothes","uniform","outfit"],choices_ja:["衣装","服","制服","服装"]},
+      {id:"wa09",en:"role",ja:"役",choices_en:["role","part","job","work"],choices_ja:["役","一部","仕事","仕事"]},
+      {id:"wa10",en:"treasure",ja:"宝物",choices_en:["treasure","prize","gift","reward"],choices_ja:["宝物","賞","贈り物","報酬"]}
     ],
     B:[
       {id:"wb01",en:"emoji",ja:"絵文字",choices_en:["emoji","symbol","mark","sign"],choices_ja:["絵文字","記号","マーク","サイン"]},
-      {id:"wb02",en:"communication",ja:"コミュニケーション・意思疎通",choices_en:["communication","conversation","connection","cooperation"],choices_ja:["コミュニケーション","会話","つながり","協力"]},
-      {id:"wb03",en:"creativity",ja:"創造性",choices_en:["creativity","ability","talent","skill"],choices_ja:["創造性","能力","才能","技術"]},
-      {id:"wb04",en:"innovation",ja:"革新・イノベーション",choices_en:["innovation","invention","discovery","creation"],choices_ja:["革新","発明","発見","創造"]},
+      {id:"wb02",en:"communication",ja:"コミュニケーション",choices_en:["communication","conversation","connection","cooperation"],choices_ja:["コミュニケーション","会話","つながり","協力"]},
+      {id:"wb03",en:"creativity",ja:"創造力",choices_en:["creativity","ability","talent","skill"],choices_ja:["創造力","能力","才能","技術"]},
+      {id:"wb04",en:"innovation",ja:"革新",choices_en:["innovation","invention","discovery","creation"],choices_ja:["革新","発明","発見","創造"]},
       {id:"wb05",en:"tradition",ja:"伝統",choices_en:["tradition","culture","history","custom"],choices_ja:["伝統","文化","歴史","習慣"]},
-      {id:"wb06",en:"preserve",ja:"保存する・守る",choices_en:["preserve","protect","keep","save"],choices_ja:["保存する","保護する","保つ","救う"]},
+      {id:"wb06",en:"preserve",ja:"保存する・守る",choices_en:["preserve","protect","keep","save"],choices_ja:["保存する・守る","保護する","保つ","救う"]},
       {id:"wb07",en:"confidence",ja:"自信",choices_en:["confidence","courage","power","ability"],choices_ja:["自信","勇気","力","能力"]},
-      {id:"wb08",en:"background",ja:"背景・バックグラウンド",choices_en:["background","history","culture","tradition"],choices_ja:["背景","歴史","文化","伝統"]},
+      {id:"wb08",en:"background",ja:"背景",choices_en:["background","history","culture","tradition"],choices_ja:["背景","歴史","文化","伝統"]},
       {id:"wb09",en:"culture",ja:"文化",choices_en:["culture","tradition","history","society"],choices_ja:["文化","伝統","歴史","社会"]},
-      {id:"wb10",en:"worldwide",ja:"世界中で・全世界の",choices_en:["worldwide","global","international","universal"],choices_ja:["世界中で","グローバルな","国際的な","普遍的な"]}
+      {id:"wb10",en:"worldwide",ja:"世界中で",choices_en:["worldwide","global","international","universal"],choices_ja:["世界中で","グローバルな","国際的な","普遍的な"]}
     ]
   }
 };
+var DB_中2={
+  phrases:{
+    S:[
+      {id:"2ps01",en:"I'm going to join the brass band.",ja:"私は吹奏楽部に入る予定です。",keyword:"going",choices:["going","go","went","gone"],words:["I'm","going","to","join","the","brass","band."],grammar:"be going to"},
+      {id:"2ps02",en:"I'm going to practice hard.",ja:"私は一生懸命練習する予定です。",keyword:"practice",choices:["practice","study","work","train"],words:["I'm","going","to","practice","hard."],grammar:"be going to"},
+      {id:"2ps03",en:"I'm going to study abroad someday.",ja:"私はいつか留学する予定です。",keyword:"abroad",choices:["abroad","away","outside","overseas"],words:["I'm","going","to","study","abroad","someday."],grammar:"be going to"},
+      {id:"2ps04",en:"What are you going to do?",ja:"あなたは何をする予定ですか。",keyword:"going",choices:["going","planning","trying","wanting"],words:["What","are","you","going","to","do?"],grammar:"be going to"},
+      {id:"2ps05",en:"I'll do my best.",ja:"私は全力を尽くします。",keyword:"best",choices:["best","better","good","well"],words:["I'll","do","my","best."],grammar:"will"},
+      {id:"2ps06",en:"I'll try harder next time.",ja:"私は次回もっと頑張ります。",keyword:"harder",choices:["harder","more hard","hardest","hard"],words:["I'll","try","harder","next","time."],grammar:"比較級"},
+      {id:"2ps07",en:"I'm taller than Ken.",ja:"私はケンより背が高い。",keyword:"taller",choices:["taller","more tall","tallest","tall"],words:["I'm","taller","than","Ken."],grammar:"比較級"},
+      {id:"2ps08",en:"This book is more interesting than that one.",ja:"この本はあの本より面白い。",keyword:"more",choices:["more","most","very","so"],words:["This","book","is","more","interesting","than","that","one."],grammar:"more ～ than"},
+      {id:"2ps09",en:"He runs the fastest in our class.",ja:"彼はクラスで一番速く走ります。",keyword:"fastest",choices:["fastest","faster","fast","most fast"],words:["He","runs","the","fastest","in","our","class."],grammar:"最上級"},
+      {id:"2ps10",en:"I'm as tall as Kaito.",ja:"私はカイトと同じくらい背が高い。",keyword:"as",choices:["as","so","like","than"],words:["I'm","as","tall","as","Kaito."],grammar:"as ～ as"},
+      {id:"2ps11",en:"This bag is as expensive as that one.",ja:"このバッグはあのバッグと同じくらい高価です。",keyword:"expensive",choices:["expensive","cheap","good","nice"],words:["This","bag","is","as","expensive","as","that","one."],grammar:"as ～ as"},
+      {id:"2ps12",en:"Which do you like better?",ja:"あなたはどちらがより好きですか。",keyword:"better",choices:["better","best","more","most"],words:["Which","do","you","like","better?"],grammar:"比較級"},
+      {id:"2ps13",en:"I'm going to be a doctor.",ja:"私は医者になる予定です。",keyword:"doctor",choices:["doctor","teacher","player","singer"],words:["I'm","going","to","be","a","doctor."],grammar:"be going to"},
+      {id:"2ps14",en:"I think I'll enjoy it.",ja:"私はそれを楽しめると思います。",keyword:"enjoy",choices:["enjoy","like","love","want"],words:["I","think","I'll","enjoy","it."],grammar:"will"},
+      {id:"2ps15",en:"I'm going to visit my grandparents.",ja:"祖父母を訪ねる予定です。",keyword:"visit",choices:["visit","see","meet","find"],words:["I'm","going","to","visit","my","grandparents."],grammar:"be going to"},
+      {id:"2ps16",en:"What are you going to do this weekend?",ja:"今週末何をする予定ですか。",keyword:"weekend",choices:["weekend","weekday","holiday","vacation"],words:["What","are","you","going","to","do","this","weekend?"],grammar:"be going to"},
+      {id:"2ps17",en:"There are a lot of books in the library.",ja:"図書館にはたくさんの本があります。",keyword:"library",choices:["library","school","classroom","bookstore"],words:["There","are","a","lot","of","books","in","the","library."],grammar:""},
+      {id:"2ps18",en:"Ken is taller than me.",ja:"ケンは私より背が高い。",keyword:"taller",choices:["taller","more tall","tallest","tall"],words:["Ken","is","taller","than","me."],grammar:"比較級"},
+      {id:"2ps19",en:"This is the best player on the team.",ja:"彼はチームで一番良い選手です。",keyword:"best",choices:["best","better","good","great"],words:["This","is","the","best","player","on","the","team."],grammar:"最上級"},
+      {id:"2ps20",en:"I'm going to help my parents.",ja:"私は両親を手伝う予定です。",keyword:"parents",choices:["parents","friends","teachers","grandparents"],words:["I'm","going","to","help","my","parents."],grammar:"be going to"}
+    ],
+    A:[
+      {id:"2pa01",en:"There is a basketball game tomorrow.",ja:"明日バスケットボールの試合があります。",keyword:"game",choices:["game","match","play","sport"],words:["There","is","a","basketball","game","tomorrow."],grammar:""},
+      {id:"2pa02",en:"Thank you for your advice.",ja:"アドバイスをありがとうございます。",keyword:"advice",choices:["advice","help","support","idea"],words:["Thank","you","for","your","advice."],grammar:""},
+      {id:"2pa03",en:"We need more practice.",ja:"私たちはもっと練習が必要です。",keyword:"practice",choices:["practice","study","training","work"],words:["We","need","more","practice."],grammar:""},
+      {id:"2pa04",en:"I enjoyed watching the game.",ja:"私は試合を見るのを楽しみました。",keyword:"enjoyed",choices:["enjoyed","liked","loved","wanted"],words:["I","enjoyed","watching","the","game."],grammar:""},
+      {id:"2pa05",en:"Our team won the game.",ja:"私たちのチームは試合に勝ちました。",keyword:"won",choices:["won","played","lost","tried"],words:["Our","team","won","the","game."],grammar:""},
+      {id:"2pa06",en:"We played very well.",ja:"私たちはとてもうまくプレーしました。",keyword:"well",choices:["well","good","fine","great"],words:["We","played","very","well."],grammar:""},
+      {id:"2pa07",en:"We were excited about the tournament.",ja:"私たちはトーナメントについて興奮していました。",keyword:"excited",choices:["excited","happy","glad","proud"],words:["We","were","excited","about","the","tournament."],grammar:""},
+      {id:"2pa08",en:"I have a good player in mind.",ja:"私は頭の中に良い選手がいます。",keyword:"mind",choices:["mind","head","heart","idea"],words:["I","have","a","good","player","in","mind."],grammar:""},
+      {id:"2pa09",en:"You can do it.",ja:"あなたならできます。",keyword:"can",choices:["can","will","must","should"],words:["You","can","do","it."],grammar:""},
+      {id:"2pa10",en:"I'm going to read this book.",ja:"私はこの本を読む予定です。",keyword:"read",choices:["read","write","buy","study"],words:["I'm","going","to","read","this","book."],grammar:"be going to"}
+    ],
+    B:[
+      {id:"2pb01",en:"I was surprised to hear that.",ja:"それを聞いて驚きました。",keyword:"surprised",choices:["surprised","happy","sad","excited"],words:["I","was","surprised","to","hear","that."],grammar:""},
+      {id:"2pb02",en:"The game was exciting.",ja:"その試合はわくわくするものでした。",keyword:"exciting",choices:["exciting","interested","bored","tired"],words:["The","game","was","exciting."],grammar:""},
+      {id:"2pb03",en:"We had a wonderful time.",ja:"私たちは素晴らしい時間を過ごしました。",keyword:"wonderful",choices:["wonderful","good","great","nice"],words:["We","had","a","wonderful","time."],grammar:""},
+      {id:"2pb04",en:"He is one of the best players.",ja:"彼は最も優れた選手の一人です。",keyword:"best",choices:["best","better","good","great"],words:["He","is","one","of","the","best","players."],grammar:"最上級"},
+      {id:"2pb05",en:"I want to improve my skills.",ja:"私は自分のスキルを向上させたいです。",keyword:"improve",choices:["improve","increase","change","develop"],words:["I","want","to","improve","my","skills."],grammar:""},
+      {id:"2pb06",en:"The team worked together.",ja:"チームは一緒に取り組みました。",keyword:"together",choices:["together","alone","well","hard"],words:["The","team","worked","together."],grammar:""},
+      {id:"2pb07",en:"We learned a lot from the game.",ja:"私たちはその試合からたくさん学びました。",keyword:"learned",choices:["learned","got","took","found"],words:["We","learned","a","lot","from","the","game."],grammar:""},
+      {id:"2pb08",en:"I was proud of my teammates.",ja:"私はチームメイトを誇りに思いました。",keyword:"proud",choices:["proud","happy","glad","excited"],words:["I","was","proud","of","my","teammates."],grammar:""},
+      {id:"2pb09",en:"The tournament was successful.",ja:"トーナメントは成功しました。",keyword:"successful",choices:["successful","good","great","wonderful"],words:["The","tournament","was","successful."],grammar:""},
+      {id:"2pb10",en:"We are ready for the next game.",ja:"私たちは次の試合の準備ができています。",keyword:"ready",choices:["ready","good","set","prepared"],words:["We","are","ready","for","the","next","game."],grammar:""}
+    ]
+  },
+  words:{
+    S:[
+      {id:"2ws01",en:"join",ja:"入る・参加する",choices_en:["join","enter","start","play"],choices_ja:["入る・参加する","入場する","始める","遊ぶ"]},
+      {id:"2ws02",en:"practice",ja:"練習",choices_en:["practice","training","study","work"],choices_ja:["練習","トレーニング","勉強","仕事"]},
+      {id:"2ws03",en:"hard",ja:"一生懸命に",choices_en:["hard","fast","well","long"],choices_ja:["一生懸命に","速く","上手に","長く"]},
+      {id:"2ws04",en:"abroad",ja:"海外に",choices_en:["abroad","away","outside","far"],choices_ja:["海外に","離れて","外に","遠くに"]},
+      {id:"2ws05",en:"someday",ja:"いつか",choices_en:["someday","sometimes","everyday","always"],choices_ja:["いつか","ときどき","毎日","いつも"]},
+      {id:"2ws06",en:"doctor",ja:"医者",choices_en:["doctor","teacher","player","nurse"],choices_ja:["医者","先生","選手","看護師"]},
+      {id:"2ws07",en:"weekend",ja:"週末",choices_en:["weekend","weekday","holiday","vacation"],choices_ja:["週末","平日","休日","休暇"]},
+      {id:"2ws08",en:"tall",ja:"背が高い",choices_en:["tall","big","large","long"],choices_ja:["背が高い","大きい","大きな","長い"]},
+      {id:"2ws09",en:"best",ja:"最も良い",choices_en:["best","better","good","great"],choices_ja:["最も良い","より良い","良い","すばらしい"]},
+      {id:"2ws10",en:"player",ja:"選手・プレーヤー",choices_en:["player","member","leader","captain"],choices_ja:["選手","メンバー","リーダー","キャプテン"]},
+      {id:"2ws11",en:"library",ja:"図書館",choices_en:["library","bookstore","school","museum"],choices_ja:["図書館","本屋","学校","博物館"]},
+      {id:"2ws12",en:"team",ja:"チーム",choices_en:["team","group","class","club"],choices_ja:["チーム","グループ","クラス","クラブ"]},
+      {id:"2ws13",en:"better",ja:"より良い",choices_en:["better","best","good","well"],choices_ja:["より良い","最も良い","良い","上手に"]},
+      {id:"2ws14",en:"fast",ja:"速い・速く",choices_en:["fast","quick","early","soon"],choices_ja:["速い","素早い","早い","すぐに"]},
+      {id:"2ws15",en:"grandparent",ja:"祖父母",choices_en:["grandparent","parent","relative","family"],choices_ja:["祖父母","親","親戚","家族"]}
+    ],
+    A:[
+      {id:"2wa01",en:"advice",ja:"アドバイス",choices_en:["advice","idea","opinion","thought"],choices_ja:["アドバイス","アイデア","意見","考え"]},
+      {id:"2wa02",en:"tournament",ja:"トーナメント",choices_en:["tournament","game","match","competition"],choices_ja:["トーナメント","試合","試合","競技"]},
+      {id:"2wa03",en:"excited",ja:"興奮した",choices_en:["excited","happy","glad","surprised"],choices_ja:["興奮した","うれしい","喜んだ","驚いた"]},
+      {id:"2wa04",en:"improve",ja:"向上させる",choices_en:["improve","increase","change","grow"],choices_ja:["向上させる","増やす","変える","成長する"]},
+      {id:"2wa05",en:"skill",ja:"技術・スキル",choices_en:["skill","ability","talent","power"],choices_ja:["技術","能力","才能","力"]},
+      {id:"2wa06",en:"successful",ja:"成功した",choices_en:["successful","good","great","wonderful"],choices_ja:["成功した","良い","すばらしい","素晴らしい"]},
+      {id:"2wa07",en:"wonderful",ja:"素晴らしい",choices_en:["wonderful","good","great","nice"],choices_ja:["素晴らしい","良い","すごい","きれいな"]},
+      {id:"2wa08",en:"proud",ja:"誇りに思う",choices_en:["proud","happy","glad","pleased"],choices_ja:["誇りに思う","うれしい","喜んだ","満足した"]},
+      {id:"2wa09",en:"game",ja:"試合",choices_en:["game","match","play","sport"],choices_ja:["試合","試合","演技","スポーツ"]},
+      {id:"2wa10",en:"interesting",ja:"面白い",choices_en:["interesting","exciting","fun","good"],choices_ja:["面白い","わくわくする","楽しい","良い"]}
+    ],
+    B:[
+      {id:"2wb01",en:"together",ja:"一緒に",choices_en:["together","alone","apart","away"],choices_ja:["一緒に","一人で","離れて","離れて"]},
+      {id:"2wb02",en:"someday",ja:"いつか",choices_en:["someday","sometimes","everyday","always"],choices_ja:["いつか","ときどき","毎日","いつも"]},
+      {id:"2wb03",en:"fastest",ja:"最も速い",choices_en:["fastest","faster","fast","quick"],choices_ja:["最も速い","より速い","速い","素早い"]},
+      {id:"2wb04",en:"teammate",ja:"チームメイト",choices_en:["teammate","friend","partner","member"],choices_ja:["チームメイト","友達","パートナー","メンバー"]},
+      {id:"2wb05",en:"abroad",ja:"海外に",choices_en:["abroad","away","outside","far"],choices_ja:["海外に","離れて","外に","遠くに"]},
+      {id:"2wb06",en:"grandparent",ja:"祖父母",choices_en:["grandparent","parent","relative","family"],choices_ja:["祖父母","親","親戚","家族"]},
+      {id:"2wb07",en:"library",ja:"図書館",choices_en:["library","bookstore","school","museum"],choices_ja:["図書館","本屋","学校","博物館"]},
+      {id:"2wb08",en:"advice",ja:"アドバイス",choices_en:["advice","idea","opinion","help"],choices_ja:["アドバイス","アイデア","意見","助け"]},
+      {id:"2wb09",en:"player",ja:"選手",choices_en:["player","member","leader","captain"],choices_ja:["選手","メンバー","リーダー","キャプテン"]},
+      {id:"2wb10",en:"confident",ja:"自信のある",choices_en:["confident","proud","happy","brave"],choices_ja:["自信のある","誇りある","うれしい","勇気ある"]}
+    ]
+  }
+};
+
+function getDB(){
+  return state.grade==="中2" ? DB_中2 : DB_中3;
+}
 
 /* ===================== 状態管理 ===================== */
 var state={
@@ -469,8 +571,8 @@ function updateLevelCards(rank){
 
 /* ===================== 問題生成 ===================== */
 function buildQuestions(rank){
-  var phrases=DB.phrases[rank]||[];
-  var words=DB.words[rank]||[];
+  var phrases=getDB().phrases[rank]||[];
+  var words=getDB().words[rank]||[];
   // フレーズ70%・単語30%
   var phraseCount=Math.ceil(phrases.length*0.7);
   var wordCount=Math.min(words.length, Math.floor(phrases.length*0.3));
