@@ -3,61 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>定期テスト英語重要フレーズ＆重要単語暗記アプリ｜松陰塾 宮前平校</title>
+<title>定期テスト英語対策アプリ｜松陰塾 宮前平校</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f7f6f2;
-  --card:#ffffff;
-  --border:#e4e2da;
-  --text:#1c1c1a;
-  --text2:#6b6860;
-  --text3:#a8a59e;
-  --blue:#3b6ef0;
-  --blue-light:#eef1fe;
-  --green:#22a862;
-  --green-light:#e6f7ee;
-  --red:#e03b3b;
-  --red-light:#fdeaea;
-  --yellow:#f5a623;
-  --yellow-light:#fef6e6;
-  --rank-s:#e8b84b;
-  --rank-a:#7ec8e3;
-  --rank-b:#b4b4b4;
-  --radius:12px;
-  --shadow:0 2px 12px rgba(0,0,0,0.07);
+--bg:#f7f6f2;--card:#ffffff;--border:#e4e2da;--text:#1c1c1a;--text2:#6b6860;--text3:#a8a59e;
+--blue:#3b6ef0;--blue-light:#eef1fe;--green:#22a862;--green-light:#e6f7ee;
+--red:#e03b3b;--red-light:#fdeaea;--yellow:#f5a623;--yellow-light:#fef6e6;
+--rank-s:#e8b84b;--rank-a:#7ec8e3;--rank-b:#b4b4b4;
+--radius:12px;--shadow:0 2px 12px rgba(0,0,0,0.07);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 #app{max-width:560px;margin:0 auto;padding:1.25rem 1rem 4rem}
 .screen{display:none}.screen.active{display:block}
-
-/* ヘッダー */
 .app-header{text-align:center;margin-bottom:2rem;padding-top:0.5rem}
 .app-title{font-size:18px;font-weight:700;color:var(--text);letter-spacing:0.02em}
 .app-sub{font-size:12px;color:var(--text3);margin-top:3px}
-
-/* カード */
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow)}
-
-/* フォーム */
 label{font-size:12px;font-weight:600;color:var(--text2);display:block;margin-bottom:6px;letter-spacing:0.03em;text-transform:uppercase}
 select,input[type=text]{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:var(--card);color:var(--text);margin-bottom:1rem;-webkit-appearance:none;appearance:none;font-family:inherit}
 select:focus,input[type=text]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-light)}
-
-/* ボタン */
 .btn{display:block;width:100%;padding:13px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;background:var(--card);color:var(--text);transition:all 0.15s;text-align:center;font-family:inherit;letter-spacing:0.01em}
 .btn:hover{background:var(--bg)}
 .btn-primary{background:var(--blue);color:#fff;border-color:var(--blue)}
 .btn-primary:hover{background:#2f5ed8}
-.btn-sm{padding:8px 16px;font-size:13px;width:auto;display:inline-block}
-
-/* ランクバッジ */
 .rank-badge{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;font-size:14px;font-weight:800;flex-shrink:0}
 .rank-s{background:var(--rank-s);color:#fff}
 .rank-a{background:var(--rank-a);color:#fff}
 .rank-b{background:var(--rank-b);color:#fff}
-
-/* ランク選択 */
 .rank-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:1rem}
 .rank-card{border:1.5px solid var(--border);border-radius:10px;padding:1rem 0.5rem;cursor:pointer;background:var(--card);text-align:center;transition:all 0.15s}
 .rank-card:hover:not(.locked){background:var(--bg);transform:translateY(-1px)}
@@ -71,8 +44,6 @@ select:focus,input[type=text]:focus{outline:none;border-color:var(--blue);box-sh
 .rank-status{font-size:10px;margin-top:6px;padding:2px 6px;border-radius:5px;display:inline-block}
 .status-cleared{background:var(--green-light);color:var(--green)}
 .status-locked{background:var(--bg);color:var(--text3)}
-
-/* レベル選択 */
 .level-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
 .level-card{border:1.5px solid var(--border);border-radius:10px;padding:1rem;cursor:pointer;background:var(--card);text-align:center;transition:all 0.15s}
 .level-card:hover:not(.locked){background:var(--bg)}
@@ -81,65 +52,51 @@ select:focus,input[type=text]:focus{outline:none;border-color:var(--blue);box-sh
 .level-num{font-size:20px;font-weight:700;color:var(--text)}
 .level-desc{font-size:11px;color:var(--text2);margin-top:3px}
 .level-status{font-size:10px;margin-top:5px;padding:2px 6px;border-radius:5px;display:inline-block}
-
-/* クイズ画面 */
 .quiz-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem}
 .quiz-meta-left{display:flex;align-items:center;gap:8px}
 .quiz-count{font-size:13px;color:var(--text2)}
 .progress-wrap{height:5px;background:var(--border);border-radius:5px;margin-bottom:1.25rem}
 .progress-bar{height:5px;background:var(--blue);border-radius:5px;transition:width 0.3s}
-
 .ja-hint{font-size:17px;color:var(--text);font-weight:600;margin-bottom:10px;padding:10px 14px;background:var(--bg);border-radius:8px;line-height:1.6}
 .phrase-box{font-size:16px;line-height:2.1;color:var(--text);margin-bottom:1.25rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:10px}
 .blank{display:inline-block;min-width:80px;border-bottom:2.5px solid var(--blue);text-align:center;color:var(--blue);font-weight:700;padding:0 4px}
-
 .choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
 .choice-btn{padding:11px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;cursor:pointer;background:var(--card);color:var(--text);transition:all 0.15s;font-family:inherit;line-height:1.4}
 .choice-btn:hover{background:var(--bg)}
 .choice-btn.correct{background:var(--green-light);border-color:var(--green);color:var(--green)}
 .choice-btn.wrong{background:var(--red-light);border-color:var(--red);color:var(--red)}
-
 .text-wrap{margin-bottom:1rem}
 .text-wrap input{margin-bottom:0.5rem}
-
 .feedback-box{font-size:14px;padding:12px 14px;border-radius:8px;margin-bottom:1rem;display:none;white-space:pre-line;line-height:1.6}
 .feedback-box.show{display:block}
 .feedback-ok{background:var(--green-light);color:var(--green)}
 .feedback-ng{background:var(--red-light);color:var(--red)}
-
-.grammar-tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:5px;background:var(--blue-light);color:var(--blue);margin-bottom:8px;font-weight:600}
-
-/* 並べ替え */
+.explanation-box{font-size:13px;padding:10px 14px;border-radius:8px;background:var(--blue-light);color:var(--blue);margin-bottom:1rem;display:none;line-height:1.6}
+.explanation-box.show{display:block}
 .sort-answer{min-height:50px;padding:10px 14px;border:1.5px dashed var(--border);border-radius:8px;font-size:14px;margin-bottom:6px;color:var(--text);cursor:pointer;line-height:2;background:var(--card)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}
 .chip{padding:7px 13px;border:1px solid var(--border);border-radius:7px;font-size:13px;cursor:pointer;background:var(--card);color:var(--text);transition:opacity 0.1s;-webkit-tap-highlight-color:transparent;font-family:inherit}
 .chip:hover{background:var(--bg)}
 .hint-note{font-size:11px;color:var(--text3);margin-bottom:8px}
-
-/* 結果画面 */
 .score-big{font-size:52px;font-weight:800;text-align:center;color:var(--text);margin:1rem 0 0.25rem;line-height:1}
 .score-pct{font-size:16px;color:var(--text2);text-align:center;margin-bottom:0.5rem}
 .clear-msg{font-size:14px;padding:10px 14px;border-radius:8px;margin:0.75rem 0;text-align:center;display:none}
 .clear-ok{background:var(--green-light);color:var(--green);display:block}
 .notify-status{font-size:12px;color:var(--text3);text-align:center;margin-top:0.5rem}
-
-/* テスト直前モードバナー */
 .exam-banner{background:linear-gradient(135deg,#e8b84b,#f5a623);color:#fff;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;display:none}
 .exam-banner.show{display:block}
 .exam-banner-title{font-size:15px;font-weight:700;margin-bottom:3px}
 .exam-banner-sub{font-size:12px;opacity:0.85}
-
-/* 名前表示 */
 .user-chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:4px 12px;margin-bottom:1rem}
-
-/* セクション見出し */
 .section-title{font-size:13px;font-weight:700;color:var(--text2);margin-bottom:0.75rem;letter-spacing:0.04em;text-transform:uppercase}
-
-.divider{height:1px;background:var(--border);margin:1rem 0}
-
-/* 単語クイズ専用 */
-.word-en{font-size:24px;font-weight:700;text-align:center;padding:1.5rem 1rem;color:var(--text)}
-.word-ja{font-size:22px;font-weight:700;text-align:center;padding:1.5rem 1rem;color:var(--text)}
+.rank-desc-box{font-size:12px;color:var(--text2);background:var(--bg);border-radius:8px;padding:8px 12px;margin-bottom:1rem;line-height:1.6}
+/* 英→日択一専用 */
+.en-display{font-size:22px;font-weight:700;text-align:center;padding:1.5rem 1rem;color:var(--text);line-height:1.5}
+.choices-ja{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:1rem}
+.choice-btn-ja{padding:12px 16px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;cursor:pointer;background:var(--card);color:var(--text);transition:all 0.15s;font-family:inherit;line-height:1.5;text-align:left}
+.choice-btn-ja:hover{background:var(--bg)}
+.choice-btn-ja.correct{background:var(--green-light);border-color:var(--green);color:var(--green)}
+.choice-btn-ja.wrong{background:var(--red-light);border-color:var(--red);color:var(--red)}
 </style>
 </head>
 <body>
@@ -147,335 +104,205 @@ select:focus,input[type=text]:focus{outline:none;border-color:var(--blue);box-sh
 
 <!-- ① 名前・学年・学校入力 -->
 <div id="screen-entry" class="screen active">
-  <div class="app-header">
-    <div class="app-title">定期テスト英語<br>重要フレーズ＆重要単語暗記アプリ</div>
-    <div class="app-sub">松陰塾 宮前平校</div>
-  </div>
-  <div class="card">
-    <label>お名前</label>
-    <input type="text" id="input-name" placeholder="例：田中たろう" autocomplete="off">
-    <label>学年</label>
-    <select id="sel-grade">
-      <option value="中3" selected>中学3年生</option>
-      <option value="中2">中学2年生</option>
-      <option value="中1">中学1年生</option>
-    </select>
-    <label>学校</label>
-    <select id="sel-school">
-      <option value="宮中">宮前平中学校（宮中）</option>
-      <option value="向中">向丘中学校（向中）</option>
-      <option value="崎中">宮崎中学校（崎中）</option>
-    </select>
-    <label>テスト</label>
-    <select id="sel-test">
-      <option value="前期中間" selected>前期中間テスト</option>
-      <option value="前期期末">前期期末テスト</option>
-      <option value="後期中間">後期中間テスト</option>
-      <option value="学年末">学年末テスト</option>
-    </select>
-    <button class="btn btn-primary" onclick="startApp()">はじめる</button>
-  </div>
+<div class="app-header">
+<div class="app-title">定期テスト英語対策アプリ</div>
+<div class="app-sub">松陰塾 宮前平校</div>
+</div>
+<div class="card">
+<label>お名前</label>
+<input type="text" id="input-name" placeholder="例：田中たろう" autocomplete="off">
+<label>学年</label>
+<select id="sel-grade">
+<option value="中3">中学3年生</option>
+<option value="中2" selected>中学2年生</option>
+<option value="中1">中学1年生</option>
+</select>
+<label>学校</label>
+<select id="sel-school">
+<option value="宮中">宮前平中学校（宮中）</option>
+<option value="向中">向丘中学校（向中）</option>
+<option value="崎中">宮崎中学校（崎中）</option>
+</select>
+<label>テスト</label>
+<select id="sel-test">
+<option value="前期中間" selected>前期中間テスト</option>
+<option value="前期期末">前期期末テスト</option>
+<option value="後期中間">後期中間テスト</option>
+<option value="学年末">学年末テスト</option>
+</select>
+<button class="btn btn-primary" onclick="startApp()">はじめる</button>
+</div>
 </div>
 
 <!-- ② ランク選択 -->
 <div id="screen-rank" class="screen">
-  <div class="user-chip" id="user-chip"></div>
-  <div class="card">
-    <div class="section-title">ランク選択</div>
-    <div class="rank-grid">
-      <div class="rank-card s-card" id="rc-S" onclick="selectRank('S')">
-        <div class="rank-label">S</div>
-        <div class="rank-sub">最重要</div>
-        <div class="rank-status" id="rs-S"></div>
-      </div>
-      <div class="rank-card a-card locked" id="rc-A" onclick="selectRank('A')">
-        <div class="rank-label">A</div>
-        <div class="rank-sub">重要</div>
-        <div class="rank-status status-locked" id="rs-A">Sクリアで解放</div>
-      </div>
-      <div class="rank-card b-card locked" id="rc-B" onclick="selectRank('B')">
-        <div class="rank-label">B</div>
-        <div class="rank-sub">標準</div>
-        <div class="rank-status status-locked" id="rs-B">Aクリアで解放</div>
-      </div>
-    </div>
-    <div class="exam-banner" id="exam-banner">
-      <div class="exam-banner-title">🔥 テスト直前モード 解放！</div>
-      <div class="exam-banner-sub">Sランクを全て習得しました。直前モードで総仕上げ！</div>
-    </div>
-    <button class="btn" id="exam-mode-btn" onclick="startExamMode()" style="display:none;margin-bottom:8px;background:var(--yellow);color:#fff;border-color:var(--yellow)">🔥 テスト直前モードへ</button>
-  </div>
+<div class="user-chip" id="user-chip"></div>
+<div class="card">
+<div class="section-title">レベル選択</div>
+<div id="rank-desc" class="rank-desc-box"></div>
+<div class="rank-grid">
+<div class="rank-card s-card" id="rc-S" onclick="selectRank('S')">
+<div class="rank-label">S</div>
+<div class="rank-sub">中2中間テスト<br>最重要16文</div>
+<div class="rank-status" id="rs-S"></div>
+</div>
+<div class="rank-card a-card locked" id="rc-A" onclick="selectRank('A')">
+<div class="rank-label">中1-B</div>
+<div class="rank-sub">中1後半<br>Unit5-2〜8</div>
+<div class="rank-status status-locked" id="rs-A">Sクリアで解放</div>
+</div>
+<div class="rank-card b-card locked" id="rc-B" onclick="selectRank('B')">
+<div class="rank-label">中1-A</div>
+<div class="rank-sub">中1前半<br>Unit1〜5-1</div>
+<div class="rank-status status-locked" id="rs-B">中1-Bクリアで解放</div>
+</div>
+</div>
+<div class="exam-banner" id="exam-banner">
+<div class="exam-banner-title">🔥 テスト直前モード 解放！</div>
+<div class="exam-banner-sub">Sランクを全て習得しました。直前モードで総仕上げ！</div>
+</div>
+<button class="btn" id="exam-mode-btn" onclick="startExamMode()" style="display:none;margin-bottom:8px;background:var(--yellow);color:#fff;border-color:var(--yellow)">🔥 テスト直前モードへ</button>
+</div>
 </div>
 
 <!-- ③ レベル選択 -->
 <div id="screen-level" class="screen">
-  <div class="user-chip" id="user-chip2"></div>
-  <div class="card">
-    <div class="section-title" id="level-context"></div>
-    <div class="level-grid">
-      <div class="level-card" id="lc-1" onclick="startQuiz(1)">
-        <div class="level-num">Lv.1</div>
-        <div class="level-desc">4択問題</div>
-        <div class="level-status" id="ls-1"></div>
-      </div>
-      <div class="level-card locked" id="lc-2" onclick="startQuiz(2)">
-        <div class="level-num">Lv.2</div>
-        <div class="level-desc">穴埋め入力</div>
-        <div class="level-status status-locked" id="ls-2">Lv.1クリアで解放</div>
-      </div>
-      <div class="level-card locked" id="lc-3" onclick="startQuiz(3)">
-        <div class="level-num">Lv.3</div>
-        <div class="level-desc">並べ替え</div>
-        <div class="level-status status-locked" id="ls-3">Lv.2クリアで解放</div>
-      </div>
-      <div class="level-card locked" id="lc-4" onclick="startQuiz(4)">
-        <div class="level-num">Lv.4</div>
-        <div class="level-desc">全文入力</div>
-        <div class="level-status status-locked" id="ls-4">Lv.3クリアで解放</div>
-      </div>
-    </div>
-    <button class="btn" onclick="showScreen('screen-rank')" style="margin-top:0.5rem">← ランク選択に戻る</button>
-  </div>
+<div class="user-chip" id="user-chip2"></div>
+<div class="card">
+<div class="section-title" id="level-context"></div>
+<div class="level-grid">
+<div class="level-card" id="lc-0" onclick="startQuiz(0)">
+<div class="level-num">Lv.0</div>
+<div class="level-desc">英語→日本語<br>4択</div>
+<div class="level-status" id="ls-0"></div>
+</div>
+<div class="level-card locked" id="lc-1" onclick="startQuiz(1)">
+<div class="level-num">Lv.1</div>
+<div class="level-desc">4択穴埋め</div>
+<div class="level-status status-locked" id="ls-1">Lv.0クリアで解放</div>
+</div>
+<div class="level-card locked" id="lc-2" onclick="startQuiz(2)">
+<div class="level-num">Lv.2</div>
+<div class="level-desc">記述穴埋め</div>
+<div class="level-status status-locked" id="ls-2">Lv.1クリアで解放</div>
+</div>
+<div class="level-card locked" id="lc-3" onclick="startQuiz(3)">
+<div class="level-num">Lv.3</div>
+<div class="level-desc">全文並べ替え</div>
+<div class="level-status status-locked" id="ls-3">Lv.2クリアで解放</div>
+</div>
+</div>
+<button class="btn" onclick="showScreen('screen-rank')" style="margin-top:0.5rem">← レベル選択に戻る</button>
+</div>
 </div>
 
 <!-- ④ クイズ画面 -->
 <div id="screen-quiz" class="screen">
-  <div class="quiz-meta">
-    <div class="quiz-meta-left">
-      <div class="rank-badge" id="q-rank-badge"></div>
-      <span class="quiz-count" id="q-label"></span>
-    </div>
-    <span class="quiz-count" id="q-counter"></span>
-  </div>
-  <div class="progress-wrap"><div class="progress-bar" id="q-progress"></div></div>
-  <div id="q-content"></div>
-  <div class="feedback-box" id="q-feedback"></div>
-  <button class="btn btn-primary" id="q-next-btn" onclick="nextQuestion()" style="display:none;margin-top:0.5rem">次の問題へ →</button>
+<div class="quiz-meta">
+<div class="quiz-meta-left">
+<div class="rank-badge" id="q-rank-badge"></div>
+<span class="quiz-count" id="q-label"></span>
+</div>
+<span class="quiz-count" id="q-counter"></span>
+</div>
+<div class="progress-wrap"><div class="progress-bar" id="q-progress"></div></div>
+<div id="q-content"></div>
+<div class="explanation-box" id="q-explanation"></div>
+<div class="feedback-box" id="q-feedback"></div>
+<button class="btn btn-primary" id="q-next-btn" onclick="nextQuestion()" style="display:none;margin-top:0.5rem">次の問題へ →</button>
 </div>
 
 <!-- ⑤ 結果画面 -->
 <div id="screen-result" class="screen">
-  <div class="card">
-    <div class="section-title" id="res-tag"></div>
-    <div class="score-big" id="res-score"></div>
-    <div class="score-pct" id="res-pct"></div>
-    <div class="clear-msg" id="res-clear"></div>
-    <div class="notify-status" id="notify-status"></div>
-  </div>
-  <button class="btn" onclick="retryQuiz()" style="margin-bottom:8px">もう一度挑戦</button>
-  <button class="btn btn-primary" onclick="showScreen('screen-level')">レベル選択に戻る</button>
-  <button class="btn" onclick="showScreen('screen-rank')" style="margin-top:8px">ランク選択に戻る</button>
+<div class="card">
+<div class="section-title" id="res-tag"></div>
+<div class="score-big" id="res-score"></div>
+<div class="score-pct" id="res-pct"></div>
+<div class="clear-msg" id="res-clear"></div>
+<div class="notify-status" id="notify-status"></div>
+</div>
+<button class="btn" onclick="retryQuiz()" style="margin-bottom:8px">もう一度挑戦</button>
+<button class="btn btn-primary" onclick="showScreen('screen-level')">レベル選択に戻る</button>
+<button class="btn" onclick="showScreen('screen-rank')" style="margin-top:8px">ランク選択に戻る</button>
 </div>
 
 </div><!-- #app -->
-
 <script>
 var WEBHOOK="https://discordapp.com/api/webhooks/1512371851567829055/iK62fOT9C56UJ_HbL7xWMJ8F6ECAoKmSAl98rMYzv-pcS20Lr9iUVWr6knfxm_XGpS0e";
 
-/* ===================== マスターDB ===================== */
-var DB_中3={
-  phrases:{
-    S:[
-      {id:"ps01",en:"Let me show you something interesting.",ja:"私はあなたに面白いものを見せましょう。",keyword:"show",choices:["show","tell","give","bring"],words:["Let","me","show","you","something","interesting."],grammar:"let + 人 + 動詞原形"},
-      {id:"ps02",en:"This footprint will help us find the elephant.",ja:"この足跡は私たちが象を見つけるのに役立つでしょう。",keyword:"find",choices:["find","to find","finding","found"],words:["This","footprint","will","help","us","find","the","elephant."],grammar:"help + 人 + 動詞原形"},
-      {id:"ps03",en:"Ms. Thusi told us that you also do conservation.",ja:"トゥシさんはあなたも自然保護活動をしていると私たちに言いました。",keyword:"told",choices:["told","said","spoke","talked"],words:["Ms.","Thusi","told","us","that","you","also","do","conservation."],grammar:"tell + 人 + that"},
-      {id:"ps04",en:"English is spoken as an official language.",ja:"英語は公用語として話されています。",keyword:"spoken",choices:["spoken","speaking","speaks","speak"],words:["English","is","spoken","as","an","official","language."],grammar:"受動態"},
-      {id:"ps05",en:"We can see wildlife in the national park.",ja:"私たちは国立公園で野生生物を見ることができます。",keyword:"wildlife",choices:["wildlife","landscape","scenery","nature"],words:["We","can","see","wildlife","in","the","national","park."],grammar:""},
-      {id:"ps06",en:"The guide showed us elephant footprints.",ja:"ガイドは私たちに象の足跡を見せてくれました。",keyword:"showed",choices:["showed","told","taught","gave"],words:["The","guide","showed","us","elephant","footprints."],grammar:""},
-      {id:"ps07",en:"The elephant was bathing in the river.",ja:"その象は川で水浴びをしていました。",keyword:"bathing",choices:["bathing","swimming","playing","walking"],words:["The","elephant","was","bathing","in","the","river."],grammar:""},
-      {id:"ps08",en:"We've finally reached Kiyomizu-dera Temple.",ja:"私たちはついに清水寺に到着しました。",keyword:"reached",choices:["reached","arrived","came","got"],words:["We've","finally","reached","Kiyomizu-dera","Temple."],grammar:"現在完了"},
-      {id:"ps09",en:"Have you checked your photos yet?",ja:"あなたはもう写真を確認しましたか。",keyword:"yet",choices:["yet","already","just","never"],words:["Have","you","checked","your","photos","yet?"],grammar:"現在完了"},
-      {id:"ps10",en:"I've already checked my photos.",ja:"私はすでに写真を確認しました。",keyword:"already",choices:["already","yet","just","never"],words:["I've","already","checked","my","photos."],grammar:"現在完了"},
-      {id:"ps11",en:"The bus hasn't left yet.",ja:"バスはまだ出発していません。",keyword:"hasn't",choices:["hasn't","didn't","won't","isn't"],words:["The","bus","hasn't","left","yet."],grammar:"現在完了"},
-      {id:"ps12",en:"Wait a minute.",ja:"ちょっと待って。",keyword:"minute",choices:["minute","moment","second","time"],words:["Wait","a","minute."],grammar:""},
-      {id:"ps13",en:"Hurry up.",ja:"急いで。",keyword:"Hurry",choices:["Hurry","Speed","Rush","Go"],words:["Hurry","up."],grammar:""},
-      {id:"ps14",en:"Be careful.",ja:"気を付けて。",keyword:"careful",choices:["careful","safe","quiet","calm"],words:["Be","careful."],grammar:""},
-      {id:"ps15",en:"I want you to help me.",ja:"私はあなたに手伝ってほしいです。",keyword:"want",choices:["want","need","ask","tell"],words:["I","want","you","to","help","me."],grammar:"want + 人 + to"},
-      {id:"ps16",en:"That makes me nervous.",ja:"それは私を緊張させます。",keyword:"nervous",choices:["nervous","happy","sad","tired"],words:["That","makes","me","nervous."],grammar:"make + 人 + 形容詞"},
-      {id:"ps17",en:"We're on in five minutes.",ja:"私たちの出番はあと5分です。",keyword:"on",choices:["on","up","in","out"],words:["We're","on","in","five","minutes."],grammar:""},
-      {id:"ps18",en:"It was well received by everyone.",ja:"それはみんなに好評でした。",keyword:"received",choices:["received","accepted","taken","given"],words:["It","was","well","received","by","everyone."],grammar:"受動態"},
-      {id:"ps19",en:"It's made of chocolate.",ja:"それはチョコレートでできています。",keyword:"made",choices:["made","built","created","formed"],words:["It's","made","of","chocolate."],grammar:"受動態"},
-      {id:"ps20",en:"The play was performed by students.",ja:"その劇は生徒たちによって演じられました。",keyword:"performed",choices:["performed","written","made","directed"],words:["The","play","was","performed","by","students."],grammar:"受動態"}
-    ],
-    A:[
-      {id:"pa01",en:"We are connected through the Internet.",ja:"私たちはインターネットでつながっています。",keyword:"connected",choices:["connected","linked","joined","united"],words:["We","are","connected","through","the","Internet."],grammar:"受動態"},
-      {id:"pa02",en:"We can communicate in real time.",ja:"私たちはリアルタイムで連絡できます。",keyword:"communicate",choices:["communicate","connect","talk","speak"],words:["We","can","communicate","in","real","time."],grammar:""},
-      {id:"pa03",en:"I took a lot of pictures.",ja:"私はたくさん写真を撮りました。",keyword:"took",choices:["took","made","got","had"],words:["I","took","a","lot","of","pictures."],grammar:""},
-      {id:"pa04",en:"I bought some souvenirs.",ja:"私はお土産を買いました。",keyword:"souvenirs",choices:["souvenirs","presents","gifts","things"],words:["I","bought","some","souvenirs."],grammar:""},
-      {id:"pa05",en:"This picture was taken by my father.",ja:"この写真は父によって撮られました。",keyword:"taken",choices:["taken","made","shot","got"],words:["This","picture","was","taken","by","my","father."],grammar:"受動態"},
-      {id:"pa06",en:"The audience enjoyed the performance.",ja:"観客はその公演を楽しみました。",keyword:"audience",choices:["audience","people","crowd","group"],words:["The","audience","enjoyed","the","performance."],grammar:""},
-      {id:"pa07",en:"The script was written by a famous writer.",ja:"その台本は有名な作家によって書かれました。",keyword:"written",choices:["written","made","done","created"],words:["The","script","was","written","by","a","famous","writer."],grammar:"受動態"},
-      {id:"pa08",en:"It looks like real food.",ja:"それは本物の食べ物のように見えます。",keyword:"looks",choices:["looks","seems","feels","sounds"],words:["It","looks","like","real","food."],grammar:""},
-      {id:"pa09",en:"More than one billion people use emojis.",ja:"10億人以上の人々が絵文字を使っています。",keyword:"billion",choices:["billion","million","thousand","hundred"],words:["More","than","one","billion","people","use","emojis."],grammar:""},
-      {id:"pa10",en:"Emojis are used around the world.",ja:"絵文字は世界中で使われています。",keyword:"used",choices:["used","known","seen","loved"],words:["Emojis","are","used","around","the","world."],grammar:"受動態"}
-    ],
-    B:[
-      {id:"pb01",en:"Emojis help people express their feelings.",ja:"絵文字は人々が気持ちを表現するのに役立ちます。",keyword:"express",choices:["express","show","tell","give"],words:["Emojis","help","people","express","their","feelings."],grammar:"help + 人 + 動詞原形"},
-      {id:"pb02",en:"Plastic food samples are popular in Japan.",ja:"食品サンプルは日本で人気があります。",keyword:"popular",choices:["popular","famous","common","special"],words:["Plastic","food","samples","are","popular","in","Japan."],grammar:""},
-      {id:"pb03",en:"They require creativity and skill.",ja:"それらには創造力と技術が必要です。",keyword:"creativity",choices:["creativity","ability","talent","power"],words:["They","require","creativity","and","skill."],grammar:""},
-      {id:"pb04",en:"The tradition has a long history.",ja:"その伝統には長い歴史があります。",keyword:"tradition",choices:["tradition","culture","history","custom"],words:["The","tradition","has","a","long","history."],grammar:""},
-      {id:"pb05",en:"We should preserve the culture.",ja:"私たちはその文化を守るべきです。",keyword:"preserve",choices:["preserve","protect","keep","save"],words:["We","should","preserve","the","culture."],grammar:""},
-      {id:"pb06",en:"She gained confidence through her experience.",ja:"彼女は経験を通して自信を得ました。",keyword:"confidence",choices:["confidence","courage","power","ability"],words:["She","gained","confidence","through","her","experience."],grammar:""},
-      {id:"pb07",en:"The government supports the project.",ja:"政府はその計画を支援しています。",keyword:"supports",choices:["supports","helps","joins","leads"],words:["The","government","supports","the","project."],grammar:""},
-      {id:"pb08",en:"The culture is known worldwide.",ja:"その文化は世界中で知られています。",keyword:"worldwide",choices:["worldwide","globally","abroad","everywhere"],words:["The","culture","is","known","worldwide."],grammar:""},
-      {id:"pb09",en:"Communication is important.",ja:"コミュニケーションは重要です。",keyword:"Communication",choices:["Communication","Connection","Conversation","Cooperation"],words:["Communication","is","important."],grammar:""},
-      {id:"pb10",en:"We should respect different backgrounds.",ja:"私たちは異なる背景を尊重すべきです。",keyword:"respect",choices:["respect","accept","know","like"],words:["We","should","respect","different","backgrounds."],grammar:""}
-    ]
-  },
-  words:{
-    S:[
-      {id:"ws01",en:"official",ja:"公式の",choices_en:["official","special","normal","common"],choices_ja:["公式の","特別な","普通の","一般的な"]},
-      {id:"ws02",en:"language",ja:"言語",choices_en:["language","culture","history","tradition"],choices_ja:["言語","文化","歴史","伝統"]},
-      {id:"ws03",en:"wildlife",ja:"野生生物",choices_en:["wildlife","landscape","scenery","nature"],choices_ja:["野生生物","景色","風景","自然"]},
-      {id:"ws04",en:"guide",ja:"ガイド",choices_en:["guide","leader","teacher","helper"],choices_ja:["ガイド","リーダー","先生","助ける人"]},
-      {id:"ws05",en:"footprint",ja:"足跡",choices_en:["footprint","handprint","mark","trace"],choices_ja:["足跡","手形","跡","痕跡"]},
-      {id:"ws06",en:"elephant",ja:"象",choices_en:["elephant","lion","tiger","giraffe"],choices_ja:["象","ライオン","トラ","キリン"]},
-      {id:"ws07",en:"conservation",ja:"自然保護",choices_en:["conservation","decoration","construction","celebration"],choices_ja:["自然保護","装飾","建設","お祝い"]},
-      {id:"ws08",en:"reach",ja:"到着する",choices_en:["reach","arrive","get","come"],choices_ja:["到着する","着く","得る","来る"]},
-      {id:"ws09",en:"already",ja:"すでに",choices_en:["already","yet","still","just"],choices_ja:["すでに","まだ","今も","ちょうど"]},
-      {id:"ws10",en:"check",ja:"確認する",choices_en:["check","look","watch","find"],choices_ja:["確認する","見る","見る","見つける"]},
-      {id:"ws11",en:"souvenir",ja:"お土産",choices_en:["souvenir","present","gift","toy"],choices_ja:["お土産","プレゼント","贈り物","おもちゃ"]},
-      {id:"ws12",en:"script",ja:"台本",choices_en:["script","story","book","novel"],choices_ja:["台本","物語","本","小説"]},
-      {id:"ws13",en:"performance",ja:"公演",choices_en:["performance","concert","show","event"],choices_ja:["公演","コンサート","ショー","イベント"]},
-      {id:"ws14",en:"audience",ja:"観客",choices_en:["audience","actor","player","director"],choices_ja:["観客","俳優","選手","監督"]},
-      {id:"ws15",en:"nervous",ja:"緊張した",choices_en:["nervous","happy","excited","tired"],choices_ja:["緊張した","うれしい","興奮した","疲れた"]},
-      {id:"ws16",en:"chocolate",ja:"チョコレート",choices_en:["chocolate","candy","cake","cookie"],choices_ja:["チョコレート","キャンディー","ケーキ","クッキー"]},
-      {id:"ws17",en:"argument",ja:"口論",choices_en:["argument","talk","chat","speech"],choices_ja:["口論","話","おしゃべり","スピーチ"]},
-      {id:"ws18",en:"left",ja:"leaveの過去分詞",choices_en:["left","go","stay","arrive"],choices_ja:["leaveの過去分詞","行く","とどまる","到着する"]},
-      {id:"ws19",en:"received",ja:"受け入れられた",choices_en:["received","taken","given","made"],choices_ja:["受け入れられた","取られた","与えられた","作られた"]},
-      {id:"ws20",en:"official language",ja:"公用語",choices_en:["official language","mother tongue","sign language","foreign language"],choices_ja:["公用語","母語","手話","外国語"]}
-    ],
-    A:[
-      {id:"wa01",en:"ecosystem",ja:"生態系",choices_en:["ecosystem","environment","nature","habitat"],choices_ja:["生態系","環境","自然","生息地"]},
-      {id:"wa02",en:"national park",ja:"国立公園",choices_en:["national park","city park","zoo","forest"],choices_ja:["国立公園","市立公園","動物園","森"]},
-      {id:"wa03",en:"safari",ja:"サファリ",choices_en:["safari","journey","trip","tour"],choices_ja:["サファリ","旅","旅行","ツアー"]},
-      {id:"wa04",en:"whole",ja:"全体の",choices_en:["whole","all","every","full"],choices_ja:["全体の","すべての","毎","満ちた"]},
-      {id:"wa05",en:"amusement park",ja:"遊園地",choices_en:["amusement park","theme park","zoo","museum"],choices_ja:["遊園地","テーマパーク","動物園","博物館"]},
-      {id:"wa06",en:"director",ja:"監督",choices_en:["director","actor","writer","player"],choices_ja:["監督","俳優","作家","選手"]},
-      {id:"wa07",en:"narrator",ja:"語り手",choices_en:["narrator","actor","singer","dancer"],choices_ja:["語り手","俳優","歌手","ダンサー"]},
-      {id:"wa08",en:"costume",ja:"衣装",choices_en:["costume","clothes","uniform","outfit"],choices_ja:["衣装","服","制服","服装"]},
-      {id:"wa09",en:"role",ja:"役",choices_en:["role","part","job","work"],choices_ja:["役","一部","仕事","仕事"]},
-      {id:"wa10",en:"treasure",ja:"宝物",choices_en:["treasure","prize","gift","reward"],choices_ja:["宝物","賞","贈り物","報酬"]}
-    ],
-    B:[
-      {id:"wb01",en:"emoji",ja:"絵文字",choices_en:["emoji","symbol","mark","sign"],choices_ja:["絵文字","記号","マーク","サイン"]},
-      {id:"wb02",en:"communication",ja:"コミュニケーション",choices_en:["communication","conversation","connection","cooperation"],choices_ja:["コミュニケーション","会話","つながり","協力"]},
-      {id:"wb03",en:"creativity",ja:"創造力",choices_en:["creativity","ability","talent","skill"],choices_ja:["創造力","能力","才能","技術"]},
-      {id:"wb04",en:"innovation",ja:"革新",choices_en:["innovation","invention","discovery","creation"],choices_ja:["革新","発明","発見","創造"]},
-      {id:"wb05",en:"tradition",ja:"伝統",choices_en:["tradition","culture","history","custom"],choices_ja:["伝統","文化","歴史","習慣"]},
-      {id:"wb06",en:"preserve",ja:"保存する・守る",choices_en:["preserve","protect","keep","save"],choices_ja:["保存する・守る","保護する","保つ","救う"]},
-      {id:"wb07",en:"confidence",ja:"自信",choices_en:["confidence","courage","power","ability"],choices_ja:["自信","勇気","力","能力"]},
-      {id:"wb08",en:"background",ja:"背景",choices_en:["background","history","culture","tradition"],choices_ja:["背景","歴史","文化","伝統"]},
-      {id:"wb09",en:"culture",ja:"文化",choices_en:["culture","tradition","history","society"],choices_ja:["文化","伝統","歴史","社会"]},
-      {id:"wb10",en:"worldwide",ja:"世界中で",choices_en:["worldwide","global","international","universal"],choices_ja:["世界中で","グローバルな","国際的な","普遍的な"]}
-    ]
-  }
+/* ===================== 中2専用DB ===================== */
+var DB_中2_NEW={
+S:JSON.parse(`[{"id":"S01","en":"I went to Busan.","ja":"私は釜山へ行きました。","keyword":"went","choices":["go","went","gone","going"],"ja_choices":["私は釜山へ行きました","私は釜山に住んでいます","私は釜山から来ました","私は釜山へ行きます"],"words":["I","went","to","Busan."],"explanation":"過去のことを言う時はgoではなくwentを使います。goとwentはセットで覚えよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S02","en":"I visited my grandparents.","ja":"私は祖父母を訪ねました。","keyword":"visited","choices":["visit","visited","visits","visiting"],"ja_choices":["私は祖父母を訪ねました","私は祖父母と話しました","私は祖父母の家に住んでいます","私は祖父母に会いたいです"],"words":["I","visited","my","grandparents."],"explanation":"過去のことはvisit→visitedと語尾にedをつけます。visitedとvisitsを混同しないように注意！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S03","en":"How was your trip to Korea?","ja":"韓国への旅行はどうでしたか？","keyword":"was","choices":["is","was","were","are"],"ja_choices":["韓国への旅行はどうでしたか？","韓国へはいつ行きましたか？","韓国の旅行はどこですか？","韓国旅行は何日間でしたか？"],"words":["How","was","your","trip","to","Korea?"],"explanation":"過去の感想を聞く時はwasを使います。your tripは「あなたの旅行」で単数なのでwereではなくwasです！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S04","en":"They were really interested in Japan.","ja":"彼らは日本にとても興味がありました。","keyword":"in","choices":["at","in","on","to"],"ja_choices":["彼らは日本にとても興味がありました","彼らは日本にいます","彼らは日本が好きでした","彼らは日本に行きたいです"],"words":["They","were","really","interested","in","Japan."],"explanation":"interested in ～ の形で「〜に興味がある」という意味になります。inを忘れずに！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S05","en":"When I have free time, I study Japanese.","ja":"暇な時、私は日本語を勉強します。","keyword":"study","choices":["study","studied","studying","studies"],"ja_choices":["暇な時、私は日本語を勉強します","日本語を勉強する時、私は暇です","私は暇な時に日本語が好きです","日本語を勉強したいので暇にします"],"words":["When","I","have","free","time,","I","study","Japanese."],"explanation":"主語がIなので三単現のsは不要です。studiesはshe/heの時に使います。studyとstudiesを混同しないように！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S06","en":"They looked happy.","ja":"彼らは幸せそうに見えました。","keyword":"looked","choices":["looked","watched","saw","looked at"],"ja_choices":["彼らは幸せそうに見えました","彼らは幸せを見つけました","彼らは幸せに見ています","彼らは幸せを探しました"],"words":["They","looked","happy."],"explanation":"look happy で「幸せそうに見える」という意味です。watchやseeは「（目で）見る」で意味が違います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S07","en":"It sounds exciting.","ja":"それはわくわくしそうに聞こえます。","keyword":"sounds","choices":["sound","sounds","sounded","sounding"],"ja_choices":["それはわくわくしそうに聞こえます","それは面白く見えます","それはわくわくさせます","それはわくわくしています"],"words":["It","sounds","exciting."],"explanation":"主語がItなので三単現のsが必要です。sound→soundsになります。Itの時はsoundsと覚えよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S08","en":"This is Jack.","ja":"こちらはジャックです。","keyword":"This","choices":["This","That","He","It"],"ja_choices":["こちらはジャックです","ジャックはここにいます","ジャックはこれが好きです","ジャックがこれを持っています"],"words":["This","is","Jack."],"explanation":"人を紹介する時はThis is ～. を使います。Thatは遠くのものを指す時に使います。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S09","en":"Can you be there at one o'clock?","ja":"1時にそこにいられますか？","keyword":"be","choices":["is","are","be","been"],"ja_choices":["1時にそこにいられますか？","1時にそこへ行けますか？","1時にここにいますか？","1時に来てもらえますか？"],"words":["Can","you","be","there","at","one","o'clock?"],"explanation":"canの後ろは動詞の原形を使います。isやareでなくbeが正解です！can be の形を覚えよう。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S10","en":"I don't like playing basketball.","ja":"私はバスケをするのが好きではありません。","keyword":"playing","choices":["play","playing","played","to playing"],"ja_choices":["私はバスケをするのが好きではありません","私はバスケを見るのが好きではありません","私はバスケをしたくありません","私はバスケが下手です"],"words":["I","don't","like","playing","basketball."],"explanation":"like の後ろには動詞のing形を使います。like playing ～ で「〜するのが好き」という意味です。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S11","en":"I'm not good at passing the ball.","ja":"私はボールをパスするのが得意ではありません。","keyword":"at","choices":["in","on","at","to"],"ja_choices":["私はボールをパスするのが得意ではありません","私はボールをパスするのが好きではありません","私はボールをパスできません","私はボールを持っていません"],"words":["I'm","not","good","at","passing","the","ball."],"explanation":"good at ～ で「〜が得意」という意味になります。atを使うことを必ず覚えよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S12","en":"Passing the ball isn't easy.","ja":"ボールをパスすることは簡単ではありません。","keyword":"Passing","choices":["Pass","Passing","Passed","To passing"],"ja_choices":["ボールをパスすることは簡単ではありません","ボールをパスすることは楽しくありません","ボールをパスすることができません","ボールはパスしやすいです"],"words":["Passing","the","ball","isn't","easy."],"explanation":"「〜すること」が主語になる時はing形を使います。PassingはPassのing形です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S13","en":"Hajin wants to shoot.","ja":"ハジンはシュートしたいと思っています。","keyword":"wants","choices":["want","wants","wanted","wanting"],"ja_choices":["ハジンはシュートしたいと思っています","ハジンはシュートが得意です","ハジンはシュートしました","ハジンはシュートができます"],"words":["Hajin","wants","to","shoot."],"explanation":"HajinはI・youではないので三単現のsをつけます。want→wantsになります！wantとwantsを区別しよう。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S14","en":"The important thing is to pass the ball to Hajin.","ja":"大切なことはハジンにボールをパスすることです。","keyword":"to pass","choices":["pass","passing","to pass","passed"],"ja_choices":["大切なことはハジンにボールをパスすることです","大切なことはハジンのボールを取ることです","ハジンに大切なことを教えることです","ハジンはボールをパスすることが大切です"],"words":["The","important","thing","is","to","pass","the","ball","to","Hajin."],"explanation":"is to ～ で「〜することです」という意味になります。to passのようにtoの後ろは動詞の原形を使います。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S15","en":"I think that you did a great job.","ja":"あなたはよくやったと私は思います。","keyword":"did","choices":["do","did","does","doing"],"ja_choices":["あなたはよくやったと私は思います","あなたは仕事がとても好きだと思います","あなたはとても上手に働いています","私はあなたのすばらしい仕事を見ました"],"words":["I","think","that","you","did","a","great","job."],"explanation":"過去のことを言っているのでdidを使います。doの過去形はdidです！doとdidを混同しないように。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"S16","en":"I'm sure that you like playing basketball now.","ja":"あなたは今バスケをするのが好きだと私は確信しています。","keyword":"sure","choices":["think","sure","know","hope"],"ja_choices":["あなたは今バスケをするのが好きだと私は確信しています","あなたは今バスケが上手だと思います","バスケをするのが好きになってほしいです","あなたは今バスケをしていると思います"],"words":["I'm","sure","that","you","like","playing","basketball","now."],"explanation":"I'm sure (that) ～ で「きっと〜だと確信している」という意味になります。I thinkより強い確信を表します。読んでも分からない時は、すぐに先生に聞こう！"}]`),
+A:JSON.parse(`[{"id":"A01","en":"I'm Eri.","ja":"私はエリです。","keyword":"I'm","choices":["I'm","I is","I are","My"],"ja_choices":[],"words":["I'm","Eri."],"explanation":"I am ～ を短くするとI'm ～ になります。「私は〜です」という自己紹介の基本形です。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A02","en":"I'm a student there.","ja":"私はそこの生徒です。","keyword":"student","choices":["student","students","study","studying"],"ja_choices":[],"words":["I'm","a","student","there."],"explanation":"a student で「（一人の）生徒」という意味です。aの後ろは単数形（1つ）を使います。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A03","en":"I'm from Japan.","ja":"私は日本出身です。","keyword":"from","choices":["from","in","to","at"],"ja_choices":[],"words":["I'm","from","Japan."],"explanation":"from は「〜から・〜出身」という意味です。出身地を言う時はI'm from ～. を使います。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A04","en":"I like spring.","ja":"私は春が好きです。","keyword":"like","choices":["like","likes","liked","liking"],"ja_choices":[],"words":["I","like","spring."],"explanation":"主語がIなので、likeはそのまま使います。likesはshe/heの時だけです！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A05","en":"I don't like spring.","ja":"私は春が好きではありません。","keyword":"don't","choices":["don't","doesn't","isn't","not"],"ja_choices":[],"words":["I","don't","like","spring."],"explanation":"I（私）の否定文はdon't を使います。doesn't はshe/he の時に使います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A06","en":"I can play the drums.","ja":"私はドラムを演奏できます。","keyword":"play","choices":["play","plays","playing","played"],"ja_choices":[],"words":["I","can","play","the","drums."],"explanation":"canの後ろは動詞の原形を使います。playsやplayedではなくplayを使います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A07","en":"I can't play the drums.","ja":"私はドラムを演奏できません。","keyword":"can't","choices":["can't","don't can","no can","am not"],"ja_choices":[],"words":["I","can't","play","the","drums."],"explanation":"canの否定形はcan't（cannot）です。don't canという言い方は間違いです！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A08","en":"You are a new student.","ja":"あなたは新入生です。","keyword":"are","choices":["are","is","am","be"],"ja_choices":[],"words":["You","are","a","new","student."],"explanation":"youに対してはareを使います。am（Iの時）・is（he/sheの時）・are（youの時）を区別しよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A09","en":"Are you a new student?","ja":"あなたは新入生ですか？","keyword":"Are","choices":["Are","Is","Am","Do"],"ja_choices":[],"words":["Are","you","a","new","student?"],"explanation":"youを使った疑問文はAreを文の先頭に置きます。Are you ～? の形を覚えよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A10","en":"Yes, I am.","ja":"はい、そうです。","keyword":"I","choices":["I","you","we","she"],"ja_choices":[],"words":["Yes,","I","am."],"explanation":"Are you ～? に対する返事はYes, I am. です。youへの答えはIで返します！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A11","en":"No, I'm not.","ja":"いいえ、違います。","keyword":"not","choices":["not","don't","no","isn't"],"ja_choices":[],"words":["No,","I'm","not."],"explanation":"Are you ～? へのNoの答えはNo, I'm not. です。I'm notはI am notの短縮形です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A12","en":"Do you play an instrument?","ja":"あなたは楽器を演奏しますか？","keyword":"Do","choices":["Do","Are","Is","Can"],"ja_choices":[],"words":["Do","you","play","an","instrument?"],"explanation":"一般動詞（play）を使った疑問文はDoで始めます。Areは be動詞の疑問文です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A13","en":"Yes, I do.","ja":"はい、します。","keyword":"do","choices":["do","am","can","does"],"ja_choices":[],"words":["Yes,","I","do."],"explanation":"Do you ～? への答えはYes, I do. です。Doで聞かれたらdoで返します！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A14","en":"No, I don't.","ja":"いいえ、しません。","keyword":"don't","choices":["don't","doesn't","am not","can't"],"ja_choices":[],"words":["No,","I","don't."],"explanation":"Do you ～? へのNoの答えはNo, I don't. です。don'tはdo notの短縮形です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A15","en":"Can you read it?","ja":"あなたはそれを読めますか？","keyword":"read","choices":["read","reads","reading","to read"],"ja_choices":[],"words":["Can","you","read","it?"],"explanation":"Canの後ろは動詞の原形を使います。readsやreadingではなくreadを使います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A16","en":"Yes, I can.","ja":"はい、できます。","keyword":"can","choices":["can","am","do","will"],"ja_choices":[],"words":["Yes,","I","can."],"explanation":"Can you ～? への答えはYes, I can. です。Canで聞かれたらcanで返します！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A17","en":"No, I can't.","ja":"いいえ、できません。","keyword":"can't","choices":["can't","don't","am not","won't"],"ja_choices":[],"words":["No,","I","can't."],"explanation":"Can you ～? へのNoの答えはNo, I can't. です。can'tはcannotの短縮形です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A18","en":"What do you do during the summer vacation?","ja":"夏休みの間、あなたは何をしますか？","keyword":"during","choices":["during","in","at","on"],"ja_choices":[],"words":["What","do","you","do","during","the","summer","vacation?"],"explanation":"during は「〜の間（ずっと）」という意味です。during the summer vacation で「夏休みの間」になります。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A19","en":"I usually visit my grandparents.","ja":"私はたいてい祖父母を訪ねます。","keyword":"usually","choices":["usually","always","never","sometimes"],"ja_choices":[],"words":["I","usually","visit","my","grandparents."],"explanation":"usuallyは「たいてい・ふだんは」という意味の頻度を表す副詞です。動詞の前に置きます。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A20","en":"I like dancing.","ja":"私はダンスが好きです。","keyword":"dancing","choices":["dancing","dance","danced","to dancing"],"ja_choices":[],"words":["I","like","dancing."],"explanation":"like の後ろに動詞をつなげる時はing形を使います。like dancing で「ダンスするのが好き」です。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A21","en":"Do you like dancing?","ja":"あなたはダンスが好きですか？","keyword":"dancing","choices":["dancing","dance","danced","dances"],"ja_choices":[],"words":["Do","you","like","dancing?"],"explanation":"likeの後ろには動詞のing形を使います。Do you like dancing? は「ダンスするのが好きですか？」という疑問文です。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A22","en":"I want to get that blue one.","ja":"私はあの青いのが欲しいです。","keyword":"blue","choices":["blue","blues","bluely","bluing"],"ja_choices":[],"words":["I","want","to","get","that","blue","one."],"explanation":"blueは「青い」という意味の形容詞です。形容詞はそのまま名詞の前に置きます。blue oneで「青いもの」という意味になります。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A23","en":"Do you want to try it?","ja":"あなたはそれを試してみたいですか？","keyword":"try","choices":["try","tries","trying","tried"],"ja_choices":[],"words":["Do","you","want","to","try","it?"],"explanation":"want toの後ろは動詞の原形を使います。tryをそのまま使います！read/tried/tryingではなくtryです。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A24","en":"This is Ms. Thusi.","ja":"こちらはツシ先生です。","keyword":"Thusi","choices":["Thusi","Thusi's","a Thusi","the Thusi"],"ja_choices":[],"words":["This","is","Ms.","Thusi."],"explanation":"人名の前にはa・theはつけません。This is Ms. Thusi. で「こちらはツシさんです」と紹介する表現です。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A25","en":"She's our English teacher.","ja":"彼女は私たちの英語の先生です。","keyword":"She's","choices":["She's","Her","She","Hers"],"ja_choices":[],"words":["She's","our","English","teacher."],"explanation":"She's はShe isの短縮形です。「彼女は〜です」という時に使います。Herは「彼女の・彼女を」という意味で違います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A26","en":"That's Mr. Hoshino.","ja":"あちらは星野先生です。","keyword":"Hoshino","choices":["Hoshino","a Hoshino","the Hoshino","Hoshino's"],"ja_choices":[],"words":["That's","Mr.","Hoshino."],"explanation":"That's はThat isの短縮形で「あちらは」という意味です。人名の前にはa・theをつけません！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A27","en":"He's our P.E. teacher.","ja":"彼は私たちの体育の先生です。","keyword":"He's","choices":["He's","His","Him","He"],"ja_choices":[],"words":["He's","our","P.E.","teacher."],"explanation":"He's はHe isの短縮形です。男性について「彼は〜です」と言う時に使います。Hisは「彼の」という意味で違います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A28","en":"Who's that?","ja":"あれはだれですか？","keyword":"Who's","choices":["Who's","What's","Where's","How's"],"ja_choices":[],"words":["Who's","that?"],"explanation":"Whoは「だれ」という意味です。Who's = Who isの短縮形で「あれは誰ですか？」という疑問文になります。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A29","en":"He's a new student.","ja":"彼は新入生です。","keyword":"He's","choices":["He's","His","Him","He"],"ja_choices":[],"words":["He's","a","new","student."],"explanation":"He's はHe isの短縮形で「彼は〜です」という意味です。HisやHimとは意味が違うので注意！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A30","en":"Is this our classroom?","ja":"ここは私たちの教室ですか？","keyword":"Is","choices":["Is","Are","Am","Do"],"ja_choices":[],"words":["Is","this","our","classroom?"],"explanation":"Thisに対する疑問文はIsで始めます。thisは単数なのでIsを使います。Areは複数の時です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A31","en":"Yes, it is.","ja":"はい、そうです。","keyword":"it","choices":["it","this","that","they"],"ja_choices":[],"words":["Yes,","it","is."],"explanation":"Is this ～? への答えはYes, it is. です。this/thatはit に置き換えて答えます！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A32","en":"No, it isn't.","ja":"いいえ、違います。","keyword":"isn't","choices":["isn't","aren't","don't","not"],"ja_choices":[],"words":["No,","it","isn't."],"explanation":"Is this ～? へのNoの答えはNo, it isn't. です。isn'tはis notの短縮形です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A33","en":"This is not our classroom.","ja":"ここは私たちの教室ではありません。","keyword":"not","choices":["not","don't","isn't","no"],"ja_choices":[],"words":["This","is","not","our","classroom."],"explanation":"This is ～ の否定文はThis is not ～. です。This is isn't とはしません！notをisの後ろに置きます。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A34","en":"Whose pencil case is that?","ja":"あれは誰の筆箱ですか？","keyword":"Whose","choices":["Whose","Who","Which","What"],"ja_choices":[],"words":["Whose","pencil","case","is","that?"],"explanation":"Whose は「誰の」という意味の疑問詞です。Whoは「誰」、Whoseは「誰の」と区別しよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A35","en":"Whose is it?","ja":"それは誰のですか？","keyword":"Whose","choices":["Whose","Who","Which","Where"],"ja_choices":[],"words":["Whose","is","it?"],"explanation":"Whose is it? で「それは誰のですか？」という意味になります。Whoとの違いを覚えよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A36","en":"Turn on your camera.","ja":"カメラをオンにしてください。","keyword":"on","choices":["on","in","up","at"],"ja_choices":[],"words":["Turn","on","your","camera."],"explanation":"turn on ～ で「〜をオンにする・つける」という意味です。turn inやturn upとは意味が違います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A37","en":"Don't be shy.","ja":"恥ずかしがらないでください。","keyword":"Don't","choices":["Don't","No","Not","Doesn't"],"ja_choices":[],"words":["Don't","be","shy."],"explanation":"Don't ～ で「〜しないでください」という禁止の命令文になります。Don't be ～ で「〜でいないで」という意味です。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"A38","en":"Let's begin.","ja":"始めましょう。","keyword":"Let's","choices":["Let's","Let","Lets","Let us to"],"ja_choices":[],"words":["Let's","begin."],"explanation":"Let's ～ で「〜しましょう」という意味の提案表現です。Let's = Let usの短縮形です！読んでも分からない時は、すぐに先生に聞こう！"}]`),
+B:JSON.parse(`[{"id":"B01","en":"Where's the science lab?","ja":"理科室はどこですか？","keyword":"Where's","choices":["Where's","What's","Who's","How's"],"ja_choices":[],"words":["Where's","the","science","lab?"],"explanation":"Where's はWhere isの短縮形で「〜はどこですか？」という意味です。Whatやwhoと区別しよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B02","en":"It's on the first floor.","ja":"1階にあります。","keyword":"on","choices":["on","in","at","to"],"ja_choices":[],"words":["It's","on","the","first","floor."],"explanation":"「〜階に」はon ～ floorと言います。on the first floorで「1階に」という意味になります。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B03","en":"Where do you have lunch?","ja":"あなたはどこでランチを食べますか？","keyword":"Where","choices":["Where","When","What","Who"],"ja_choices":[],"words":["Where","do","you","have","lunch?"],"explanation":"「どこで」と場所を聞く時はWhereを使います。Whenは「いつ」、Whatは「何」で意味が違います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B04","en":"We usually eat in the cafeteria.","ja":"私たちはたいていカフェテリアで食べます。","keyword":"eat","choices":["eat","eats","eating","ate"],"ja_choices":[],"words":["We","usually","eat","in","the","cafeteria."],"explanation":"主語がWeなのでeatをそのまま使います。eatsはshe/heの時だけ！weの後ろはeatです。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B05","en":"When's your next match?","ja":"次の試合はいつですか？","keyword":"When's","choices":["When's","Where's","What's","Who's"],"ja_choices":[],"words":["When's","your","next","match?"],"explanation":"When's はWhen isの短縮形で「〜はいつですか？」という意味です。Whereは「どこ」、Whatは「何」と区別しよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B06","en":"It's next month.","ja":"来月です。","keyword":"next","choices":["next","this","last","the"],"ja_choices":[],"words":["It's","next","month."],"explanation":"next month で「来月」という意味です。this monthは「今月」、last monthは「先月」です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B07","en":"When do you practice?","ja":"あなたはいつ練習しますか？","keyword":"When","choices":["When","Where","What","Who"],"ja_choices":[],"words":["When","do","you","practice?"],"explanation":"「いつ」と時間を聞く時はWhenを使います。Whereは「どこ」、Whatは「何」で意味が違います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B08","en":"After school and on weekends.","ja":"放課後と週末です。","keyword":"on","choices":["on","in","at","by"],"ja_choices":[],"words":["After","school","and","on","weekends."],"explanation":"曜日や週末を表す時はon を使います。on weekendsで「週末に」という意味です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B09","en":"Can I have the spaghetti?","ja":"スパゲッティをいただけますか？","keyword":"have","choices":["have","has","having","had"],"ja_choices":[],"words":["Can","I","have","the","spaghetti?"],"explanation":"Can I have ～? は「〜をいただけますか？」という注文や依頼の表現です。Canの後ろは原形のhaveを使います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B10","en":"Which would you like, tomato spaghetti or basil spaghetti?","ja":"トマトスパゲッティとバジルスパゲッティ、どちらがいいですか？","keyword":"Which","choices":["Which","What","Who","Where"],"ja_choices":[],"words":["Which","would","you","like,","tomato","spaghetti","or","basil","spaghetti?"],"explanation":"Whichは選択肢がある時の「どちら・どれ」です。2つのどちらかを選ぶ時はWhichを使います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B11","en":"I'd like tomato spaghetti, please.","ja":"トマトスパゲッティをお願いします。","keyword":"like","choices":["like","want","have","need"],"ja_choices":[],"words":["I'd","like","tomato","spaghetti,","please."],"explanation":"I'd like ～ はI would like ～の短縮形で「〜をいただきたいです」という丁寧な注文表現です。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B12","en":"How much is it?","ja":"いくらですか？","keyword":"much","choices":["much","many","long","often"],"ja_choices":[],"words":["How","much","is","it?"],"explanation":"How much is it? で「いくらですか？」という値段を聞く表現です。How many は数を聞く時に使います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B13","en":"How many pieces do you want?","ja":"何個欲しいですか？","keyword":"many","choices":["many","much","long","often"],"ja_choices":[],"words":["How","many","pieces","do","you","want?"],"explanation":"How many ～? は「いくつ〜?」と数を聞く表現です。piecesは数えられるのでmanyを使います！How muchは値段を聞く時です。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B14","en":"She likes singing and dancing.","ja":"彼女は歌ったり踊ったりするのが好きです。","keyword":"likes","choices":["likes","like","liked","liking"],"ja_choices":[],"words":["She","likes","singing","and","dancing."],"explanation":"SheはI・you以外なので三単現のsが必要です。like→likesになります！主語がsheの時はlikesです。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B15","en":"Does she have a cold?","ja":"彼女は風邪をひいていますか？","keyword":"Does","choices":["Does","Do","Is","Has"],"ja_choices":[],"words":["Does","she","have","a","cold?"],"explanation":"sheを使った一般動詞の疑問文はDoesで始めます。DoはI・youの時、DoesはHe・Sheの時です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B16","en":"Yes, she does.","ja":"はい、ひいています。","keyword":"does","choices":["does","do","is","has"],"ja_choices":[],"words":["Yes,","she","does."],"explanation":"Does she ～? への答えはYes, she does. です。Doesで聞かれたらdoesで返します！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B17","en":"No, she doesn't.","ja":"いいえ、ひいていません。","keyword":"doesn't","choices":["doesn't","don't","isn't","haven't"],"ja_choices":[],"words":["No,","she","doesn't."],"explanation":"Does she ～? へのNoの答えはNo, she doesn't. です。doesn't はdoes notの短縮形です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B18","en":"She doesn't go to school.","ja":"彼女は学校に行きません。","keyword":"doesn't","choices":["doesn't","don't","isn't","not"],"ja_choices":[],"words":["She","doesn't","go","to","school."],"explanation":"sheを使った否定文はdoesn'tを使います。don'tはI・youの時です。She doesn't ～. の形を覚えよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B19","en":"What time does the next bus come?","ja":"次のバスは何時に来ますか？","keyword":"does","choices":["does","do","is","are"],"ja_choices":[],"words":["What","time","does","the","next","bus","come?"],"explanation":"the next busは三人称単数なのでdoesを使います。Do you ～? と混同しないよう注意！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B20","en":"How can I get to Honcho Station?","ja":"本町駅へはどうやって行けますか？","keyword":"get","choices":["get","gets","getting","go"],"ja_choices":[],"words":["How","can","I","get","to","Honcho","Station?"],"explanation":"How can I get to ～? で「〜へどうやって行けますか？」という道を尋ねる表現です。canの後ろは原形のgetを使います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B21","en":"How long does it take from here?","ja":"ここからどのくらいかかりますか？","keyword":"long","choices":["long","much","many","far"],"ja_choices":[],"words":["How","long","does","it","take","from","here?"],"explanation":"How long does it take? で「どのくらい時間がかかりますか？」という意味です。時間の長さを聞く時はlongを使います！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B22","en":"I went to a temple on New Year's Eve.","ja":"私は大晦日にお寺に行きました。","keyword":"went","choices":["went","go","goes","going"],"ja_choices":[],"words":["I","went","to","a","temple","on","New","Year's","Eve."],"explanation":"過去のことを言っているのでgoの過去形wentを使います。go→wentは不規則変化なので丸ごと覚えよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B23","en":"I watched TV with my family.","ja":"私は家族とテレビを見ました。","keyword":"watched","choices":["watched","watch","watches","watching"],"ja_choices":[],"words":["I","watched","TV","with","my","family."],"explanation":"過去のことなのでwatchの過去形watchedを使います。watch→watchedとedをつけるだけです！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B24","en":"Did you eat any traditional food?","ja":"あなたは何か伝統的な食べ物を食べましたか？","keyword":"Did","choices":["Did","Do","Were","Are"],"ja_choices":[],"words":["Did","you","eat","any","traditional","food?"],"explanation":"過去のことを聞く疑問文はDidで始めます。DoはDid、Areはwere（過去）と覚えよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B25","en":"Yes, I did.","ja":"はい、食べました。","keyword":"did","choices":["did","do","was","were"],"ja_choices":[],"words":["Yes,","I","did."],"explanation":"Did you ～? への答えはYes, I did. です。Didで聞かれたらdidで返します！readんでも分からない時は、すぐに先生に聞こう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B26","en":"No, I didn't.","ja":"いいえ、食べませんでした。","keyword":"didn't","choices":["didn't","don't","wasn't","weren't"],"ja_choices":[],"words":["No,","I","didn't."],"explanation":"Did you ～? へのNoの答えはNo, I didn't. です。didn'tはdid notの短縮形です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B27","en":"I didn't eat any traditional food.","ja":"私は伝統的な食べ物を食べませんでした。","keyword":"didn't","choices":["didn't","don't","wasn't","not"],"ja_choices":[],"words":["I","didn't","eat","any","traditional","food."],"explanation":"過去の否定文はdidn'tを使います。don'tは現在形の否定です。過去はdidn'tを覚えよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B28","en":"It was fun.","ja":"楽しかったです。","keyword":"was","choices":["was","is","were","be"],"ja_choices":[],"words":["It","was","fun."],"explanation":"Itを主語にした過去形はwasを使います。isの過去形がwasです！wereはyou・they・weの時に使います。読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B29","en":"The traditional buildings were beautiful.","ja":"伝統的な建物は美しかったです。","keyword":"were","choices":["were","was","are","be"],"ja_choices":[],"words":["The","traditional","buildings","were","beautiful."],"explanation":"buildingsは複数なので過去形はwereを使います。wasは単数（it/he/she）の時、wereは複数の時です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B30","en":"I'm baking a cake now.","ja":"私は今ケーキを焼いています。","keyword":"baking","choices":["baking","bake","baked","bakes"],"ja_choices":[],"words":["I'm","baking","a","cake","now."],"explanation":"今まさにしていることを表す時はI'm ～ing の形を使います。bake→bakingとeを取ってingをつけます！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B31","en":"Are you baking a cake?","ja":"あなたはケーキを焼いていますか？","keyword":"Are","choices":["Are","Do","Is","Were"],"ja_choices":[],"words":["Are","you","baking","a","cake?"],"explanation":"現在進行形（～ing）の疑問文はAreで始めます。Do you ～? は一般動詞の疑問文です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B32","en":"Yes, I am.","ja":"はい、焼いています。","keyword":"I","choices":["I","you","she","we"],"ja_choices":[],"words":["Yes,","I","am."],"explanation":"Are you ～? への答えはYes, I am. です。youで聞かれたらIで答えます！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B33","en":"No, I'm not.","ja":"いいえ、焼いていません。","keyword":"not","choices":["not","don't","no","didn't"],"ja_choices":[],"words":["No,","I'm","not."],"explanation":"Are you ～ing? へのNoの答えはNo, I'm not. です。I'm notはI am notの短縮形です！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B34","en":"What are you doing?","ja":"あなたは何をしていますか？","keyword":"What","choices":["What","Where","When","Who"],"ja_choices":[],"words":["What","are","you","doing?"],"explanation":"「何をしていますか？」はWhat are you doing? と言います。Whereは「どこ」、Whenは「いつ」と区別しよう！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B35","en":"We are decorating the cake now.","ja":"私たちは今ケーキをデコレーションしています。","keyword":"decorating","choices":["decorating","decorate","decorated","decorates"],"ja_choices":[],"words":["We","are","decorating","the","cake","now."],"explanation":"今していることを表す時はbe動詞＋ingを使います。decorate→decoratingとeを取ってingをつけます！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B36","en":"What were you doing?","ja":"あなたは何をしていましたか？","keyword":"were","choices":["were","was","are","did"],"ja_choices":[],"words":["What","were","you","doing?"],"explanation":"過去進行形の疑問文はwereを使います。What were you doing? で「何をしていましたか？」という意味になります！読んでも分からない時は、すぐに先生に聞こう！"},{"id":"B37","en":"I was shopping.","ja":"私は買い物をしていました。","keyword":"shopping","choices":["shopping","shop","shopped","shops"],"ja_choices":[],"words":["I","was","shopping."],"explanation":"過去進行形はwas/were＋ing形を使います。shop→shoppingとpを重ねてingをつけます！読んでも分からない時は、すぐに先生に聞こう！"}]`)
 };
-var DB_中2={
-  phrases:{
-    S:[
-      {id:"2ps01",en:"I'm going to join the brass band.",ja:"私は吹奏楽部に入る予定です。",keyword:"going",choices:["going","go","went","gone"],words:["I'm","going","to","join","the","brass","band."],grammar:"be going to"},
-      {id:"2ps02",en:"I'm going to practice hard.",ja:"私は一生懸命練習する予定です。",keyword:"practice",choices:["practice","study","work","train"],words:["I'm","going","to","practice","hard."],grammar:"be going to"},
-      {id:"2ps03",en:"I'm going to study abroad someday.",ja:"私はいつか留学する予定です。",keyword:"abroad",choices:["abroad","away","outside","overseas"],words:["I'm","going","to","study","abroad","someday."],grammar:"be going to"},
-      {id:"2ps04",en:"What are you going to do?",ja:"あなたは何をする予定ですか。",keyword:"going",choices:["going","planning","trying","wanting"],words:["What","are","you","going","to","do?"],grammar:"be going to"},
-      {id:"2ps05",en:"I'll do my best.",ja:"私は全力を尽くします。",keyword:"best",choices:["best","better","good","well"],words:["I'll","do","my","best."],grammar:"will"},
-      {id:"2ps06",en:"I'll try harder next time.",ja:"私は次回もっと頑張ります。",keyword:"harder",choices:["harder","more hard","hardest","hard"],words:["I'll","try","harder","next","time."],grammar:"比較級"},
-      {id:"2ps07",en:"I'm taller than Ken.",ja:"私はケンより背が高い。",keyword:"taller",choices:["taller","more tall","tallest","tall"],words:["I'm","taller","than","Ken."],grammar:"比較級"},
-      {id:"2ps08",en:"This book is more interesting than that one.",ja:"この本はあの本より面白い。",keyword:"more",choices:["more","most","very","so"],words:["This","book","is","more","interesting","than","that","one."],grammar:"more ～ than"},
-      {id:"2ps09",en:"He runs the fastest in our class.",ja:"彼はクラスで一番速く走ります。",keyword:"fastest",choices:["fastest","faster","fast","most fast"],words:["He","runs","the","fastest","in","our","class."],grammar:"最上級"},
-      {id:"2ps10",en:"I'm as tall as Kaito.",ja:"私はカイトと同じくらい背が高い。",keyword:"as",choices:["as","so","like","than"],words:["I'm","as","tall","as","Kaito."],grammar:"as ～ as"},
-      {id:"2ps11",en:"This bag is as expensive as that one.",ja:"このバッグはあのバッグと同じくらい高価です。",keyword:"expensive",choices:["expensive","cheap","good","nice"],words:["This","bag","is","as","expensive","as","that","one."],grammar:"as ～ as"},
-      {id:"2ps12",en:"Which do you like better?",ja:"あなたはどちらがより好きですか。",keyword:"better",choices:["better","best","more","most"],words:["Which","do","you","like","better?"],grammar:"比較級"},
-      {id:"2ps13",en:"I'm going to be a doctor.",ja:"私は医者になる予定です。",keyword:"doctor",choices:["doctor","teacher","player","singer"],words:["I'm","going","to","be","a","doctor."],grammar:"be going to"},
-      {id:"2ps14",en:"I think I'll enjoy it.",ja:"私はそれを楽しめると思います。",keyword:"enjoy",choices:["enjoy","like","love","want"],words:["I","think","I'll","enjoy","it."],grammar:"will"},
-      {id:"2ps15",en:"I'm going to visit my grandparents.",ja:"祖父母を訪ねる予定です。",keyword:"visit",choices:["visit","see","meet","find"],words:["I'm","going","to","visit","my","grandparents."],grammar:"be going to"},
-      {id:"2ps16",en:"What are you going to do this weekend?",ja:"今週末何をする予定ですか。",keyword:"weekend",choices:["weekend","weekday","holiday","vacation"],words:["What","are","you","going","to","do","this","weekend?"],grammar:"be going to"},
-      {id:"2ps17",en:"There are a lot of books in the library.",ja:"図書館にはたくさんの本があります。",keyword:"library",choices:["library","school","classroom","bookstore"],words:["There","are","a","lot","of","books","in","the","library."],grammar:""},
-      {id:"2ps18",en:"Ken is taller than me.",ja:"ケンは私より背が高い。",keyword:"taller",choices:["taller","more tall","tallest","tall"],words:["Ken","is","taller","than","me."],grammar:"比較級"},
-      {id:"2ps19",en:"This is the best player on the team.",ja:"彼はチームで一番良い選手です。",keyword:"best",choices:["best","better","good","great"],words:["This","is","the","best","player","on","the","team."],grammar:"最上級"},
-      {id:"2ps20",en:"I'm going to help my parents.",ja:"私は両親を手伝う予定です。",keyword:"parents",choices:["parents","friends","teachers","grandparents"],words:["I'm","going","to","help","my","parents."],grammar:"be going to"}
-    ],
-    A:[
-      {id:"2pa01",en:"There is a basketball game tomorrow.",ja:"明日バスケットボールの試合があります。",keyword:"game",choices:["game","match","play","sport"],words:["There","is","a","basketball","game","tomorrow."],grammar:""},
-      {id:"2pa02",en:"Thank you for your advice.",ja:"アドバイスをありがとうございます。",keyword:"advice",choices:["advice","help","support","idea"],words:["Thank","you","for","your","advice."],grammar:""},
-      {id:"2pa03",en:"We need more practice.",ja:"私たちはもっと練習が必要です。",keyword:"practice",choices:["practice","study","training","work"],words:["We","need","more","practice."],grammar:""},
-      {id:"2pa04",en:"I enjoyed watching the game.",ja:"私は試合を見るのを楽しみました。",keyword:"enjoyed",choices:["enjoyed","liked","loved","wanted"],words:["I","enjoyed","watching","the","game."],grammar:""},
-      {id:"2pa05",en:"Our team won the game.",ja:"私たちのチームは試合に勝ちました。",keyword:"won",choices:["won","played","lost","tried"],words:["Our","team","won","the","game."],grammar:""},
-      {id:"2pa06",en:"We played very well.",ja:"私たちはとてもうまくプレーしました。",keyword:"well",choices:["well","good","fine","great"],words:["We","played","very","well."],grammar:""},
-      {id:"2pa07",en:"We were excited about the tournament.",ja:"私たちはトーナメントについて興奮していました。",keyword:"excited",choices:["excited","happy","glad","proud"],words:["We","were","excited","about","the","tournament."],grammar:""},
-      {id:"2pa08",en:"I have a good player in mind.",ja:"私は頭の中に良い選手がいます。",keyword:"mind",choices:["mind","head","heart","idea"],words:["I","have","a","good","player","in","mind."],grammar:""},
-      {id:"2pa09",en:"You can do it.",ja:"あなたならできます。",keyword:"can",choices:["can","will","must","should"],words:["You","can","do","it."],grammar:""},
-      {id:"2pa10",en:"I'm going to read this book.",ja:"私はこの本を読む予定です。",keyword:"read",choices:["read","write","buy","study"],words:["I'm","going","to","read","this","book."],grammar:"be going to"}
-    ],
-    B:[
-      {id:"2pb01",en:"I was surprised to hear that.",ja:"それを聞いて驚きました。",keyword:"surprised",choices:["surprised","happy","sad","excited"],words:["I","was","surprised","to","hear","that."],grammar:""},
-      {id:"2pb02",en:"The game was exciting.",ja:"その試合はわくわくするものでした。",keyword:"exciting",choices:["exciting","interested","bored","tired"],words:["The","game","was","exciting."],grammar:""},
-      {id:"2pb03",en:"We had a wonderful time.",ja:"私たちは素晴らしい時間を過ごしました。",keyword:"wonderful",choices:["wonderful","good","great","nice"],words:["We","had","a","wonderful","time."],grammar:""},
-      {id:"2pb04",en:"He is one of the best players.",ja:"彼は最も優れた選手の一人です。",keyword:"best",choices:["best","better","good","great"],words:["He","is","one","of","the","best","players."],grammar:"最上級"},
-      {id:"2pb05",en:"I want to improve my skills.",ja:"私は自分のスキルを向上させたいです。",keyword:"improve",choices:["improve","increase","change","develop"],words:["I","want","to","improve","my","skills."],grammar:""},
-      {id:"2pb06",en:"The team worked together.",ja:"チームは一緒に取り組みました。",keyword:"together",choices:["together","alone","well","hard"],words:["The","team","worked","together."],grammar:""},
-      {id:"2pb07",en:"We learned a lot from the game.",ja:"私たちはその試合からたくさん学びました。",keyword:"learned",choices:["learned","got","took","found"],words:["We","learned","a","lot","from","the","game."],grammar:""},
-      {id:"2pb08",en:"I was proud of my teammates.",ja:"私はチームメイトを誇りに思いました。",keyword:"proud",choices:["proud","happy","glad","excited"],words:["I","was","proud","of","my","teammates."],grammar:""},
-      {id:"2pb09",en:"The tournament was successful.",ja:"トーナメントは成功しました。",keyword:"successful",choices:["successful","good","great","wonderful"],words:["The","tournament","was","successful."],grammar:""},
-      {id:"2pb10",en:"We are ready for the next game.",ja:"私たちは次の試合の準備ができています。",keyword:"ready",choices:["ready","good","set","prepared"],words:["We","are","ready","for","the","next","game."],grammar:""}
-    ]
-  },
-  words:{
-    S:[
-      {id:"2ws01",en:"join",ja:"入る・参加する",choices_en:["join","enter","start","play"],choices_ja:["入る・参加する","入場する","始める","遊ぶ"]},
-      {id:"2ws02",en:"practice",ja:"練習",choices_en:["practice","training","study","work"],choices_ja:["練習","トレーニング","勉強","仕事"]},
-      {id:"2ws03",en:"hard",ja:"一生懸命に",choices_en:["hard","fast","well","long"],choices_ja:["一生懸命に","速く","上手に","長く"]},
-      {id:"2ws04",en:"abroad",ja:"海外に",choices_en:["abroad","away","outside","far"],choices_ja:["海外に","離れて","外に","遠くに"]},
-      {id:"2ws05",en:"someday",ja:"いつか",choices_en:["someday","sometimes","everyday","always"],choices_ja:["いつか","ときどき","毎日","いつも"]},
-      {id:"2ws06",en:"doctor",ja:"医者",choices_en:["doctor","teacher","player","nurse"],choices_ja:["医者","先生","選手","看護師"]},
-      {id:"2ws07",en:"weekend",ja:"週末",choices_en:["weekend","weekday","holiday","vacation"],choices_ja:["週末","平日","休日","休暇"]},
-      {id:"2ws08",en:"tall",ja:"背が高い",choices_en:["tall","big","large","long"],choices_ja:["背が高い","大きい","大きな","長い"]},
-      {id:"2ws09",en:"best",ja:"最も良い",choices_en:["best","better","good","great"],choices_ja:["最も良い","より良い","良い","すばらしい"]},
-      {id:"2ws10",en:"player",ja:"選手・プレーヤー",choices_en:["player","member","leader","captain"],choices_ja:["選手","メンバー","リーダー","キャプテン"]},
-      {id:"2ws11",en:"library",ja:"図書館",choices_en:["library","bookstore","school","museum"],choices_ja:["図書館","本屋","学校","博物館"]},
-      {id:"2ws12",en:"team",ja:"チーム",choices_en:["team","group","class","club"],choices_ja:["チーム","グループ","クラス","クラブ"]},
-      {id:"2ws13",en:"better",ja:"より良い",choices_en:["better","best","good","well"],choices_ja:["より良い","最も良い","良い","上手に"]},
-      {id:"2ws14",en:"fast",ja:"速い・速く",choices_en:["fast","quick","early","soon"],choices_ja:["速い","素早い","早い","すぐに"]},
-      {id:"2ws15",en:"grandparent",ja:"祖父母",choices_en:["grandparent","parent","relative","family"],choices_ja:["祖父母","親","親戚","家族"]}
-    ],
-    A:[
-      {id:"2wa01",en:"advice",ja:"アドバイス",choices_en:["advice","idea","opinion","thought"],choices_ja:["アドバイス","アイデア","意見","考え"]},
-      {id:"2wa02",en:"tournament",ja:"トーナメント",choices_en:["tournament","game","match","competition"],choices_ja:["トーナメント","試合","試合","競技"]},
-      {id:"2wa03",en:"excited",ja:"興奮した",choices_en:["excited","happy","glad","surprised"],choices_ja:["興奮した","うれしい","喜んだ","驚いた"]},
-      {id:"2wa04",en:"improve",ja:"向上させる",choices_en:["improve","increase","change","grow"],choices_ja:["向上させる","増やす","変える","成長する"]},
-      {id:"2wa05",en:"skill",ja:"技術・スキル",choices_en:["skill","ability","talent","power"],choices_ja:["技術","能力","才能","力"]},
-      {id:"2wa06",en:"successful",ja:"成功した",choices_en:["successful","good","great","wonderful"],choices_ja:["成功した","良い","すばらしい","素晴らしい"]},
-      {id:"2wa07",en:"wonderful",ja:"素晴らしい",choices_en:["wonderful","good","great","nice"],choices_ja:["素晴らしい","良い","すごい","きれいな"]},
-      {id:"2wa08",en:"proud",ja:"誇りに思う",choices_en:["proud","happy","glad","pleased"],choices_ja:["誇りに思う","うれしい","喜んだ","満足した"]},
-      {id:"2wa09",en:"game",ja:"試合",choices_en:["game","match","play","sport"],choices_ja:["試合","試合","演技","スポーツ"]},
-      {id:"2wa10",en:"interesting",ja:"面白い",choices_en:["interesting","exciting","fun","good"],choices_ja:["面白い","わくわくする","楽しい","良い"]}
-    ],
-    B:[
-      {id:"2wb01",en:"together",ja:"一緒に",choices_en:["together","alone","apart","away"],choices_ja:["一緒に","一人で","離れて","離れて"]},
-      {id:"2wb02",en:"someday",ja:"いつか",choices_en:["someday","sometimes","everyday","always"],choices_ja:["いつか","ときどき","毎日","いつも"]},
-      {id:"2wb03",en:"fastest",ja:"最も速い",choices_en:["fastest","faster","fast","quick"],choices_ja:["最も速い","より速い","速い","素早い"]},
-      {id:"2wb04",en:"teammate",ja:"チームメイト",choices_en:["teammate","friend","partner","member"],choices_ja:["チームメイト","友達","パートナー","メンバー"]},
-      {id:"2wb05",en:"abroad",ja:"海外に",choices_en:["abroad","away","outside","far"],choices_ja:["海外に","離れて","外に","遠くに"]},
-      {id:"2wb06",en:"grandparent",ja:"祖父母",choices_en:["grandparent","parent","relative","family"],choices_ja:["祖父母","親","親戚","家族"]},
-      {id:"2wb07",en:"library",ja:"図書館",choices_en:["library","bookstore","school","museum"],choices_ja:["図書館","本屋","学校","博物館"]},
-      {id:"2wb08",en:"advice",ja:"アドバイス",choices_en:["advice","idea","opinion","help"],choices_ja:["アドバイス","アイデア","意見","助け"]},
-      {id:"2wb09",en:"player",ja:"選手",choices_en:["player","member","leader","captain"],choices_ja:["選手","メンバー","リーダー","キャプテン"]},
-      {id:"2wb10",en:"confident",ja:"自信のある",choices_en:["confident","proud","happy","brave"],choices_ja:["自信のある","誇りある","うれしい","勇気ある"]}
-    ]
-  }
 };
 
-function getDB(){
-  return state.grade==="中2" ? DB_中2 : DB_中3;
+/* ===================== 中3既存DB（変更なし）===================== */
+var DB_中3={
+phrases:{
+S:[
+{id:"ps01",en:"Let me show you something interesting.",ja:"私はあなたに面白いものを見せましょう。",keyword:"show",choices:["show","tell","give","bring"],words:["Let","me","show","you","something","interesting."],grammar:"let + 人 + 動詞原形"},
+{id:"ps02",en:"This footprint will help us find the elephant.",ja:"この足跡は私たちが象を見つけるのに役立つでしょう。",keyword:"find",choices:["find","to find","finding","found"],words:["This","footprint","will","help","us","find","the","elephant."],grammar:"help + 人 + 動詞原形"},
+{id:"ps03",en:"Ms. Thusi told us that you also do conservation.",ja:"トゥシさんはあなたも自然保護活動をしていると私たちに言いました。",keyword:"told",choices:["told","said","spoke","talked"],words:["Ms.","Thusi","told","us","that","you","also","do","conservation."],grammar:"tell + 人 + that"},
+{id:"ps04",en:"English is spoken as an official language.",ja:"英語は公用語として話されています。",keyword:"spoken",choices:["spoken","speaking","speaks","speak"],words:["English","is","spoken","as","an","official","language."],grammar:"受動態"},
+{id:"ps05",en:"We can see wildlife in the national park.",ja:"私たちは国立公園で野生生物を見ることができます。",keyword:"wildlife",choices:["wildlife","landscape","scenery","nature"],words:["We","can","see","wildlife","in","the","national","park."],grammar:""},
+{id:"ps06",en:"The guide showed us elephant footprints.",ja:"ガイドは私たちに象の足跡を見せてくれました。",keyword:"showed",choices:["showed","told","taught","gave"],words:["The","guide","showed","us","elephant","footprints."],grammar:""},
+{id:"ps07",en:"The elephant was bathing in the river.",ja:"その象は川で水浴びをしていました。",keyword:"bathing",choices:["bathing","swimming","playing","walking"],words:["The","elephant","was","bathing","in","the","river."],grammar:""},
+{id:"ps08",en:"We've finally reached Kiyomizu-dera Temple.",ja:"私たちはついに清水寺に到着しました。",keyword:"reached",choices:["reached","arrived","came","got"],words:["We've","finally","reached","Kiyomizu-dera","Temple."],grammar:"現在完了"},
+{id:"ps09",en:"Have you checked your photos yet?",ja:"あなたはもう写真を確認しましたか。",keyword:"yet",choices:["yet","already","just","never"],words:["Have","you","checked","your","photos","yet?"],grammar:"現在完了"},
+{id:"ps10",en:"I've already checked my photos.",ja:"私はすでに写真を確認しました。",keyword:"already",choices:["already","yet","just","never"],words:["I've","already","checked","my","photos."],grammar:"現在完了"},
+{id:"ps11",en:"The bus hasn't left yet.",ja:"バスはまだ出発していません。",keyword:"hasn't",choices:["hasn't","didn't","won't","isn't"],words:["The","bus","hasn't","left","yet."],grammar:"現在完了"},
+{id:"ps12",en:"Wait a minute.",ja:"ちょっと待って。",keyword:"minute",choices:["minute","moment","second","time"],words:["Wait","a","minute."],grammar:""},
+{id:"ps13",en:"Hurry up.",ja:"急いで。",keyword:"Hurry",choices:["Hurry","Speed","Rush","Go"],words:["Hurry","up."],grammar:""},
+{id:"ps14",en:"Be careful.",ja:"気を付けて。",keyword:"careful",choices:["careful","safe","quiet","calm"],words:["Be","careful."],grammar:""},
+{id:"ps15",en:"I want you to help me.",ja:"私はあなたに手伝ってほしいです。",keyword:"want",choices:["want","need","ask","tell"],words:["I","want","you","to","help","me."],grammar:"want + 人 + to"},
+{id:"ps16",en:"That makes me nervous.",ja:"それは私を緊張させます。",keyword:"nervous",choices:["nervous","happy","sad","tired"],words:["That","makes","me","nervous."],grammar:"make + 人 + 形容詞"},
+{id:"ps17",en:"We're on in five minutes.",ja:"私たちの出番はあと5分です。",keyword:"on",choices:["on","up","in","out"],words:["We're","on","in","five","minutes."],grammar:""},
+{id:"ps18",en:"It was well received by everyone.",ja:"それはみんなに好評でした。",keyword:"received",choices:["received","accepted","taken","given"],words:["It","was","well","received","by","everyone."],grammar:"受動態"},
+{id:"ps19",en:"It's made of chocolate.",ja:"それはチョコレートでできています。",keyword:"made",choices:["made","built","created","formed"],words:["It's","made","of","chocolate."],grammar:"受動態"},
+{id:"ps20",en:"The play was performed by students.",ja:"その劇は生徒たちによって演じられました。",keyword:"performed",choices:["performed","written","made","directed"],words:["The","play","was","performed","by","students."],grammar:"受動態"}
+],
+A:[
+{id:"pa01",en:"We are connected through the Internet.",ja:"私たちはインターネットでつながっています。",keyword:"connected",choices:["connected","linked","joined","united"],words:["We","are","connected","through","the","Internet."],grammar:"受動態"},
+{id:"pa02",en:"We can communicate in real time.",ja:"私たちはリアルタイムで連絡できます。",keyword:"communicate",choices:["communicate","connect","talk","speak"],words:["We","can","communicate","in","real","time."],grammar:""},
+{id:"pa03",en:"I took a lot of pictures.",ja:"私はたくさん写真を撮りました。",keyword:"took",choices:["took","made","got","had"],words:["I","took","a","lot","of","pictures."],grammar:""},
+{id:"pa04",en:"I bought some souvenirs.",ja:"私はお土産を買いました。",keyword:"souvenirs",choices:["souvenirs","presents","gifts","things"],words:["I","bought","some","souvenirs."],grammar:""},
+{id:"pa05",en:"This picture was taken by my father.",ja:"この写真は父によって撮られました。",keyword:"taken",choices:["taken","made","shot","got"],words:["This","picture","was","taken","by","my","father."],grammar:"受動態"},
+{id:"pa06",en:"The audience enjoyed the performance.",ja:"観客はその公演を楽しみました。",keyword:"audience",choices:["audience","people","crowd","group"],words:["The","audience","enjoyed","the","performance."],grammar:""},
+{id:"pa07",en:"The script was written by a famous writer.",ja:"その台本は有名な作家によって書かれました。",keyword:"written",choices:["written","made","done","created"],words:["The","script","was","written","by","a","famous","writer."],grammar:"受動態"},
+{id:"pa08",en:"It looks like real food.",ja:"それは本物の食べ物のように見えます。",keyword:"looks",choices:["looks","seems","feels","sounds"],words:["It","looks","like","real","food."],grammar:""},
+{id:"pa09",en:"More than one billion people use emojis.",ja:"10億人以上の人々が絵文字を使っています。",keyword:"billion",choices:["billion","million","thousand","hundred"],words:["More","than","one","billion","people","use","emojis."],grammar:""},
+{id:"pa10",en:"Emojis are used around the world.",ja:"絵文字は世界中で使われています。",keyword:"used",choices:["used","known","seen","loved"],words:["Emojis","are","used","around","the","world."],grammar:"受動態"}
+],
+B:[
+{id:"pb01",en:"Emojis help people express their feelings.",ja:"絵文字は人々が気持ちを表現するのに役立ちます。",keyword:"express",choices:["express","show","tell","give"],words:["Emojis","help","people","express","their","feelings."],grammar:"help + 人 + 動詞原形"},
+{id:"pb02",en:"Plastic food samples are popular in Japan.",ja:"食品サンプルは日本で人気があります。",keyword:"popular",choices:["popular","famous","common","special"],words:["Plastic","food","samples","are","popular","in","Japan."],grammar:""},
+{id:"pb03",en:"They require creativity and skill.",ja:"それらには創造力と技術が必要です。",keyword:"creativity",choices:["creativity","ability","talent","power"],words:["They","require","creativity","and","skill."],grammar:""},
+{id:"pb04",en:"The tradition has a long history.",ja:"その伝統には長い歴史があります。",keyword:"tradition",choices:["tradition","culture","history","custom"],words:["The","tradition","has","a","long","history."],grammar:""},
+{id:"pb05",en:"We should preserve the culture.",ja:"私たちはその文化を守るべきです。",keyword:"preserve",choices:["preserve","protect","keep","save"],words:["We","should","preserve","the","culture."],grammar:""},
+{id:"pb06",en:"She gained confidence through her experience.",ja:"彼女は経験を通して自信を得ました。",keyword:"confidence",choices:["confidence","courage","power","ability"],words:["She","gained","confidence","through","her","experience."],grammar:""},
+{id:"pb07",en:"The government supports the project.",ja:"政府はその計画を支援しています。",keyword:"supports",choices:["supports","helps","joins","leads"],words:["The","government","supports","the","project."],grammar:""},
+{id:"pb08",en:"The culture is known worldwide.",ja:"その文化は世界中で知られています。",keyword:"worldwide",choices:["worldwide","globally","abroad","everywhere"],words:["The","culture","is","known","worldwide."],grammar:""},
+{id:"pb09",en:"Communication is important.",ja:"コミュニケーションは重要です。",keyword:"Communication",choices:["Communication","Connection","Conversation","Cooperation"],words:["Communication","is","important."],grammar:""},
+{id:"pb10",en:"We should respect different backgrounds.",ja:"私たちは異なる背景を尊重すべきです。",keyword:"respect",choices:["respect","accept","know","like"],words:["We","should","respect","different","backgrounds."],grammar:""}
+]
+},
+words:{S:[],A:[],B:[]}
+};
+
+/* ===================== DB取得 ===================== */
+function getDB2(){
+  return state.grade==="中2" ? DB_中2_NEW : null;
 }
+function isNew(){return state.grade==="中2";}
 
 /* ===================== 状態管理 ===================== */
 var state={
   name:"",grade:"",school:"",test:"",
-  rank:"S",level:1,
+  rank:"S",level:0,
   questions:[],qIndex:0,score:0,answered:false,
-  wrongIds:[],
-  progress:{},
+  wrongIds:[],progress:{},
   sortSelected:[],sortRemaining:[],
   examMode:false
 };
@@ -485,15 +312,11 @@ function showScreen(id){
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
 }
-
 function saveProgress(){
-  localStorage.setItem('quizApp_'+state.name, JSON.stringify(state.progress));
+  localStorage.setItem('quizApp_'+state.name,JSON.stringify(state.progress));
 }
-
 function getKey(){return state.grade+'_'+state.school+'_'+state.test;}
 function getRankKey(rank){return getKey()+'_'+rank;}
-function getLevelKey(rank,lv){return getKey()+'_'+rank+'_lv'+lv;}
-
 function getClearedLevels(rank){return state.progress[getRankKey(rank)]||[];}
 function getClearedRanks(){return state.progress[getKey()+'_ranks']||[];}
 
@@ -514,9 +337,27 @@ function startApp(){
 }
 
 /* ===================== ランク画面 ===================== */
+function getRankLabels(){
+  if(isNew()) return {S:'S',A:'中1-B',B:'中1-A'};
+  return {S:'S',A:'A',B:'B'};
+}
 function updateRankScreen(){
   var clearedRanks=getClearedRanks();
   var ranks=['S','A','B'];
+  var labels=getRankLabels();
+  var lockMsgs={S:'',A:'Sクリアで解放',B:'中1-Bクリアで解放'};
+  if(!isNew()) lockMsgs={S:'',A:'Sクリアで解放',B:'Aクリアで解放'};
+
+  // ランク説明
+  if(isNew()){
+    document.getElementById('rank-desc').textContent=
+      '① まずSランク（中2テスト最重要16文）からスタート！
+② クリアしたら中1-B（中1後半の復習）→ 中1-A（中1基礎）の順に進もう。';
+    document.getElementById('rank-desc').style.display='block';
+  } else {
+    document.getElementById('rank-desc').style.display='none';
+  }
+
   ranks.forEach(function(r,i){
     var el=document.getElementById('rc-'+r);
     var st=document.getElementById('rs-'+r);
@@ -526,13 +367,13 @@ function updateRankScreen(){
       st.textContent='クリア済';st.className='rank-status status-cleared';
     } else if(i>0 && clearedRanks.indexOf(ranks[i-1])<0){
       el.classList.add('locked');
-      var lockMsgs=['','Sクリアで解放','Aクリアで解放'];
-      st.textContent=lockMsgs[i];st.className='rank-status status-locked';
+      st.textContent=lockMsgs[r];st.className='rank-status status-locked';
     } else {
-      st.textContent='挑戦中';st.className='rank-status';st.style.background='var(--yellow-light)';st.style.color='var(--yellow)';
+      st.textContent='挑戦中';st.className='rank-status';
+      st.style.background='var(--yellow-light)';st.style.color='var(--yellow)';
     }
   });
-  // テスト直前モード
+
   var sCleared=clearedRanks.indexOf('S')>=0;
   document.getElementById('exam-banner').className='exam-banner'+(sCleared?' show':'');
   document.getElementById('exam-mode-btn').style.display=sCleared?'block':'none';
@@ -542,10 +383,12 @@ function selectRank(rank){
   var clearedRanks=getClearedRanks();
   var ranks=['S','A','B'];
   var idx=ranks.indexOf(rank);
-  if(idx>0 && clearedRanks.indexOf(ranks[idx-1])<0)return;
+  if(idx>0 && clearedRanks.indexOf(ranks[idx-1])<0) return;
   state.rank=rank;
-  var badge=document.getElementById('lc-1').querySelector('.level-num');
-  document.getElementById('level-context').textContent=rank+'ランク - レベルを選んでください';
+  var rankNames={S:'Sランク（最重要16文）',A:'中1-Bレベル（Unit5-2〜8）',B:'中1-Aレベル（Unit1〜5-1）'};
+  var rankNamesOld={S:'Sランク',A:'Aランク',B:'Bランク'};
+  document.getElementById('level-context').textContent=
+    (isNew()?rankNames[rank]:rankNamesOld[rank])+' ― レベルを選んでください';
   updateLevelCards(rank);
   showScreen('screen-level');
 }
@@ -553,67 +396,107 @@ function selectRank(rank){
 /* ===================== レベル画面 ===================== */
 function updateLevelCards(rank){
   var cleared=getClearedLevels(rank);
-  [1,2,3,4].forEach(function(lv){
+  var minLv=isNew()?0:1;
+  var maxLv=isNew()?3:4;
+
+  // 中2は Lv0〜3、中3は Lv1〜4
+  if(isNew()){
+    document.getElementById('lc-0').style.display='';
+    document.getElementById('lc-3').querySelector('.level-desc').textContent='全文並べ替え';
+    // Lv4カードを非表示（中2は使わない）
+    // ※Lv4カードはHTMLにないのでそのまま
+  }
+
+  [0,1,2,3].forEach(function(lv){
     var el=document.getElementById('lc-'+lv);
+    if(!el) return;
     var st=document.getElementById('ls-'+lv);
     el.classList.remove('locked','cleared');
     st.style.display='none';
+    // 中3はLv0を隠す
+    if(!isNew() && lv===0){el.style.display='none';return;}
+    else {el.style.display='';}
+
     if(cleared.indexOf(lv)>=0){
       el.classList.add('cleared');
       st.textContent='クリア済';st.className='level-status status-cleared';st.style.display='inline-block';
-    } else if(lv>1 && cleared.indexOf(lv-1)<0){
+    } else if(lv > minLv && cleared.indexOf(lv-1)<0){
       el.classList.add('locked');
-      var msgs=['','Lv.1クリアで解放','Lv.2クリアで解放','Lv.3クリアで解放'];
-      st.textContent=msgs[lv-1];st.className='level-status status-locked';st.style.display='inline-block';
+      var msgs={0:'',1:'Lv.0クリアで解放',2:'Lv.1クリアで解放',3:'Lv.2クリアで解放',4:'Lv.3クリアで解放'};
+      st.textContent=msgs[lv];st.className='level-status status-locked';st.style.display='inline-block';
     }
   });
 }
 
-/* ===================== 問題生成 ===================== */
-function buildQuestions(rank){
-  var phrases=getDB().phrases[rank]||[];
-  var words=getDB().words[rank]||[];
-  // フレーズ70%・単語30%
+/* ===================== 問題生成（中2新DB） ===================== */
+function buildQuestions2(rank){
+  var all=DB_中2_NEW[rank].slice();
+  all.sort(function(){return Math.random()-0.5;});
+  // 間違えた問題を先頭に
+  var wrongIds=state.wrongIds;
+  all.sort(function(a,b){
+    var aW=wrongIds.indexOf(a.id)>=0?0:1;
+    var bW=wrongIds.indexOf(b.id)>=0?0:1;
+    return aW-bW||Math.random()-0.5;
+  });
+  return all.slice(0,12); // 最大12問
+}
+
+/* 旧DB（中3）用 */
+function buildQuestions3(rank){
+  var db=DB_中3;
+  var phrases=db.phrases[rank]||[];
+  var words=db.words[rank]||[];
   var phraseCount=Math.ceil(phrases.length*0.7);
-  var wordCount=Math.min(words.length, Math.floor(phrases.length*0.3));
+  var wordCount=Math.min(words.length,Math.floor(phrases.length*0.3));
   var shuffledP=phrases.slice().sort(function(){return Math.random()-0.5;}).slice(0,phraseCount);
   var shuffledW=words.slice().sort(function(){return Math.random()-0.5;}).slice(0,wordCount);
-  // 間違えた問題を先頭に
   var wrongIds=state.wrongIds;
   var all=shuffledP.map(function(p){return {type:'phrase',data:p};})
     .concat(shuffledW.map(function(w){return {type:'word',data:w};}));
   all.sort(function(a,b){
-    var aWrong=wrongIds.indexOf(a.data.id)>=0?0:1;
-    var bWrong=wrongIds.indexOf(b.data.id)>=0?0:1;
-    return aWrong-bWrong||Math.random()-0.5;
+    var aW=wrongIds.indexOf(a.data.id)>=0?0:1;
+    var bW=wrongIds.indexOf(b.data.id)>=0?0:1;
+    return aW-bW||Math.random()-0.5;
   });
-  // 最大10問
   return all.slice(0,10);
 }
 
 function startQuiz(lv){
   var cleared=getClearedLevels(state.rank);
-  if(lv>1 && cleared.indexOf(lv-1)<0)return;
+  var minLv=isNew()?0:1;
+  if(lv>minLv && cleared.indexOf(lv-1)<0) return;
   state.level=lv;
-  state.questions=buildQuestions(state.rank);
+  if(isNew()){
+    state.questions=buildQuestions2(state.rank);
+  } else {
+    state.questions=buildQuestions3(state.rank);
+  }
   state.qIndex=0;state.score=0;state.answered=false;state.examMode=false;
-  var lvLabels=['','4択問題','穴埋め入力','並べ替え','全文入力'];
-  document.getElementById('q-label').textContent=state.rank+'ランク Lv.'+lv+'：'+lvLabels[lv];
+  var lvLabels={0:'英→日4択',1:'4択穴埋め',2:'記述穴埋め',3:'並べ替え',4:'全文入力'};
+  document.getElementById('q-label').textContent=state.rank+' Lv.'+lv+'：'+lvLabels[lv];
   var badge=document.getElementById('q-rank-badge');
-  badge.textContent=state.rank;badge.className='rank-badge rank-'+state.rank.toLowerCase();
+  badge.textContent=state.rank.length>1?state.rank[0]:state.rank;
+  badge.className='rank-badge rank-'+(state.rank==='S'?'s':state.rank==='A'||state.rank==='中1-B'?'a':'b');
+  // バッジ色
+  if(state.rank==='S')badge.style.background='var(--rank-s)';
+  else if(state.rank==='A')badge.style.background='var(--rank-a)';
+  else badge.style.background='var(--rank-b)';
+  badge.style.color='#fff';
   showScreen('screen-quiz');
   renderQuestion();
 }
 
 function startExamMode(){
-  state.examMode=true;
-  state.rank='S';
-  state.level=3; // 並べ替えから
-  state.questions=buildQuestions('S');
+  state.examMode=true;state.rank='S';
+  state.level=isNew()?3:3;
+  if(isNew()) state.questions=buildQuestions2('S');
+  else state.questions=buildQuestions3('S');
   state.qIndex=0;state.score=0;state.answered=false;
   document.getElementById('q-label').textContent='🔥 テスト直前モード';
   var badge=document.getElementById('q-rank-badge');
-  badge.textContent='🔥';badge.className='rank-badge';badge.style.background='var(--yellow)';
+  badge.textContent='🔥';badge.className='rank-badge';
+  badge.style.background='var(--yellow)';badge.style.color='#fff';
   showScreen('screen-quiz');
   renderQuestion();
 }
@@ -625,107 +508,189 @@ function renderQuestion(){
   document.getElementById('q-counter').textContent=(state.qIndex+1)+'/'+total;
   document.getElementById('q-progress').style.width=Math.round((state.qIndex/total)*100)+'%';
   document.getElementById('q-feedback').className='feedback-box';
+  document.getElementById('q-explanation').className='explanation-box';
   document.getElementById('q-next-btn').style.display='none';
   state.answered=false;
-  var lv=state.level;
-  if(q.type==='phrase'){
-    if(lv===1)renderPhraseLv1(q.data);
-    else if(lv===2)renderPhraseLv2(q.data);
-    else if(lv===3)renderPhraseLv3(q.data);
-    else renderPhraseLv4(q.data);
+
+  if(isNew()){
+    renderNew(q);
   } else {
-    if(lv===1||lv===2)renderWordLv1(q.data);
-    else if(lv===3)renderWordLv2(q.data);
-    else renderWordLv3(q.data);
+    var lv=state.level;
+    if(q.type==='phrase'){
+      if(lv===1)renderPhraseLv1(q.data);
+      else if(lv===2)renderPhraseLv2(q.data);
+      else if(lv===3)renderPhraseLv3(q.data);
+      else renderPhraseLv4(q.data);
+    } else {
+      if(lv===1||lv===2)renderWordLv1(q.data);
+      else if(lv===3)renderWordLv2(q.data);
+      else renderWordLv3(q.data);
+    }
   }
 }
 
-function buildBlank(p){
-  var kclean=p.keyword.replace(/[.,!?]/g,'').toLowerCase();
+/* ====== 中2新DB用レンダリング ====== */
+function renderNew(p){
+  var lv=state.level;
+  if(lv===0) renderNew_Lv0(p);
+  else if(lv===1) renderNew_Lv1(p);
+  else if(lv===2) renderNew_Lv2(p);
+  else renderNew_Lv3(p);
+}
+
+/* Lv0: 英文を見て日本語を選ぶ */
+function renderNew_Lv0(p){
+  var shuffled=p.ja_choices.length>0
+    ? p.ja_choices.slice().sort(function(){return Math.random()-0.5;})
+    : [p.ja];
+  document.getElementById('q-content').innerHTML=
+    '<div class="en-display">'+escHtml(p.en)+'</div>'+
+    '<div style="font-size:12px;color:var(--text3);text-align:center;margin-bottom:12px">日本語の意味を選んでください</div>'+
+    '<div class="choices-ja" id="choices-wrap"></div>';
+  var wrap=document.getElementById('choices-wrap');
+  shuffled.forEach(function(c){
+    var btn=document.createElement('button');
+    btn.className='choice-btn-ja';btn.textContent=c;
+    btn.addEventListener('click',function(){checkNew_Lv0(btn,c,p);});
+    wrap.appendChild(btn);
+  });
+}
+
+function checkNew_Lv0(btn,chosen,p){
+  if(state.answered)return;
+  state.answered=true;
+  document.querySelectorAll('.choice-btn-ja').forEach(function(b){b.disabled=true;});
+  var correct=p.ja.replace(/。$/,'');
+  var chosenClean=chosen.replace(/。$/,'');
+  if(chosenClean===correct||chosen===p.ja){
+    btn.classList.add('correct');state.score++;removeWrong(p.id);
+    showFeedback(true,'正解！');
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.choice-btn-ja').forEach(function(b){
+      if(b.textContent.replace(/。$/,'')=== correct) b.classList.add('correct');
+    });
+    addWrong(p.id);
+    showFeedback(false,'不正解。正解は「'+p.ja+'」');
+  }
+  showExplanation(p.explanation);
+  document.getElementById('q-next-btn').style.display='block';
+}
+
+/* Lv1: 4択穴埋め */
+function buildBlankNew(p){
+  var kw=p.keyword.toLowerCase().replace(/[.,!?']/g,'');
   var html='';
   p.words.forEach(function(w,i){
     var punct=w.match(/[.,!?]+$/) ? w.match(/[.,!?]+$/)[0]:'';
-    var clean=w.replace(/[.,!?]/g,'').toLowerCase();
+    var clean=w.replace(/[.,!?']/g,'').toLowerCase();
     if(i>0)html+=' ';
-    if(clean===kclean){html+='<span class="blank">　　　</span>'+punct;}
-    else{html+=w;}
+    if(clean===kw||w.toLowerCase()===p.keyword.toLowerCase()){
+      html+='<span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;</span>'+punct;
+    } else {
+      html+=escHtml(w);
+    }
   });
   return html;
 }
 
-function grammarTag(g){
-  return g?'<div class="grammar-tag">📌 '+g+'</div>':'';
-}
-
-/* フレーズ Lv1: 4択 */
-function renderPhraseLv1(p){
+function renderNew_Lv1(p){
+  if(!p.choices||p.choices.length===0){renderNew_Lv2(p);return;}
   var shuffled=p.choices.slice().sort(function(){return Math.random()-0.5;});
   document.getElementById('q-content').innerHTML=
-    grammarTag(p.grammar)+
-    '<div class="ja-hint">'+p.ja+'</div>'+
-    '<div class="phrase-box">'+buildBlank(p)+'</div>'+
+    '<div class="ja-hint">'+escHtml(p.ja)+'</div>'+
+    '<div class="phrase-box">'+buildBlankNew(p)+'</div>'+
     '<div class="choices" id="choices-wrap"></div>';
   var wrap=document.getElementById('choices-wrap');
   shuffled.forEach(function(c){
     var btn=document.createElement('button');
     btn.className='choice-btn';btn.textContent=c;
-    btn.addEventListener('click',function(){checkPhraseLv1(btn,c,p);});
+    btn.addEventListener('click',function(){checkNew_Lv1(btn,c,p);});
     wrap.appendChild(btn);
   });
 }
-function checkPhraseLv1(btn,chosen,p){
+
+function checkNew_Lv1(btn,chosen,p){
   if(state.answered)return;
   state.answered=true;
   document.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});
   if(chosen===p.keyword){
-    btn.classList.add('correct');state.score++;
-    removeWrong(p.id);
-    showFeedback(true,'正解！\n'+p.en);
+    btn.classList.add('correct');state.score++;removeWrong(p.id);
+    showFeedback(true,'正解！
+'+p.en);
   } else {
     btn.classList.add('wrong');
-    document.querySelectorAll('.choice-btn').forEach(function(b){if(b.textContent===p.keyword)b.classList.add('correct');});
+    document.querySelectorAll('.choice-btn').forEach(function(b){
+      if(b.textContent===p.keyword)b.classList.add('correct');
+    });
     addWrong(p.id);
-    showFeedback(false,'不正解。正解は「'+p.keyword+'」\n'+p.en+(p.grammar?'\n📌 '+p.grammar:''));
+    showFeedback(false,'不正解。正解は「'+p.keyword+'」
+'+p.en);
   }
+  showExplanation(p.explanation);
   document.getElementById('q-next-btn').style.display='block';
 }
 
-/* フレーズ Lv2: 穴埋め入力 */
-function renderPhraseLv2(p){
+/* Lv2: 記述穴埋め */
+function renderNew_Lv2(p){
   document.getElementById('q-content').innerHTML=
-    grammarTag(p.grammar)+
-    '<div class="ja-hint">'+p.ja+'</div>'+
-    '<div class="phrase-box">'+buildBlank(p)+'</div>'+
-    '<div class="text-wrap"><input type="text" id="lv2-input" placeholder="キーワードを入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="btn btn-primary" onclick="checkPhraseLv2(\''+p.id+'\')">答え合わせ</button></div>';
+    '<div class="ja-hint">'+escHtml(p.ja)+'</div>'+
+    '<div class="phrase-box">'+buildBlankNew(p)+'</div>'+
+    '<div class="text-wrap">'+
+    '<input type="text" id="lv2-input" placeholder="キーワードを入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false">'+
+    '<button class="btn btn-primary" id="lv2-btn">答え合わせ</button>'+
+    '</div>';
+  document.getElementById('lv2-btn').addEventListener('click',function(){checkNew_Lv2(p);});
+  document.getElementById('lv2-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkNew_Lv2(p);});
   setTimeout(function(){var el=document.getElementById('lv2-input');if(el)el.focus();},100);
 }
-function checkPhraseLv2(pid){
+
+function checkNew_Lv2(p){
   if(state.answered)return;
-  var p=state.questions[state.qIndex].data;
   var val=document.getElementById('lv2-input').value.trim().toLowerCase();
   var correct=p.keyword.toLowerCase();
   state.answered=true;
   if(val===correct){
-    state.score++;removeWrong(pid);showFeedback(true,'正解！\n'+p.en);
+    state.score++;removeWrong(p.id);showFeedback(true,'正解！
+'+p.en);
   } else {
-    addWrong(pid);showFeedback(false,'不正解。正解は「'+p.keyword+'」\n'+p.en+(p.grammar?'\n📌 '+p.grammar:''));
+    addWrong(p.id);showFeedback(false,'不正解。正解は「'+p.keyword+'」
+'+p.en);
   }
+  showExplanation(p.explanation);
   document.getElementById('q-next-btn').style.display='block';
 }
 
-/* フレーズ Lv3: 並べ替え */
-function renderPhraseLv3(p){
+/* Lv3: 並べ替え */
+function renderNew_Lv3(p){
   var shuffled=p.words.slice().sort(function(){return Math.random()-0.5;});
   state.sortSelected=[];state.sortRemaining=shuffled.slice();
   document.getElementById('q-content').innerHTML=
-    grammarTag(p.grammar)+
-    '<div class="ja-hint">'+p.ja+'</div>'+
+    '<div class="ja-hint">'+escHtml(p.ja)+'</div>'+
     '<div class="sort-answer" id="sort-answer" onclick="removeLast()">（語句をタップして並べてください）</div>'+
     '<div class="hint-note">並べた語をタップすると最後の語を削除できます</div>'+
     '<div class="chips" id="sort-chips"></div>'+
-    '<button class="btn btn-primary" onclick="checkPhraseLv3(\''+p.id+'\')">答え合わせ</button>';
+    '<button class="btn btn-primary" id="sort-check-btn">答え合わせ</button>';
+  document.getElementById('sort-check-btn').addEventListener('click',function(){checkNew_Lv3(p);});
   renderSortChips();
 }
+
+function checkNew_Lv3(p){
+  if(state.answered)return;
+  var answer=state.sortSelected.join(' ');
+  var correct=p.words.join(' ');
+  state.answered=true;
+  if(answer===correct){
+    state.score++;removeWrong(p.id);showFeedback(true,'正解！
+'+p.en);
+  } else {
+    addWrong(p.id);showFeedback(false,'不正解。正解は：
+'+p.en);
+  }
+  showExplanation(p.explanation);
+  document.getElementById('q-next-btn').style.display='block';
+}
+
 function renderSortChips(){
   var wrap=document.getElementById('sort-chips');if(!wrap)return;
   wrap.innerHTML='';
@@ -738,15 +703,85 @@ function renderSortChips(){
   var ans=document.getElementById('sort-answer');
   if(ans)ans.textContent=state.sortSelected.join(' ')||'（語句をタップして並べてください）';
 }
+
 function selectWord(i){
   if(state.answered)return;
   state.sortSelected.push(state.sortRemaining[i]);
   state.sortRemaining.splice(i,1);
   renderSortChips();
 }
+
 function removeLast(){
   if(state.answered||state.sortSelected.length===0)return;
   state.sortRemaining.push(state.sortSelected.pop());
+  renderSortChips();
+}
+
+/* ====== 中3旧DB用レンダリング（既存コードそのまま） ====== */
+function buildBlank(p){
+  var kclean=p.keyword.replace(/[.,!?]/g,'').toLowerCase();
+  var html='';
+  p.words.forEach(function(w,i){
+    var punct=w.match(/[.,!?]+$/) ? w.match(/[.,!?]+$/)[0]:'';
+    var clean=w.replace(/[.,!?]/g,'').toLowerCase();
+    if(i>0)html+=' ';
+    if(clean===kclean){html+='<span class="blank"> </span>'+punct;}
+    else{html+=w;}
+  });
+  return html;
+}
+function grammarTag(g){return g?'<div style="display:inline-block;font-size:11px;padding:2px 8px;border-radius:5px;background:var(--blue-light);color:var(--blue);margin-bottom:8px;font-weight:600">📌 '+g+'</div>':'';}
+function renderPhraseLv1(p){
+  var shuffled=p.choices.slice().sort(function(){return Math.random()-0.5;});
+  document.getElementById('q-content').innerHTML=
+    grammarTag(p.grammar)+'<div class="ja-hint">'+p.ja+'</div>'+
+    '<div class="phrase-box">'+buildBlank(p)+'</div>'+
+    '<div class="choices" id="choices-wrap"></div>';
+  var wrap=document.getElementById('choices-wrap');
+  shuffled.forEach(function(c){
+    var btn=document.createElement('button');btn.className='choice-btn';btn.textContent=c;
+    btn.addEventListener('click',function(){checkPhraseLv1(btn,c,p);});
+    wrap.appendChild(btn);
+  });
+}
+function checkPhraseLv1(btn,chosen,p){
+  if(state.answered)return;state.answered=true;
+  document.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});
+  if(chosen===p.keyword){btn.classList.add('correct');state.score++;removeWrong(p.id);showFeedback(true,'正解！
+'+p.en);}
+  else{btn.classList.add('wrong');document.querySelectorAll('.choice-btn').forEach(function(b){if(b.textContent===p.keyword)b.classList.add('correct');});addWrong(p.id);showFeedback(false,'不正解。正解は「'+p.keyword+'」
+'+p.en+(p.grammar?'
+📌 '+p.grammar:''));}
+  document.getElementById('q-next-btn').style.display='block';
+}
+function renderPhraseLv2(p){
+  document.getElementById('q-content').innerHTML=
+    grammarTag(p.grammar)+'<div class="ja-hint">'+p.ja+'</div>'+
+    '<div class="phrase-box">'+buildBlank(p)+'</div>'+
+    '<div class="text-wrap"><input type="text" id="lv2-input" placeholder="キーワードを入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="btn btn-primary" onclick="checkPhraseLv2(''+p.id+'')">答え合わせ</button></div>';
+  setTimeout(function(){var el=document.getElementById('lv2-input');if(el)el.focus();},100);
+}
+function checkPhraseLv2(pid){
+  if(state.answered)return;
+  var p=state.questions[state.qIndex].data;
+  var val=document.getElementById('lv2-input').value.trim().toLowerCase();
+  state.answered=true;
+  if(val===p.keyword.toLowerCase()){state.score++;removeWrong(pid);showFeedback(true,'正解！
+'+p.en);}
+  else{addWrong(pid);showFeedback(false,'不正解。正解は「'+p.keyword+'」
+'+p.en+(p.grammar?'
+📌 '+p.grammar:''));}
+  document.getElementById('q-next-btn').style.display='block';
+}
+function renderPhraseLv3(p){
+  var shuffled=p.words.slice().sort(function(){return Math.random()-0.5;});
+  state.sortSelected=[];state.sortRemaining=shuffled.slice();
+  document.getElementById('q-content').innerHTML=
+    grammarTag(p.grammar)+'<div class="ja-hint">'+p.ja+'</div>'+
+    '<div class="sort-answer" id="sort-answer" onclick="removeLast()">（語句をタップして並べてください）</div>'+
+    '<div class="hint-note">並べた語をタップすると最後の語を削除できます</div>'+
+    '<div class="chips" id="sort-chips"></div>'+
+    '<button class="btn btn-primary" onclick="checkPhraseLv3(''+p.id+'')">答え合わせ</button>';
   renderSortChips();
 }
 function checkPhraseLv3(pid){
@@ -755,18 +790,18 @@ function checkPhraseLv3(pid){
   var answer=state.sortSelected.join(' ');
   var correct=p.words.join(' ');
   state.answered=true;
-  if(answer===correct){state.score++;removeWrong(pid);showFeedback(true,'正解！\n'+p.en);}
-  else{addWrong(pid);showFeedback(false,'不正解。正解は：\n'+p.en+(p.grammar?'\n📌 '+p.grammar:''));}
+  if(answer===correct){state.score++;removeWrong(pid);showFeedback(true,'正解！
+'+p.en);}
+  else{addWrong(pid);showFeedback(false,'不正解。正解は：
+'+p.en+(p.grammar?'
+📌 '+p.grammar:''));}
   document.getElementById('q-next-btn').style.display='block';
 }
-
-/* フレーズ Lv4: 全文入力 */
 function renderPhraseLv4(p){
   document.getElementById('q-content').innerHTML=
-    grammarTag(p.grammar)+
-    '<div class="ja-hint">'+p.ja+'</div>'+
+    grammarTag(p.grammar)+'<div class="ja-hint">'+p.ja+'</div>'+
     '<div style="font-size:12px;color:var(--text3);margin-bottom:12px">日本語を見て英文を全て書いてください</div>'+
-    '<div class="text-wrap"><input type="text" id="lv4-input" placeholder="英文を入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="btn btn-primary" onclick="checkPhraseLv4(\''+p.id+'\')">答え合わせ</button></div>';
+    '<div class="text-wrap"><input type="text" id="lv4-input" placeholder="英文を入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="btn btn-primary" onclick="checkPhraseLv4(''+p.id+'')">答え合わせ</button></div>';
   setTimeout(function(){var el=document.getElementById('lv4-input');if(el)el.focus();},100);
 }
 function checkPhraseLv4(pid){
@@ -777,62 +812,48 @@ function checkPhraseLv4(pid){
   var correct=norm(p.en);
   state.answered=true;
   if(val===correct){state.score++;removeWrong(pid);showFeedback(true,'正解！');}
-  else{addWrong(pid);showFeedback(false,'不正解。正解は：\n'+p.en+(p.grammar?'\n📌 '+p.grammar:''));}
+  else{addWrong(pid);showFeedback(false,'不正解。正解は：
+'+p.en+(p.grammar?'
+📌 '+p.grammar:''));}
   document.getElementById('q-next-btn').style.display='block';
 }
-
-/* 単語 Lv1/2: 英→日 4択 */
 function renderWordLv1(w){
   var shuffled=w.choices_ja.slice().sort(function(){return Math.random()-0.5;});
   document.getElementById('q-content').innerHTML=
-    '<div class="word-en">'+w.en+'</div>'+
+    '<div style="font-size:24px;font-weight:700;text-align:center;padding:1.5rem 1rem;color:var(--text)">'+w.en+'</div>'+
     '<div class="ja-hint" style="text-align:center;font-size:12px">日本語の意味を選んでください</div>'+
     '<div class="choices" id="choices-wrap" style="margin-top:0.75rem"></div>';
   var wrap=document.getElementById('choices-wrap');
   shuffled.forEach(function(c){
-    var btn=document.createElement('button');
-    btn.className='choice-btn';btn.textContent=c;
+    var btn=document.createElement('button');btn.className='choice-btn';btn.textContent=c;
     btn.addEventListener('click',function(){checkWord(btn,c,w.ja,w.id);});
     wrap.appendChild(btn);
   });
 }
-
-/* 単語 Lv3: 日→英 4択 */
 function renderWordLv2(w){
   var shuffled=w.choices_en.slice().sort(function(){return Math.random()-0.5;});
   document.getElementById('q-content').innerHTML=
-    '<div class="word-ja">'+w.ja+'</div>'+
+    '<div style="font-size:22px;font-weight:700;text-align:center;padding:1.5rem 1rem;color:var(--text)">'+w.ja+'</div>'+
     '<div class="ja-hint" style="text-align:center;font-size:12px">英語を選んでください</div>'+
     '<div class="choices" id="choices-wrap" style="margin-top:0.75rem"></div>';
   var wrap=document.getElementById('choices-wrap');
   shuffled.forEach(function(c){
-    var btn=document.createElement('button');
-    btn.className='choice-btn';btn.textContent=c;
+    var btn=document.createElement('button');btn.className='choice-btn';btn.textContent=c;
     btn.addEventListener('click',function(){checkWord(btn,c,w.en,w.id);});
     wrap.appendChild(btn);
   });
 }
-
-/* 単語 Lv4: 日→英 入力 */
 function renderWordLv3(w){
   document.getElementById('q-content').innerHTML=
-    '<div class="word-ja">'+w.ja+'</div>'+
-    '<div class="text-wrap" style="margin-top:0.75rem"><input type="text" id="lv4-input" placeholder="英単語を入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="btn btn-primary" onclick="checkWordInput(\''+w.en+'\',\''+w.id+'\')">答え合わせ</button></div>';
+    '<div style="font-size:22px;font-weight:700;text-align:center;padding:1.5rem 1rem;color:var(--text)">'+w.ja+'</div>'+
+    '<div class="text-wrap" style="margin-top:0.75rem"><input type="text" id="lv4-input" placeholder="英単語を入力..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="btn btn-primary" onclick="checkWordInput(''+w.en+'',''+w.id+'')">答え合わせ</button></div>';
   setTimeout(function(){var el=document.getElementById('lv4-input');if(el)el.focus();},100);
 }
-
 function checkWord(btn,chosen,correct,id){
-  if(state.answered)return;
-  state.answered=true;
+  if(state.answered)return;state.answered=true;
   document.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});
-  if(chosen===correct){
-    btn.classList.add('correct');state.score++;removeWrong(id);
-    showFeedback(true,'正解！');
-  } else {
-    btn.classList.add('wrong');
-    document.querySelectorAll('.choice-btn').forEach(function(b){if(b.textContent===correct)b.classList.add('correct');});
-    addWrong(id);showFeedback(false,'不正解。正解は「'+correct+'」');
-  }
+  if(chosen===correct){btn.classList.add('correct');state.score++;removeWrong(id);showFeedback(true,'正解！');}
+  else{btn.classList.add('wrong');document.querySelectorAll('.choice-btn').forEach(function(b){if(b.textContent===correct)b.classList.add('correct');});addWrong(id);showFeedback(false,'不正解。正解は「'+correct+'」');}
   document.getElementById('q-next-btn').style.display='block';
 }
 function checkWordInput(correct,id){
@@ -844,14 +865,18 @@ function checkWordInput(correct,id){
   document.getElementById('q-next-btn').style.display='block';
 }
 
-/* ===================== フィードバック・ナビ ===================== */
+/* ===================== フィードバック・解説 ===================== */
 function showFeedback(ok,msg){
   var el=document.getElementById('q-feedback');
   el.textContent=msg;el.className='feedback-box show '+(ok?'feedback-ok':'feedback-ng');
 }
+function showExplanation(txt){
+  if(!txt)return;
+  var el=document.getElementById('q-explanation');
+  el.textContent='💡 '+txt;el.className='explanation-box show';
+}
 function addWrong(id){if(state.wrongIds.indexOf(id)<0)state.wrongIds.push(id);}
 function removeWrong(id){state.wrongIds=state.wrongIds.filter(function(x){return x!==id;});}
-
 function nextQuestion(){
   state.qIndex++;
   if(state.qIndex>=state.questions.length)showResult();
@@ -863,26 +888,23 @@ function showResult(){
   var total=state.questions.length;
   var pct=Math.round(state.score/total*100);
   var cleared=pct>=80;
-  var lvLabel=state.level;
   document.getElementById('res-tag').textContent=
-    (state.examMode?'🔥 テスト直前モード':state.rank+'ランク Lv.'+lvLabel)+' 結果';
+    (state.examMode?'🔥 テスト直前モード':state.rank+' Lv.'+state.level)+' 結果';
   document.getElementById('res-score').textContent=state.score+'/'+total;
   document.getElementById('res-pct').textContent='正答率 '+pct+'%';
-
   var msg=document.getElementById('res-clear');
   msg.className='clear-msg';
   if(cleared && !state.examMode){
     msg.className='clear-msg clear-ok';
-    // レベルクリア保存
     var rk=getRankKey(state.rank);
     if(!state.progress[rk])state.progress[rk]=[];
     if(state.progress[rk].indexOf(state.level)<0)state.progress[rk].push(state.level);
-    // Lv4クリアでランククリア
-    if(state.level===4){
+    var maxLv=isNew()?3:4;
+    if(state.level===maxLv){
       var crk=getKey()+'_ranks';
       if(!state.progress[crk])state.progress[crk]=[];
       if(state.progress[crk].indexOf(state.rank)<0)state.progress[crk].push(state.rank);
-      msg.textContent='🎉 '+state.rank+'ランク Lv.'+state.level+' クリア！ランクを制覇しました！';
+      msg.textContent='🎉 '+state.rank+' Lv.'+state.level+' クリア！このランクを制覇しました！';
     } else {
       msg.textContent='🎉 クリア！Lv.'+(state.level+1)+' が解放されました。';
     }
@@ -890,7 +912,7 @@ function showResult(){
     updateRankScreen();
     updateLevelCards(state.rank);
   } else if(!cleared){
-    msg.className='clear-msg';msg.style.display='block';
+    msg.style.display='block';
     msg.style.background='var(--yellow-light)';msg.style.color='var(--yellow)';
     msg.textContent='もう少し！80%以上でクリアです。';
   }
@@ -899,20 +921,22 @@ function showResult(){
 }
 
 function sendDiscord(pct,cleared){
-  var lv=state.level;
   var emoji=cleared?'🎉':'📝';
-  var mode=state.examMode?'テスト直前モード':(state.rank+'ランク Lv.'+lv);
-  var body=emoji+' **'+state.name+'** さんが挑戦しました\n'+
-    '学年：'+state.grade+'　学校：'+state.school+'　テスト：'+state.test+'\n'+
-    'モード：'+mode+'　結果：'+state.score+'/'+state.questions.length+'（'+pct+'%）'+
-    (cleared?'\n✅ クリア！':'');
+  var mode=state.examMode?'テスト直前モード':(state.rank+' Lv.'+state.level);
+  var body=emoji+' **'+state.name+'** さんが挑戦しました
+'+
+    '学年：'+state.grade+' 学校：'+state.school+' テスト：'+state.test+'
+'+
+    'モード：'+mode+' 結果：'+state.score+'/'+state.questions.length+'（'+pct+'%）'+
+    (cleared?'
+✅ クリア！':'');
   fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({content:body})})
-  .then(function(r){
-    document.getElementById('notify-status').textContent=r.ok?'先生に結果を通知しました 📨':'通知の送信に失敗しました';
-  }).catch(function(){
-    document.getElementById('notify-status').textContent='通知の送信に失敗しました';
-  });
+    .then(function(r){
+      document.getElementById('notify-status').textContent=r.ok?'先生に結果を通知しました 📨':'通知の送信に失敗しました';
+    }).catch(function(){
+      document.getElementById('notify-status').textContent='通知の送信に失敗しました';
+    });
 }
 
 function retryQuiz(){
@@ -920,7 +944,11 @@ function retryQuiz(){
   else startQuiz(state.level);
 }
 
-/* Enterキー対応 */
+/* ユーティリティ */
+function escHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 document.getElementById('input-name').addEventListener('keydown',function(e){
   if(e.key==='Enter')startApp();
 });
